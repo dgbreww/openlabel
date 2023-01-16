@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Session;
-use DB;
-use File;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\File;
 
 function adminInfo($col='') {
 	
