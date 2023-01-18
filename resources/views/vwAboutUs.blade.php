@@ -1,0 +1,3 @@
+@include('vwHeader')
+
+@include('vwFooter')

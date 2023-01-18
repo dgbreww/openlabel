@@ -2,7 +2,7 @@
 <html lang="en">
 	<!--begin::Head-->
 	<head>
-		<title>{{ $title }}</title>
+		<title>{{ $siteSettings->website_name }} | {{ $title }}</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />

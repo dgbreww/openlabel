@@ -7,6 +7,11 @@ use App\Http\Controllers\admin\Auth;
 use App\Http\Controllers\admin\Media;
 use App\Http\Controllers\admin\Settings;
 
+// Frontend
+
+use App\Http\Controllers\Home;
+use App\Http\Controllers\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +24,21 @@ use App\Http\Controllers\admin\Settings;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Home::class,'index']);
+Route::get('/about-us', [Home::class,'aboutUs']);
+Route::get('/login', [Home::class,'login']);
+Route::get('/sign-up', [Home::class,'signUp']);
+Route::get('/forgot-password', [Home::class,'forgotPassword']);
+
+
+Route::get('/user/logout', [User::class,'logout']);
+Route::get('/verify/{token}', [User::class,'doVerify']);
+Route::get('/user/dashboard', [User::class,'dashboard']);
+Route::get('/user/new-password/{token}', [User::class,'newPassword']);
+
+Route::post('ajax/doSignUp', [User::class,'doSignUp']);
+Route::post('ajax/doLogin', [User::class,'doLogin']);
+Route::post('ajax/doForgotPassword', [User::class,'doForgotPassword']);
 
 
 /*Admin Ajax Route */
@@ -67,6 +84,9 @@ Route::middleware(Admin::class)->group(function(){
     //Settings
     Route::get('/admin/settings', [Settings::class,'index']);
     Route::post('/admin/settings/doUpdateSiteSettings', [Settings::class,'doUpdateSiteSettings']);
+    Route::post('/admin/settings/doUpdateCustomCssJs', [Settings::class,'doUpdateCustomCssJs']);
+    Route::post('/admin/settings/doUpdateSocialLinks', [Settings::class,'doUpdateSocialLinks']);
+    Route::post('/admin/settings/doUpdateMailConfig', [Settings::class,'doUpdateMailConfig']);
     
 });
 

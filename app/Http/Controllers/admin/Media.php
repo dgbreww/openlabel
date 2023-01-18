@@ -27,7 +27,8 @@ class Media extends Controller {
 			'pageTitle' => 'Media',
 			'route' => request()->segment(2),
 			'adminData' => adminInfo(),
-			'totalMedia' => MediaModel::count(), 
+			'totalMedia' => MediaModel::count(),
+			'siteSettings' => siteSettings()
 		);
 
 		return view('admin/media/vwMedia', $data);

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Session;
+use App\Models\AdminModel;
+use App\Models\SettingModel;
+
 use DB;
 use File;
 
@@ -10,8 +13,7 @@ function adminInfo($col='') {
 
 	if (!empty($adminSess)) {
 		
-		$getAdminDetail = DB::table('admin')
-		->select('admin.*', 'media.path', 'media.alt')
+		$getAdminDetail = AdminModel::select('admin.*', 'media.path', 'media.alt')
 		->leftJoin('media', 'admin.profile_picture', '=', 'media.id')
 		->where('admin.id', $adminSess['adminId'])
 		->first();
@@ -138,4 +140,13 @@ function folderSize($dir){
    		}
    	}
 	return $total_size;
+}
+
+function siteSettings() {
+	return SettingModel::select('settings.*', 'a.path as adminLogoUrl', 'a.alt as adminLogoAlt', 'b.path as loginBgImgUrl', 'c.path as websiteLogoUrl', 'c.alt as websiteLogoAlt', 'd.path as faviconUrl')
+		->leftJoin('media as a', 'settings.admin_logo', 'a.id')
+		->leftJoin('media as b', 'settings.login_background_img', 'b.id')
+		->leftJoin('media as c', 'settings.website_logo', 'c.id')
+		->leftJoin('media as d', 'settings.favicon', 'd.id')
+		->first();
 }

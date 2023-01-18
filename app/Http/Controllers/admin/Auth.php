@@ -26,7 +26,10 @@ class Auth extends Controller {
 		$adminSess = Session::get('adminSess');
 		
 		if (empty($adminSess)) {
-			return view('admin/vwAdminLogin');
+
+			$data = ['siteSettings' => siteSettings()];
+			return view('admin/vwAdminLogin', $data);
+
 		} else {
 			return redirect('admin/dashboard');
 		}
@@ -74,7 +77,7 @@ class Auth extends Controller {
 	        				//send otp and redirect custom to two step screen
 
 	        				$otp = random_int(100000, 999999);
-	        				$otp = 123456;
+	        				//$otp = 123456;
 	        				$expiredAt = date('H:i', strtotime('+5 Min'));
 
 	        				$twoFactorAuthObj = array(
@@ -86,8 +89,8 @@ class Auth extends Controller {
 	        					'resend' => 0,
 	        				);
 
-	        				//$isMailSent = EmailSending::adminTwoFactorAuth($twoFactorAuthObj);
-	        				$isMailSent = true;
+	        				$isMailSent = EmailSending::adminTwoFactorAuth($twoFactorAuthObj);
+	        				//$isMailSent = true;
 
 	        				if ($isMailSent) {
 	        					
@@ -168,11 +171,12 @@ class Auth extends Controller {
 			$currentTime = date('H:i');
 			$expiredAt = $adminTwoFactor->expiredAt;
 
-			if ($expiredAt > $currentTime) {
+			if ($expiredAt > $currentTime) {				
 				
 				$data = array(
 					'admin' => $adminTwoFactor, 
-					'hiddenEmail' => $this->hideEmailAddress($adminTwoFactor->email)
+					'hiddenEmail' => $this->hideEmailAddress($adminTwoFactor->email),
+					'siteSettings' => siteSettings()
 				);
 				
 				return view('admin/vwAdminTwoFactor', $data);
@@ -325,7 +329,7 @@ class Auth extends Controller {
 					if ($adminTwoFactorSess->resend < 3) {
 						
 						$otp = random_int(100000, 999999);
-        				$otp = 123456;
+        				//$otp = 123456;
         				$expiredAt = date('H:i', strtotime('+5 Min'));
 
         				$newResendLimit = $adminTwoFactorSess->resend+1;
@@ -339,8 +343,8 @@ class Auth extends Controller {
         					'resend' => $newResendLimit,
         				);
 
-        				//$isMailSent = EmailSending::adminTwoFactorAuth($twoFactorAuthObj);
-        				$isMailSent = true;
+        				$isMailSent = EmailSending::adminTwoFactorAuth($twoFactorAuthObj);
+        				//$isMailSent = true;
 
         				if ($isMailSent) {
         					
@@ -406,7 +410,10 @@ class Auth extends Controller {
 		$adminSess = Session::get('adminSess');
 		
 		if (empty($adminSess)) {
-			return view('admin/vwResetPassword');
+			
+			$data = ['siteSettings' => siteSettings()];
+			return view('admin/vwResetPassword', $data);
+
 		} else {
 			return redirect('admin/dashboard');
 		}
@@ -514,7 +521,10 @@ class Auth extends Controller {
 			
 			//show change password page
 
-			$data = array('data' => $adminData);
+			$data = array(
+				'data' => $adminData,
+				'siteSettings' => siteSettings()
+			);
 
 			return view('admin/vwAdminNewPassword', $data);
 
@@ -619,6 +629,7 @@ class Auth extends Controller {
 			'title' => 'Admin Dashboard',
 			'pageTitle' => 'Dashboard',
 			'route' => request()->segment(2),
+			'siteSettings' => siteSettings()
 		);
 
 		return view('admin/vwAdminDashboard', $data);
@@ -637,7 +648,8 @@ class Auth extends Controller {
 			'pageTitle' => 'Account Settings',
 			'route' => request()->segment(2),
 			'adminData' => adminInfo(),
-			'profileImage' => $profileImage
+			'profileImage' => $profileImage,
+			'siteSettings' => siteSettings()
 		);
 
 		return view('admin/vwAdminAccountSettings', $data);
