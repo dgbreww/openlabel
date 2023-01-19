@@ -18,10 +18,30 @@ class User extends Controller {
 	private $status = array();
 
 	public function dashboard() {
-		echo "This is dashboard";
+		
+		//check user type
+		$userInfo = userInfo();
+
+		if ($userInfo->user_type == 'artist') {
+			// show artist dashboard
+			$templateName = 'vwArtistDashboard';
+		} else {
+			// show creator dashboard
+			$templateName = 'vwCreatorDashboard';
+		}
+
+		$data = array(
+			'siteSettings' => siteSettings(),
+			'userInfo' => userInfo(),
+			'title' => 'Dashboard',
+			'name' => $userInfo->first_name.' '.$userInfo->last_name
+		);
+
+		return view($templateName, $data);
 	}
 
 	public function newPassword($token) {
+
 		//check if token exist
 		$getUser = UserModel::where('token', $token)
 	        	->where('provider_type', 'website')->where('verified', 'yes')
@@ -39,6 +59,7 @@ class User extends Controller {
 				'siteSettings' => siteSettings(),
 				'title' => 'Reset Password',
 				'verifyStatus' => Session::get('verifyStatus'),
+				'token' => $token
 			);
 
 			return view('vwResetPassword', $data);
@@ -82,7 +103,7 @@ class User extends Controller {
 	        		'user_type' => $request->post('userType'),
 	        		'provider_type' => 'website',
 	        		'verified' => 'no',
-	        		'token' => Hash::make(uniqid())
+	        		'token' => hash('SHA256', uniqid())
 	        	);
 
 	        	//email template
@@ -159,7 +180,7 @@ class User extends Controller {
 	        			if ($isUserExist->verified == 'yes') {
 	        			
 	        				$request->session()->put('userSess', array(
-			        			'adminId' => $isUserExist->id,
+			        			'userId' => $isUserExist->id,
 			        			'name' => $isUserExist->first_name,
 			        			'userType' => $isUserExist->user_type,
 			        		));
@@ -269,7 +290,7 @@ class User extends Controller {
 	        	if (!empty($getUser)) {
 	        		
 	        		//create token
-	        		$token = Hash::make(uniqid());
+	        		$token = hash('SHA256', uniqid());
 
 	        		$isTokenUpdated = UserModel::where([['id', $getUser->id]])->update(['token' => $token]);
 
@@ -316,6 +337,97 @@ class User extends Controller {
 					);
 	        	}
 
+	        }
+
+
+		} else {
+			$this->status = array(
+				'error' => true,
+				'eType' => 'final',
+				'msg' => 'Something went wrong'
+			);
+		}
+
+		echo json_encode($this->status);
+
+	}
+
+	public function doUpdateNewPassword(Request $request) {
+		
+		if ($request->ajax()) {
+
+			$validator = Validator::make($request->post(), [
+	            'password' => 'min:6|required_with:confirmPassword|same:confirmPassword',
+	            'confirmPassword' => 'min:6',
+	            'token' => 'required',
+	        ]);
+
+	        if ($validator->fails()) {
+	            
+	            $errors = $validator->errors()->getMessages();
+
+	            $this->status = array(
+					'error' => true,
+					'eType' => 'field',
+					'errors' => $errors,
+					'msg' => 'Validation failed'
+				);
+
+	        } else {
+	        	
+	        	$cond = [
+	        		['token', $request->post('token')],
+	        		['verified', 'yes'],
+	        		['provider_type', 'website']
+	        	];
+
+	        	$isUserExist = UserModel::where($cond)->first();
+
+	        	if (!empty($isUserExist)) {
+
+	        		$newPassword = Hash::make($request->post('password'));
+
+	        		$updateObj = array(
+	        			'password' => $newPassword,
+	        			'token' => null,
+	        		);
+
+	        		$isUpdated = UserModel::where([['id', $isUserExist->id]])->update($updateObj);
+
+	        		if ($isUpdated) {
+
+	        			//notify admin that your password has been changed
+
+	        			$mailObj = array(
+	        				'name' => $isUserExist->first_name,
+	        				'email' => $isUserExist->email,
+	        			);
+	        			
+	        			$isMailSent = EmailSending::userPassChangeNotify($mailObj);
+	        			
+	        			$this->status = array(
+							'error' => false,
+							'msg' => 'A password has been changed successfully.',
+							'redirect' => url('/login')
+						);
+
+	        		} else {
+	        			
+	        			$this->status = array(
+							'error' => true,
+							'eType' => 'final',
+							'msg' => 'Sorry! Unable to update the password.'
+						);
+
+	        		}
+
+	        	} else {
+	        		$this->status = array(
+						'error' => true,
+						'eType' => 'final',
+						'msg' => 'Something went wrong.'
+					);
+	        	}
 	        }
 
 

@@ -150,3 +150,50 @@ $("#forgotPasswordForm").submit(function(event) {
 	});
 
 });
+
+$("#resetPasswordForm").submit(function(event) {
+	event.preventDefault();
+
+	formData = $(this).serialize();
+	baseUrl = $(this).attr('action');
+
+	$.ajax({
+		url: baseUrl,
+		type: 'POST',
+		dataType: 'json',
+		data: formData,
+		beforeSend: function() {
+			
+			$("#resetPasswordFormBtn").html('Please Wait...')
+			$(".error").text('');	
+
+		}, success: function(res) {
+			if (res.error == true) {
+				
+				if (res.eType == 'field') {
+					$.each(res.errors, function(index, val) {
+						$("#"+index+"Err").text(val);
+					});
+				}
+
+				if (res.eType == 'final') {
+					showMsg('error', res.msg);
+				}
+
+
+			} else {
+
+				showMsg('success', res.msg);
+
+				setTimeout(function() {
+					window.location.href = res.redirect;
+				}, 3000);
+
+			}
+
+			$("#resetPasswordFormBtn").html('Change Password');
+		}
+	});
+
+});
+

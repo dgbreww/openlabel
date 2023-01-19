@@ -104,4 +104,17 @@ $(function(){
 	 	var i = $(this).parent('span').children('i');
 		 $(i).toggleClass('like-bg');
 	 });
+
+
+	  $("._flex .header-drop").click(function() {
+	  	// alert(1);
+	  	$(".header-drop-dropdown").slideToggle();
+	  });
+
+
+	  //   $(".header-drop-img").click(function() {
+	  // 	// alert(1);
+	  // 	$(".header-drop-dropdown").slideToggle();
+	  // });
+
 });

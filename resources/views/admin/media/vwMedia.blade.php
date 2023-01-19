@@ -313,6 +313,7 @@
 				<!--end::Container-->
 			</div>
 			<!--end::Content-->
+			
 			<!--begin::Footer-->
 			@include('admin.partials.vwAdminPartialFooter')
 			<!--end::Footer-->

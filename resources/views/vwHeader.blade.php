@@ -42,6 +42,26 @@
 				<li><a href="#">Pages</a></li>
 				<li class="mb-hide"><a href="#"><i class="fa-solid fa-magnifying-glass searching"></i></a></li>
 
+				@if(session()->has('userSess'))
+				<li>
+					<div class="dashboard-user _flex">
+						<div class="user-img _flex header-drop">
+							<div class="user_img header-drop-img">
+								<img src="{{ url('public/frontend') }}/img/profile-img.png" alt="" class="header-drop-img">
+							</div>
+							<i class="fa-solid fa-caret-down"></i>
+							<div class="profile-dropdown header-drop-dropdown">
+								<ul>
+									<li><a href="{{ url('/user/dashboard') }}">Dashboard</a></li>
+									<li><a href="{{ url('/user/change-password') }}">Change Password</a></li>
+									<li><a href="{{ url('/user/logout') }}">Logout</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				@endif
+
 				@if(!session()->has('userSess'))
 				<li class="mb-hide">
 					<a href="{{ url('/login') }}" class="butn">

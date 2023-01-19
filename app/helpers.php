@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Session;
 use App\Models\AdminModel;
+use App\Models\UserModel;
 use App\Models\SettingModel;
 
 use DB;
@@ -23,6 +24,31 @@ function adminInfo($col='') {
 				return $getAdminDetail->{$col};
 			} else {
 				return $getAdminDetail;
+			}
+		}
+
+	} else {
+		return false;
+	}
+	
+}
+
+function userInfo($col='') {
+	
+	$userSess = Session::get('userSess');
+
+	if (!empty($userSess)) {
+		
+		$getUserDetail = UserModel::select('users.*', 'media.path', 'media.alt')
+		->leftJoin('media', 'users.profile_picture', '=', 'media.id')
+		->where('users.id', $userSess['userId'])
+		->first();
+
+		if ($userSess) {
+			if (!empty($col)) {
+				return $getUserDetail->{$col};
+			} else {
+				return $getUserDetail;
 			}
 		}
 

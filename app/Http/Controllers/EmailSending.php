@@ -73,6 +73,18 @@ class EmailSending extends Controller {
         ));
     }
 
+    public static function userPassChangeNotify($data) {
+
+        $template = view('templates.email.user.vwChangePassword', $data)->render();
+
+        $emailComposer = new EmailSending();
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => 'Security Alert - Password Changed',
+            'body' => $template
+        ));
+    }
+
 	public function composeEmail($mailInfo) {
         require base_path("vendor/autoload.php");
         

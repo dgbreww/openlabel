@@ -37,27 +37,31 @@ var KTFileManagerList = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": baseUrl+"category/getCategory",
+                "url": baseUrl+"users/get",
             },
             "info": false,
             'order': [],
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 3, className: 'text-end' }, // Disable ordering on column 5 (actions)
+                { orderable: false, targets: 7, className: 'text-end' }, // Disable ordering on column 5 (actions)
             ],
             "paging": true,
             'ordering': false,
             'columns': [
                 { data: 'checkbox' },
                 { data: 'name' },
-                { data: 'order' },
+                { data: 'email' },
+                { data: 'userType' },
+                { data: 'provider' },
+                { data: 'isVerified' },
+                { data: 'registeredAt' },
                 { data: 'action' },
             ],
             'language': {
                 emptyTable: `<div class="d-flex flex-column flex-center">
                     <img src="${hostUrl}media/illustrations/sketchy-1/5.png" class="mw-400px" />
                     <div class="fs-1 fw-bolder text-dark">No items found.</div>
-                    <div class="fs-6">Start uploading a new file!</div>
+                    <div class="fs-6">Start creating category!</div>
                 </div>`
             }
         }
@@ -76,9 +80,7 @@ var KTFileManagerList = function () {
             toggleToolbars();
             resetNewFolder();
             KTMenu.createInstances();
-            initCopyLink();
             countTotalItems();
-            handleRename();
         });
     }
 
@@ -116,7 +118,7 @@ var KTFileManagerList = function () {
                 // Get customer name
                 const fileName = parent.querySelectorAll('td')[1].innerText;
 
-                var mediaId = e.target.getAttribute("data-id");
+                var id = e.target.getAttribute("data-id");
                 
 
                 // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
@@ -135,11 +137,11 @@ var KTFileManagerList = function () {
                     if (result.value) {
                         
                         $.ajax({
-                            url: baseUrl+'media/delete',
+                            url: baseUrl+'category/delete',
                             type: 'POST',
                             dataType: 'json',
                             data: {
-                                mediaId: mediaId,
+                                id: id,
                                 _token: $('meta[name="_token"]').attr('content')
                             },
                             success: function(res) {
@@ -238,11 +240,11 @@ var KTFileManagerList = function () {
                 if (result.value) {
 
                     $.ajax({
-                        url: baseUrl+'media/bulkDelete',
+                        url: baseUrl+'category/bulkDelete',
                         type: 'POST',
                         dataType: 'json',
                         data: {
-                            mediaIds: allCheckboxesVal,
+                            ids: allCheckboxesVal,
                             _token: $('meta[name="_token"]').attr('content')
                         },
                         success: function(res) {
@@ -335,15 +337,6 @@ var KTFileManagerList = function () {
         if (newFolderRow) {
             newFolderRow.parentNode.removeChild(newFolderRow);
         }
-    }
-
-    // Handle rename file or folder
-    const handleRename = () => {
-        const renameButton = table.querySelectorAll('[data-kt-filemanager-table="rename"]');     
-
-        renameButton.forEach(button => {
-            button.addEventListener('click', renameCallback);
-        });
     }
 
     // Rename callback
@@ -516,313 +509,11 @@ var KTFileManagerList = function () {
         });
     }
 
-    // Init dropzone
-    const initDropzone = () => {
-        // set the dropzone container id
-        const id = "#kt_modal_upload_dropzone";
-        const dropzone = document.querySelector(id);
-
-        // set the preview element template
-        var previewNode = dropzone.querySelector(".dropzone-item");
-        previewNode.id = "";
-        var previewTemplate = previewNode.parentNode.innerHTML;
-        previewNode.parentNode.removeChild(previewNode);
-
-        var myDropzone = new Dropzone(id, { // Make the whole body a dropzone
-            url: baseUrl+"media/doUpload", // Set the url for your upload script location
-            parallelUploads: 1,
-            previewTemplate: previewTemplate,
-            maxFilesize: 1, // Max filesize in MB
-            autoProcessQueue: false, // Stop auto upload
-            autoQueue: true, // Make sure the files aren't queued until manually added
-            previewsContainer: id + " .dropzone-items", // Define the container to display the previews
-            clickable: id + " .dropzone-select", // Define the element that should be used as click trigger to select files.
-            acceptedFiles: "image/*,application/pdf,video/mp4",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
-
-        myDropzone.on("addedfile", function (file) {
-            // Hook each start button
-            file.previewElement.querySelector(id + " .dropzone-start").onclick = function () {
-                // myDropzone.enqueueFile(file); -- default dropzone function
-
-                //singile upload file
-                myDropzone.processQueue(file);
-
-                // Process simulation for demo only
-                const progressBar = file.previewElement.querySelector('.progress-bar');
-                progressBar.style.opacity = "1";
-                var width = 1;
-                var timer = setInterval(function () {
-                    if (width >= 100) {
-                        myDropzone.emit("success", file);
-                        myDropzone.emit("complete", file);
-                        clearInterval(timer);
-                        datatable.draw();
-                    } else {
-                        width++;
-                        progressBar.style.width = width + '%';
-                    }
-                }, 20);
-            };
-
-            const dropzoneItems = dropzone.querySelectorAll('.dropzone-item');
-            dropzoneItems.forEach(dropzoneItem => {
-                dropzoneItem.style.display = '';
-            });
-            dropzone.querySelector('.dropzone-upload').style.display = "inline-block";
-            dropzone.querySelector('.dropzone-remove-all').style.display = "inline-block";
-        });
-
-        // Hide the total progress bar when nothing's uploading anymore
-        myDropzone.on("complete", function (file) {
-            const progressBars = dropzone.querySelectorAll('.dz-complete');
-            setTimeout(function () {
-                progressBars.forEach(progressBar => {
-                    progressBar.querySelector('.progress-bar').style.opacity = "0";
-                    progressBar.querySelector('.progress').style.opacity = "0";
-                    progressBar.querySelector('.dropzone-start').style.opacity = "0";
-                });
-            }, 300);
-        });
-
-        // Setup the buttons for all transfers
-        dropzone.querySelector(".dropzone-upload").addEventListener('click', function () {
-            // myDropzone.processQueue(); --- default dropzone process
-
-            myDropzone.options.parallelUploads = 10;
-
-            // Process simulation for demo only
-            myDropzone.files.forEach(file => {
-
-                myDropzone.processQueue(file);
-
-                const progressBar = file.previewElement.querySelector('.progress-bar');
-                progressBar.style.opacity = "1";
-                var width = 1;
-                var timer = setInterval(function () {
-                    if (width >= 100) {
-                        myDropzone.emit("success", file);
-                        myDropzone.emit("complete", file);
-                        clearInterval(timer);
-                        datatable.draw();
-                    } else {
-                        width++;
-                        progressBar.style.width = width + '%';
-                    }
-                }, 20);
-            });
-        });
-
-        // Setup the button for remove all files
-        dropzone.querySelector(".dropzone-remove-all").addEventListener('click', function () {
-            Swal.fire({
-                text: "Are you sure you would like to remove all files?",
-                icon: "warning",
-                showCancelButton: true,
-                buttonsStyling: false,
-                confirmButtonText: "Yes, remove it!",
-                cancelButtonText: "No, return",
-                customClass: {
-                    confirmButton: "btn btn-primary",
-                    cancelButton: "btn btn-active-light"
-                }
-            }).then(function (result) {
-                if (result.value) {
-                    dropzone.querySelector('.dropzone-upload').style.display = "none";
-                    dropzone.querySelector('.dropzone-remove-all').style.display = "none";
-                    myDropzone.removeAllFiles(true);
-                } else if (result.dismiss === 'cancel') {
-                    Swal.fire({
-                        text: "Your files was not removed!.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        }
-                    });
-                }
-            });
-        });
-
-        // On all files completed upload
-        myDropzone.on("queuecomplete", function (progress) {
-            const uploadIcons = dropzone.querySelectorAll('.dropzone-upload');
-            uploadIcons.forEach(uploadIcon => {
-                uploadIcon.style.display = "none";
-            });
-        });
-
-        // On all files removed
-        myDropzone.on("removedfile", function (file) {
-            if (myDropzone.files.length < 1) {
-                dropzone.querySelector('.dropzone-upload').style.display = "none";
-                dropzone.querySelector('.dropzone-remove-all').style.display = "none";
-            }
-        });
-    }
-
     //remove image and unset value
     $('[data-kt-image-input-action="remove"]').click(function(event) {
         var getInputName = $(this).attr('data-input-name');
         $("#input_"+getInputName).attr('value', '');
     });
-
-    // Init copy link
-    const initCopyLink = () => {
-        // Select all copy link elements
-        const elements = table.querySelectorAll('[data-kt-filemanger-table="copy_link"]');
-
-        elements.forEach(el => {
-            // Define elements
-            const button = el.querySelector('button');
-            const generator = el.querySelector('[data-kt-filemanger-table="copy_link_generator"]');
-            const result = el.querySelector('[data-kt-filemanger-table="copy_link_result"]');
-            const input = el.querySelector('input');
-
-            const mediaId = $(el).attr('data-id');
-            const mediaPath = $(el).attr('data-path');
-            const mediaFileName = $(el).attr('data-filename');
-            const mediaType = $(el).attr('data-type');
-
-            // Click action
-            button.addEventListener('click', e => {
-                e.preventDefault();
-
-                //$("#preview_"+inputName).css('background-image: ', "url(" + mediaPath + ")");
-                $("#preview_"+inputName).removeAttr('style');
-                $("#preview_"+inputName).css('background-image', "url(" + mediaPath + ")");
-                $("#input_"+inputName).attr('value', mediaId);
-                $("#preview_"+inputName).parent().removeClass('image-input-empty');
-
-                // Reset toggle
-                generator.classList.remove('d-none');
-                result.classList.add('d-none');
-
-                var linkTimeout;
-                clearTimeout(linkTimeout);
-                linkTimeout = setTimeout(() => {
-                    generator.classList.add('d-none');
-                    result.classList.remove('d-none');
-                    //input.select();
-
-                    //hide modal
-                    setTimeout(function() {
-                        $("#kt_modal_image_picker").modal('hide');
-                    }, 1000);
-
-                }, 1000);
-
-            });
-        });
-    }
-
-    // Handle move to folder
-    const handleMoveToFolder = () => {
-        const element = document.querySelector('#kt_modal_move_to_folder');
-        const form = element.querySelector('#kt_modal_move_to_folder_form');
-        const saveButton = form.querySelector('#kt_modal_move_to_folder_submit');
-        const moveModal = new bootstrap.Modal(element);
-
-        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
-        var validator = FormValidation.formValidation(
-            form,
-            {
-                fields: {
-                    'move_to_folder': {
-                        validators: {
-                            notEmpty: {
-                                message: 'Please select a folder.'
-                            }
-                        }
-                    },
-                },
-
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    bootstrap: new FormValidation.plugins.Bootstrap5({
-                        rowSelector: '.fv-row',
-                        eleInvalidClass: '',
-                        eleValidClass: ''
-                    })
-                }
-            }
-        );
-
-        saveButton.addEventListener('click', e => {
-            e.preventDefault();
-
-            saveButton.setAttribute("data-kt-indicator", "on");
-
-            if (validator) {
-                validator.validate().then(function (status) {
-                    console.log('validated!');
-
-                    if (status == 'Valid') {
-                        // Simulate process for demo only
-                        setTimeout(function () {
-
-                            Swal.fire({
-                                text: "Are you sure you would like to move to this folder",
-                                icon: "warning",
-                                showCancelButton: true,
-                                buttonsStyling: false,
-                                confirmButtonText: "Yes, move it!",
-                                cancelButtonText: "No, return",
-                                customClass: {
-                                    confirmButton: "btn btn-primary",
-                                    cancelButton: "btn btn-active-light"
-                                }
-                            }).then(function (result) {
-                                if (result.isConfirmed) {
-                                    form.reset(); // Reset form 
-                                    moveModal.hide(); // Hide modal         
-
-                                    toastr.options = {
-                                        "closeButton": true,
-                                        "debug": false,
-                                        "newestOnTop": false,
-                                        "progressBar": false,
-                                        "positionClass": "toastr-top-right",
-                                        "preventDuplicates": false,
-                                        "showDuration": "300",
-                                        "hideDuration": "1000",
-                                        "timeOut": "5000",
-                                        "extendedTimeOut": "1000",
-                                        "showEasing": "swing",
-                                        "hideEasing": "linear",
-                                        "showMethod": "fadeIn",
-                                        "hideMethod": "fadeOut"
-                                    };
-
-                                    toastr.success('1 item has been moved.');
-
-                                    saveButton.removeAttribute("data-kt-indicator");
-                                } else {
-                                    Swal.fire({
-                                        text: "Your action has been cancelled!.",
-                                        icon: "error",
-                                        buttonsStyling: false,
-                                        confirmButtonText: "Ok, got it!",
-                                        customClass: {
-                                            confirmButton: "btn btn-primary",
-                                        }
-                                    });
-
-                                    saveButton.removeAttribute("data-kt-indicator");
-                                }
-                            });
-                        }, 500);
-                    } else {
-                        saveButton.removeAttribute("data-kt-indicator");
-                    }
-                });
-            }
-        });
-    }
 
     // Count total number of items
     const countTotalItems = () => {
@@ -847,10 +538,6 @@ var KTFileManagerList = function () {
             handleSearchDatatable();
             handleDeleteRows();
             //handleNewFolder();
-            initDropzone();
-            initCopyLink();
-            handleRename();
-            handleMoveToFolder();
             countTotalItems();
             KTMenu.createInstances();
         }
