@@ -732,7 +732,7 @@ var KTFileManagerList = function () {
 
     // Handle move to folder
     const handleMoveToFolder = () => {
-        const element = document.querySelector('#kt_modal_move_to_folder');
+        // const element = document.querySelector('#kt_modal_move_to_folder');
         const form = element.querySelector('#kt_modal_move_to_folder_form');
         const saveButton = form.querySelector('#kt_modal_move_to_folder_submit');
         const moveModal = new bootstrap.Modal(element);
