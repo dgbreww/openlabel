@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\Auth;
 use App\Http\Controllers\admin\Media;
 use App\Http\Controllers\admin\Settings;
 use App\Http\Controllers\admin\Category;
+use App\Http\Controllers\admin\Platform;
+use App\Http\Controllers\admin\Videosize;
 use App\Http\Controllers\admin\Genre;
 use App\Http\Controllers\admin\Users;
 
@@ -110,6 +112,26 @@ Route::middleware(Admin::class)->group(function(){
     Route::get('/admin/category/getCategory', [Category::class,'getCategory']);
     Route::post('/admin/category/delete', [Category::class,'delete']);
     Route::post('/admin/category/bulkDelete', [Category::class,'bulkDelete']);
+
+    //platform
+    Route::get('/admin/platform', [Platform::class,'index']);
+    Route::get('/admin/platform/add', [Platform::class,'add']);
+    Route::get('/admin/platform/edit/{id}', [Platform::class,'edit']);
+    Route::post('/admin/platform/doAdd', [Platform::class,'doAdd']);
+    Route::post('/admin/platform/doUpdate', [Platform::class,'doUpdate']);
+    Route::get('/admin/platform/get', [Platform::class,'get']);
+    Route::post('/admin/platform/delete', [Platform::class,'delete']);
+    Route::post('/admin/platform/bulkDelete', [Platform::class,'bulkDelete']);
+
+    //Video Size
+    Route::get('/admin/video-size', [Videosize::class,'index']);
+    Route::get('/admin/video-size/add', [Videosize::class,'add']);
+    Route::get('/admin/video-size/edit/{id}', [Videosize::class,'edit']);
+    Route::post('/admin/video-size/doAdd', [Videosize::class,'doAdd']);
+    Route::post('/admin/video-size/doUpdate', [Videosize::class,'doUpdate']);
+    Route::get('/admin/video-size/get', [Videosize::class,'get']);
+    Route::post('/admin/video-size/delete', [Videosize::class,'delete']);
+    Route::post('/admin/video-size/bulkDelete', [Videosize::class,'bulkDelete']);
 
     //users
     Route::get('/admin/users', [Users::class,'index']);

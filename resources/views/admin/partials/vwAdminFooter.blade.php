@@ -2200,6 +2200,18 @@
 <script src="{{ asset('public/admin/') }}/js/category.js"></script>
 @endif
 
+@if($uri2 == 'platform' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/platform-list.js"></script>
+@elseif($uri2 == 'platform' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/platform.js"></script>
+@endif
+
+@if($uri2 == 'video-size' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/video-size-list.js"></script>
+@elseif($uri2 == 'video-size' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/video-size.js"></script>
+@endif
+
 @if($uri2 == 'users' && empty($uri3))
 <script src="{{ asset('public/admin/') }}/js/users-list.js"></script>
 @elseif($uri2 == 'users' && !empty($uri3))
