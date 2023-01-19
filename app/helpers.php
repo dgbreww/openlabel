@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Session;
+
 use App\Models\AdminModel;
 use App\Models\UserModel;
 use App\Models\SettingModel;
-
-use DB;
-use File;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\File;
 
 function adminInfo($col='') {
 	
