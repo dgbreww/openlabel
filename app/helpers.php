@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Session;
+
+use App\Models\AdminModel;
+use App\Models\UserModel;
+use App\Models\SettingModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\File;
 
@@ -10,8 +14,7 @@ function adminInfo($col='') {
 
 	if (!empty($adminSess)) {
 		
-		$getAdminDetail = DB::table('admin')
-		->select('admin.*', 'media.path', 'media.alt')
+		$getAdminDetail = AdminModel::select('admin.*', 'media.path', 'media.alt')
 		->leftJoin('media', 'admin.profile_picture', '=', 'media.id')
 		->where('admin.id', $adminSess['adminId'])
 		->first();
@@ -21,6 +24,31 @@ function adminInfo($col='') {
 				return $getAdminDetail->{$col};
 			} else {
 				return $getAdminDetail;
+			}
+		}
+
+	} else {
+		return false;
+	}
+	
+}
+
+function userInfo($col='') {
+	
+	$userSess = Session::get('userSess');
+
+	if (!empty($userSess)) {
+		
+		$getUserDetail = UserModel::select('users.*', 'media.path', 'media.alt')
+		->leftJoin('media', 'users.profile_picture', '=', 'media.id')
+		->where('users.id', $userSess['userId'])
+		->first();
+
+		if ($userSess) {
+			if (!empty($col)) {
+				return $getUserDetail->{$col};
+			} else {
+				return $getUserDetail;
 			}
 		}
 
@@ -138,4 +166,13 @@ function folderSize($dir){
    		}
    	}
 	return $total_size;
+}
+
+function siteSettings() {
+	return SettingModel::select('settings.*', 'a.path as adminLogoUrl', 'a.alt as adminLogoAlt', 'b.path as loginBgImgUrl', 'c.path as websiteLogoUrl', 'c.alt as websiteLogoAlt', 'd.path as faviconUrl')
+		->leftJoin('media as a', 'settings.admin_logo', 'a.id')
+		->leftJoin('media as b', 'settings.login_background_img', 'b.id')
+		->leftJoin('media as c', 'settings.website_logo', 'c.id')
+		->leftJoin('media as d', 'settings.favicon', 'd.id')
+		->first();
 }

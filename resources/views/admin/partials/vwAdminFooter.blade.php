@@ -2171,11 +2171,17 @@
 <script src="{{ asset('public/admin/') }}/js/custom/apps/chat/chat.js"></script>
 <script src="{{ asset('public/admin/') }}/js/custom/utilities/modals/users-search.js"></script>
 
-@if($route == 'account-settings')
+@php
+	$uri1 = Request::segment(1);
+	$uri2 = Request::segment(2);
+	$uri3 = Request::segment(3);
+@endphp
+
+@if($uri2 == 'account-settings')
 <script src="{{ asset('public/admin/') }}/js/custom/account/settings/signin-methods.js"></script>
 @endif
 
-@if($route == 'media')
+@if($uri2 == 'media')
 <script src="{{ asset('public/admin/') }}/js/custom/apps/file-manager/list.js"></script>
 @else
 <script src="{{ asset('public/admin/') }}/js/custom/apps/file-manager/media.js"></script>
@@ -2184,8 +2190,18 @@
 <script src="{{ asset('public/admin/') }}/js/toastr.min.js"></script>
 <script src="{{ asset('public/admin/') }}/js/master.js"></script>
 
-@if($route == 'settings')
+@if($uri2 == 'settings')
 <script src="{{ asset('public/admin/') }}/js/settings.js"></script>
+@endif
+
+@if($uri2 == 'category' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/category-list.js"></script>
+@elseif($uri2 == 'category' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/category.js"></script>
+@endif
+
+@if($uri2 == 'users' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/users-list.js"></script>
 @endif
 
 <!--end::Custom Javascript-->

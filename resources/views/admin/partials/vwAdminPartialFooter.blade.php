@@ -3,8 +3,8 @@
 	<div class="container-fluid d-flex flex-column flex-md-row flex-stack">
 		<!--begin::Copyright-->
 		<div class="text-dark order-2 order-md-1">
-			<span class="text-gray-400 fw-semibold me-1">Created by</span>
-			<a href="#" class="text-muted text-hover-primary fw-semibold me-2 fs-6">Codzio</a>
+			<span class="text-gray-400 fw-semibold me-1">{{ $siteSettings->copyright }}</span>
+			<!-- <a href="#" class="text-muted text-hover-primary fw-semibold me-2 fs-6">Codzio</a> -->
 		</div>
 		<!--end::Copyright-->
 		<!--begin::Menu-->

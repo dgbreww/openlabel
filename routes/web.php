@@ -6,6 +6,15 @@ use App\Http\Middleware\Admin;
 use App\Http\Controllers\admin\Auth;
 use App\Http\Controllers\admin\Media;
 use App\Http\Controllers\admin\Settings;
+use App\Http\Controllers\admin\Category;
+use App\Http\Controllers\admin\Users;
+
+// Frontend
+
+use App\Http\Middleware\User as UserMiddleware;
+
+use App\Http\Controllers\Home;
+use App\Http\Controllers\User;
 
 
 /*
@@ -19,8 +28,27 @@ use App\Http\Controllers\admin\Settings;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [Home::class,'index']);
+Route::get('/about-us', [Home::class,'aboutUs']);
+Route::get('/login', [Home::class,'login']);
+Route::get('/sign-up', [Home::class,'signUp']);
+Route::get('/forgot-password', [Home::class,'forgotPassword']);
+
+
+Route::get('/user/logout', [User::class,'logout']);
+Route::get('/verify/{token}', [User::class,'doVerify']);
+Route::get('/user/new-password/{token}', [User::class,'newPassword']);
+
+Route::post('ajax/doSignUp', [User::class,'doSignUp']);
+Route::post('ajax/doLogin', [User::class,'doLogin']);
+Route::post('ajax/doForgotPassword', [User::class,'doForgotPassword']);
+Route::post('ajax/doUpdateNewPassword', [User::class,'doUpdateNewPassword']);
+
+Route::middleware(UserMiddleware::class)->group(function(){
+
+    //user dashboard
+    Route::get('/user/dashboard', [User::class,'dashboard']);
+    
 });
 
 
@@ -67,6 +95,31 @@ Route::middleware(Admin::class)->group(function(){
     //Settings
     Route::get('/admin/settings', [Settings::class,'index']);
     Route::post('/admin/settings/doUpdateSiteSettings', [Settings::class,'doUpdateSiteSettings']);
+    Route::post('/admin/settings/doUpdateCustomCssJs', [Settings::class,'doUpdateCustomCssJs']);
+    Route::post('/admin/settings/doUpdateSocialLinks', [Settings::class,'doUpdateSocialLinks']);
+    Route::post('/admin/settings/doUpdateMailConfig', [Settings::class,'doUpdateMailConfig']);
+
+    //category
+    Route::get('/admin/category', [Category::class,'index']);
+    Route::get('/admin/category/edit/{id}', [Category::class,'edit']);
+    Route::get('/admin/category/add', [Category::class,'add']);
+    Route::post('/admin/category/doAdd', [Category::class,'doAdd']);
+    Route::post('/admin/category/doUpdate', [Category::class,'doUpdate']);
+    Route::get('/admin/category/getCategory', [Category::class,'getCategory']);
+    Route::post('/admin/category/delete', [Category::class,'delete']);
+    Route::post('/admin/category/bulkDelete', [Category::class,'bulkDelete']);
+
+    //users
+    Route::get('/admin/users', [Users::class,'index']);
+    Route::get('/admin/users/get', [Users::class,'get']);
+    Route::get('/admin/users/login/{id}', [Users::class,'login']);
+    Route::get('/admin/users/add', [Users::class,'add']);
+
+    // Route::get('/admin/category/edit/{id}', [Category::class,'edit']);
+    // Route::post('/admin/category/doAdd', [Category::class,'doAdd']);
+    // Route::post('/admin/category/doUpdate', [Category::class,'doUpdate']);
+    // Route::post('/admin/category/delete', [Category::class,'delete']);
+    // Route::post('/admin/category/bulkDelete', [Category::class,'bulkDelete']);
     
 });
 

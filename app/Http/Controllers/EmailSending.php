@@ -9,7 +9,21 @@ use Illuminate\Support\Facades\Session;
 use PHPMailer\PHPMailer\PHPMailer;  
 use PHPMailer\PHPMailer\Exception;
 
+use App\Models\SettingModel;
+
 class EmailSending extends Controller {
+
+    public static function verifyUserEmail($data) {
+
+        $template = view('templates.email.user.vwVerifyUserEmailTemp', $data)->render();
+
+        $emailComposer = new EmailSending();
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => 'Email Verification',
+            'body' => $template
+        ));
+    }
 
 	public static function adminTwoFactorAuth($data) {
 
@@ -59,23 +73,39 @@ class EmailSending extends Controller {
         ));
     }
 
+    public static function userPassChangeNotify($data) {
+
+        $template = view('templates.email.user.vwChangePassword', $data)->render();
+
+        $emailComposer = new EmailSending();
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => 'Security Alert - Password Changed',
+            'body' => $template
+        ));
+    }
+
 	public function composeEmail($mailInfo) {
         require base_path("vendor/autoload.php");
+        
         $mail = new PHPMailer(true);     // Passing `true` enables exceptions
+
+        $getMailSettings = SettingModel::first();
 
         try {
 
             // Email server settings
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';             //  smtp host
+            $mail->Host = $getMailSettings->mail_host;             //  smtp host
             $mail->SMTPAuth = true;
-            $mail->Username = 'alfaizm19@gmail.com';   //  sender username
-            $mail->Password = 'bkcfvjkapijbrktr';       // sender password
-            $mail->SMTPSecure = 'ssl';                  // encryption - ssl/tls
-            $mail->Port = 465;                          // port - 587/465
+            $mail->Username = $getMailSettings->mail_username;   //  sender username
+            $mail->Password = $getMailSettings->mail_password;       // sender password
+            $mail->SMTPSecure = $getMailSettings->mail_encryption;                  // encryption - ssl/tls
+            $mail->Port = $getMailSettings->mail_port;                          // port - 587/465
 
-            $mail->setFrom('alfaizm19@gmail.com', env('APP_NAME'));
+            $mail->setFrom($getMailSettings->mail_from_address, $getMailSettings->mail_from_name);
+            
             $mail->addAddress($mailInfo['to']);
             
             if (isset($mailInfo['cc'])) {
