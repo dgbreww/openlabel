@@ -25,7 +25,7 @@
 						<div class="card-header border-0 cursor-pointer">
 							<!--begin::Card title-->
 							<div class="card-title m-0">
-								<h3 class="fw-bold m-0">Add User</h3>
+								<h3 class="fw-bold m-0">Add Genre</h3>
 							</div>
 							<!--end::Card title-->
 
@@ -33,7 +33,7 @@
 								<!--begin::Toolbar-->
 								<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
 									<!--begin::Add customer-->
-									<a href="{{ url('/admin/users'); }}" class="btn btn-primary">Back</a>
+									<a href="{{ url('/admin/genre'); }}" class="btn btn-primary">Back</a>
 									<!--end::Add customer-->
 								</div>
 								<!--end::Toolbar-->
@@ -44,80 +44,42 @@
 						<!--begin::Content-->
 						<div id="kt_account_settings_profile_details" class="collapse show">
 							<!--begin::Form-->
-							<form action="{{ url('admin/users/doAdd') }}" id="kt_add_user_form" class="form" enctype="multipart/form-data" method="post">
+							<form action="{{ url('admin/genre/doUpdate') }}" id="kt_update_genre_form" class="form" enctype="multipart/form-data" method="post">
 								<!--begin::Card body-->
 								<div class="card-body border-top p-9">
 									
 									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">First Name</label>
+										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Genre Name</label>
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
-													<input type="text" name="firstName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First Name" value="" />
-													<span id="firstNameErr" class="error"></span>
+													<input type="text" name="genreName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Genre Name" value="{{ $genreData->genre_name }}" />
+													<span id="genreNameErr" class="error"></span>
 												</div>
 											</div>
 										</div>										
 									</div>
-
+									
 									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Last Name</label>
+										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Display Order</label>
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
-													<input type="text" name="lastName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" />
-													<span id="lastNameErr" class="error"></span>
-												</div>
-											</div>
-										</div>										
-									</div>
-
-									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Email</label>
-										<div class="col-lg-8">
-											<div class="row">
-												<div class="col-lg-12 fv-row">
-													<input type="text" name="email" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Email" value="" />
-													<span id="emailErr" class="error"></span>
-												</div>
-											</div>
-										</div>										
-									</div>
-
-									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Password</label>
-										<div class="col-lg-8">
-											<div class="row">
-												<div class="col-lg-12 fv-row">
-													<input type="text" name="password" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Password" value="" />
-													<span id="passwordErr" class="error"></span>
-												</div>
-											</div>
-										</div>										
-									</div>
-
-									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">User Type</label>
-										<div class="col-lg-8">													
-											<div class="row">
-												<div class="col-lg-12 fv-row">
-													<select name="userType" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-														<option value="creator">Creator</option>
-														<option value="artist">Artist</option>
-													</select>
-													<span id="userTypeErr" class="error"></span>
+													<input min="1" type="number" name="displayOrder" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Display Order" value="{{ $genreData->display_order }}" />
+													<span id="displayOrderErr" class="error"></span>
 												</div>
 											</div>
 										</div>
-									</div>	
+									</div>
 
 									
 								</div>
 								<!--end::Card body-->
 								<!--begin::Actions-->
 								<div class="card-footer d-flex justify-content-end py-6 px-9">
+									<input type="hidden" name="id" value="{{ $genreData->id }}">
 									@csrf
-									<button type="submit" class="btn btn-primary" id="kt_add_user_form_submit">
+									<button type="submit" class="btn btn-primary" id="kt_update_genre_form_submit">
 										<!--begin::Indicator label-->
 										<span class="indicator-label">Save Changes</span>
 										<!--end::Indicator label-->

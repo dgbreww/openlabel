@@ -94,6 +94,7 @@
 
 				<div class="menu-item here show menu-accordion hiding">
 					<a class="menu-link" href="{{ url('/admin/platform') }}">
+					<a class="menu-link" href="{{ url('/admin/genre') }}">
 						<span class="menu-icon">
 							<span class="svg-icon svg-icon-5">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,6 +118,7 @@
 							</span>							
 						</span>
 						<span class="menu-title rm-fw">Video Size</span>
+						<span class="menu-title rm-fw">Genre</span>
 					</a>
 				</div>
 

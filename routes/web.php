@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\Settings;
 use App\Http\Controllers\admin\Category;
 use App\Http\Controllers\admin\Platform;
 use App\Http\Controllers\admin\Videosize;
+use App\Http\Controllers\admin\Genre;
 use App\Http\Controllers\admin\Users;
 
 // Frontend
@@ -35,7 +36,8 @@ Route::get('/about-us', [Home::class,'aboutUs']);
 Route::get('/login', [Home::class,'login']);
 Route::get('/sign-up', [Home::class,'signUp']);
 Route::get('/forgot-password', [Home::class,'forgotPassword']);
-
+Route::get('/terms-and-condition', [Home::class,'termsCondition']);
+Route::get('/privacy-policy', [Home::class,'privacyPolicy']);
 
 Route::get('/user/logout', [User::class,'logout']);
 Route::get('/verify/{token}', [User::class,'doVerify']);
@@ -136,12 +138,21 @@ Route::middleware(Admin::class)->group(function(){
     Route::get('/admin/users/get', [Users::class,'get']);
     Route::get('/admin/users/login/{id}', [Users::class,'login']);
     Route::get('/admin/users/add', [Users::class,'add']);
+    Route::post('/admin/users/doAdd', [Users::class,'doAdd']);
+    Route::get('/admin/users/edit/{id}', [Users::class,'edit']);
+    Route::post('/admin/users/doUpdate', [Users::class,'doUpdate']);
+    Route::post('/admin/users/delete', [Users::class,'delete']);
+    Route::post('/admin/users/bulkDelete', [Users::class,'bulkDelete']);
 
-    // Route::get('/admin/category/edit/{id}', [Category::class,'edit']);
-    // Route::post('/admin/category/doAdd', [Category::class,'doAdd']);
-    // Route::post('/admin/category/doUpdate', [Category::class,'doUpdate']);
-    // Route::post('/admin/category/delete', [Category::class,'delete']);
-    // Route::post('/admin/category/bulkDelete', [Category::class,'bulkDelete']);
+    //genre
+    Route::get('/admin/genre', [Genre::class,'index']);
+    Route::get('/admin/genre/edit/{id}', [Genre::class,'edit']);
+    Route::get('/admin/genre/add', [Genre::class,'add']);
+    Route::post('/admin/genre/doAdd', [Genre::class,'doAdd']);
+    Route::post('/admin/genre/doUpdate', [Genre::class,'doUpdate']);
+    Route::get('/admin/genre/get', [Genre::class,'get']);
+    Route::post('/admin/genre/delete', [Genre::class,'delete']);
+    Route::post('/admin/genre/bulkDelete', [Genre::class,'bulkDelete']);
     
 });
 

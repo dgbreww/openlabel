@@ -37,31 +37,27 @@ var KTFileManagerList = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": baseUrl+"users/get",
+                "url": baseUrl+"genre/get",
             },
             "info": false,
             'order': [],
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 7, className: 'text-end' }, // Disable ordering on column 5 (actions)
+                { orderable: false, targets: 3, className: 'text-end' }, // Disable ordering on column 5 (actions)
             ],
             "paging": true,
             'ordering': false,
             'columns': [
                 { data: 'checkbox' },
                 { data: 'name' },
-                { data: 'email' },
-                { data: 'userType' },
-                { data: 'provider' },
-                { data: 'isVerified' },
-                { data: 'registeredAt' },
+                { data: 'order' },
                 { data: 'action' },
             ],
             'language': {
                 emptyTable: `<div class="d-flex flex-column flex-center">
                     <img src="${hostUrl}media/illustrations/sketchy-1/5.png" class="mw-400px" />
                     <div class="fs-1 fw-bolder text-dark">No items found.</div>
-                    <div class="fs-6">Start creating category!</div>
+                    <div class="fs-6">Start creating genre!</div>
                 </div>`
             }
         }
@@ -137,7 +133,7 @@ var KTFileManagerList = function () {
                     if (result.value) {
                         
                         $.ajax({
-                            url: baseUrl+'users/delete',
+                            url: baseUrl+'genre/delete',
                             type: 'POST',
                             dataType: 'json',
                             data: {
@@ -240,7 +236,7 @@ var KTFileManagerList = function () {
                 if (result.value) {
 
                     $.ajax({
-                        url: baseUrl+'users/bulkDelete',
+                        url: baseUrl+'genre/bulkDelete',
                         type: 'POST',
                         dataType: 'json',
                         data: {

@@ -91,4 +91,24 @@ class Home extends Controller {
 		return view('vwForgotPassword', $data);
 	}
 
+	public function termsCondition() {
+
+		$data = array(
+			'siteSettings' => siteSettings(),
+			'title' => 'Terms & Condition'
+		);
+
+		return view('vwTermsAndCondition', $data);
+	}
+
+	public function privacyPolicy() {
+
+		$data = array(
+			'siteSettings' => siteSettings(),
+			'title' => 'Privacy Policy'
+		);
+
+		return view('vwTermsAndCondition', $data);
+	}
+
 }

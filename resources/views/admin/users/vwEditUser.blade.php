@@ -25,7 +25,7 @@
 						<div class="card-header border-0 cursor-pointer">
 							<!--begin::Card title-->
 							<div class="card-title m-0">
-								<h3 class="fw-bold m-0">Add User</h3>
+								<h3 class="fw-bold m-0">Edit User</h3>
 							</div>
 							<!--end::Card title-->
 
@@ -44,7 +44,7 @@
 						<!--begin::Content-->
 						<div id="kt_account_settings_profile_details" class="collapse show">
 							<!--begin::Form-->
-							<form action="{{ url('admin/users/doAdd') }}" id="kt_add_user_form" class="form" enctype="multipart/form-data" method="post">
+							<form action="{{ url('admin/users/doUpdate') }}" id="kt_update_user_form" class="form" enctype="multipart/form-data" method="post">
 								<!--begin::Card body-->
 								<div class="card-body border-top p-9">
 									
@@ -53,7 +53,7 @@
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
-													<input type="text" name="firstName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First Name" value="" />
+													<input type="text" name="firstName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First Name" value="{{ $userData->first_name }}" />
 													<span id="firstNameErr" class="error"></span>
 												</div>
 											</div>
@@ -65,7 +65,7 @@
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
-													<input type="text" name="lastName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" />
+													<input type="text" name="lastName" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="{{ $userData->last_name }}" />
 													<span id="lastNameErr" class="error"></span>
 												</div>
 											</div>
@@ -77,7 +77,7 @@
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
-													<input type="text" name="email" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Email" value="" />
+													<input type="text" name="email" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Email" value="{{ $userData->email }}" />
 													<span id="emailErr" class="error"></span>
 												</div>
 											</div>
@@ -85,7 +85,7 @@
 									</div>
 
 									<div class="row mb-6">
-										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Password</label>
+										<label class="col-lg-4 col-form-label fw-semibold fs-6">Password</label>
 										<div class="col-lg-8">
 											<div class="row">
 												<div class="col-lg-12 fv-row">
@@ -102,22 +102,22 @@
 											<div class="row">
 												<div class="col-lg-12 fv-row">
 													<select name="userType" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-														<option value="creator">Creator</option>
-														<option value="artist">Artist</option>
+														<option {{ $userData->user_type == 'creator'? 'selected':''; }} value="creator">Creator</option>
+														<option {{ $userData->user_type == 'artist'? 'selected':''; }} value="artist">Artist</option>
 													</select>
 													<span id="userTypeErr" class="error"></span>
 												</div>
 											</div>
 										</div>
-									</div>	
-
+									</div>
 									
 								</div>
 								<!--end::Card body-->
 								<!--begin::Actions-->
 								<div class="card-footer d-flex justify-content-end py-6 px-9">
+									<input type="hidden" name="id" value="{{ $userData->id }}">
 									@csrf
-									<button type="submit" class="btn btn-primary" id="kt_add_user_form_submit">
+									<button type="submit" class="btn btn-primary" id="kt_update_user_form_submit">
 										<!--begin::Indicator label-->
 										<span class="indicator-label">Save Changes</span>
 										<!--end::Indicator label-->

@@ -976,7 +976,8 @@ footer {
 	border: none;
 	font-family: var(--roboto-bold);
 	font-size: var(--micro-3-12);
-	color: var(--pure-black);
+	color:#fff;
+	padding-right: 20%;
 }
 .subscribe-input input::placeholder {
 	font-size: var(--micro-3-12);
@@ -4319,3 +4320,44 @@ button{
 	}
 }
 /*end media query*/
+
+.how-it-works-text h6 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+
+.how-it-works-text h6 {
+    /*color:#C74F27;*/
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    /* margin-top: 62px; */
+    margin-top: 20px;
+}
+
+.how-it-works-text p {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+    color: #858181;
+    text-align: justify;
+}
+
+.how-it-works-text p {
+    /*font-size: 14px;*/
+    /*line-height: 22px;*/
+}
+.about-tiktok-banner-inner{
+	margin: 7% 0;
+}
+@media (max-width:575px){
+	.how-it-works-text h6{
+		font-size: 16px;
+	}
+	.how-it-works-text p{
+		line-height: 22px;
+		font-size: 14px;
+	}
+}
