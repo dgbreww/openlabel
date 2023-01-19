@@ -2202,6 +2202,14 @@
 
 @if($uri2 == 'users' && empty($uri3))
 <script src="{{ asset('public/admin/') }}/js/users-list.js"></script>
+@elseif($uri2 == 'users' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/users.js"></script>
+@endif
+
+@if($uri2 == 'genre' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/genre-list.js"></script>
+@elseif($uri2 == 'genre' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/genre.js"></script>
 @endif
 
 <!--end::Custom Javascript-->

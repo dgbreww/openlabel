@@ -13,42 +13,42 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\Http\File;
 
-use App\Models\UserModel;
+use App\Models\GenreModel;
 
-class Users extends Controller {
+class Genre extends Controller {
 
 	private $status = array();
 
 	public function index() {		
 
 		$data = array(
-			'title' => 'Users',
-			'pageTitle' => 'Users',			
+			'title' => 'Genre',
+			'pageTitle' => 'Genre',			
 			'adminData' => adminInfo(),			
 			'siteSettings' => siteSettings(),
 		);
 
-		return view('admin/users/vwManageUsers', $data);
+		return view('admin/genre/vwManageGenre', $data);
 		
 	}
 
 	public function add() {
 
 		$data = array(
-			'title' => 'User',
-			'pageTitle' => 'User',
+			'title' => 'Genre',
+			'pageTitle' => 'Genre',
 			'adminData' => adminInfo(),			
 			'siteSettings' => siteSettings(),
 		);
 
-		return view('admin/users/vwAddUser', $data);
+		return view('admin/genre/vwAddGenre', $data);
 	}
 
 	public function get(Request $request) {
 
 		if ($request->ajax()) {
 
-			$allColumns = \Schema::getColumnListing('users');
+			$allColumns = \Schema::getColumnListing('genre');
 
 			$draw = $request->get('draw');
 		    $start = $request->get("start");
@@ -65,8 +65,8 @@ class Users extends Controller {
 		    $searchValue = $search_arr['value']; // Search value
 
 		     // Total records
-		    $totalRecords = UserModel::select('count(*) as allcount')->count();
-		    $totalRecordswithFilter = UserModel::select('count(*) as allcount');
+		    $totalRecords = GenreModel::select('count(*) as allcount')->count();
+		    $totalRecordswithFilter = GenreModel::select('count(*) as allcount');
 
 		    if (!empty($searchValue)) {
 		    	//$totalRecordswithFilter->where('first_name', 'like', '%' .$searchValue . '%');
@@ -80,7 +80,7 @@ class Users extends Controller {
 		    $totalRecordswithFilter = $totalRecordswithFilter->count();
 
 		     // Fetch records
-		    $records = UserModel::orderBy('id','desc')->select('users.*')->skip($start)->take($rowperpage);
+		    $records = GenreModel::orderBy('id','desc')->select('genre.*')->skip($start)->take($rowperpage);
 
 		    if (!empty($searchValue)) {
 		    	//$records->where('users.first_name', 'like', '%' .$searchValue . '%');
@@ -104,12 +104,8 @@ class Users extends Controller {
 		    if (!empty($records)) {
 		    	foreach($records as $record){
 			        $id = $record->id;
-			        $name = $record->first_name.' '.$record->last_name;
-			        $email = $record->email;
-			        $userType = $record->user_type;
-			        $provider = $record->provider_type;
-			        $isVerified = $record->verified;
-			        $registeredAt = $record->created_at;
+			        $name = $record->genre_name;
+			        $displayOrder = $record->display_order;
 			       
 			        $data_arr[] = array(
 			        	"checkbox" => '<div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -120,11 +116,7 @@ class Users extends Controller {
 	                            <a href="#" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">'.$name.'</a>
 	                        </div>
 	                    </div>',
-	                    "email" => $email,
-	                    "userType" => ucwords($userType),
-	                    "provider" => ucwords($provider),
-	                    "isVerified" => ucwords($isVerified),
-			          	"registeredAt" => date('d-m-Y', strtotime($registeredAt)),
+	                    "order" => '<input style="width:100px" class="form-control" type="number" value="'.$displayOrder.'">',
 			          	"action" => '<td class="text-end" data-kt-filemanager-table="action_dropdown">
 						<div class="d-flex justify-content-end">							
 							<div class="ms-2">
@@ -141,15 +133,11 @@ class Users extends Controller {
 								<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
 									
 									<div class="menu-item px-3">
-										<a href="'.url('/admin/users/edit/'.$id).'" class="menu-link px-3">Edit</a>
+										<a href="'.url('/admin/genre/edit/'.$id).'" class="menu-link px-3">Edit</a>
 									</div>
 									
 									<div class="menu-item px-3">
 										<a href="javascript:void(0)" data-id="'.$id.'" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">Delete</a>
-									</div>
-
-									<div class="menu-item px-3">
-										<a target="_blank" href="'.url('/admin/users/login/'.$id).'" class="menu-link text-success px-3">Login</a>
 									</div>
 								</div>
 
@@ -184,7 +172,7 @@ class Users extends Controller {
 	public function login($userId, Request $request) {
 
 		//get user data from user id
-		$getUser = UserModel::where('id', $userId)->first();
+		$getUser = GenreModel::where('id', $userId)->first();
 
 		if (!empty($getUser)) {
 			
@@ -205,21 +193,21 @@ class Users extends Controller {
 	public function edit($id) {
 
 		//check if id exist
-		$getUser = UserModel::where('id', $id)->first();
+		$getGenre = GenreModel::where('id', $id)->first();
 
-		if (empty($getUser)) {
-			return redirect('/admin/users');
+		if (empty($getGenre)) {
+			return redirect('/admin/genre');
 		}
 
 		$data = array(
-			'title' => 'Users',
-			'pageTitle' => 'Users',
+			'title' => 'Genre',
+			'pageTitle' => 'Genre',
 			'adminData' => adminInfo(),			
 			'siteSettings' => siteSettings(),
-			'userData' => $getUser
+			'genreData' => $getGenre
 		);
 
-		return view('admin/users/vwEditUser', $data);
+		return view('admin/genre/vwEditGenre', $data);
 	}
 
 	public function doAdd(Request $request) {
@@ -227,11 +215,8 @@ class Users extends Controller {
 		if ($request->ajax()) {
 
 			$validator = Validator::make($request->post(), [
-				'firstName' => 'required',
-				'lastName' => 'required',
-	            'email' => 'required|email|unique:users,email',
-	            'password' => 'required',
-	            'userType' => 'required|in:artist,creator',
+				'genreName' => 'required',
+				'displayOrder' => 'required|numeric',
 	        ]);
 
 	        if ($validator->fails()) {
@@ -247,24 +232,24 @@ class Users extends Controller {
 
 	        } else {
 
-	        	$obj = array(
-	        		'first_name' => $request->post('firstName'),
-	        		'last_name' => $request->post('lastName'),
-	        		'email' => $request->post('email'),
-	        		'password' => Hash::make($request->post('password')),
-	        		'user_type' => $request->post('userType'),
-	        		'provider_type' => 'website',
-	        		'verified' => 'yes'	        		
-	        	);
+	        	$name = Str::slug($request->post('genreName'));
+	        	$slug = validateSlug('genre', 'genre_slug', $name);
+
+	        	$obj = [
+	        		'genre_name' => $request->post('genreName'),
+	        		'genre_slug' => $slug,
+	        		'is_active' => 1,
+	        		'display_order' => $request->post('displayOrder'),
+	        	];
 
 	        	//insert data
-	        	$isCreated = UserModel::create($obj);
+	        	$isAdded = GenreModel::create($obj);
 
-	        	if ($isCreated) {
+	        	if ($isAdded) {
 
 	        		$this->status = array(
 						'error' => false,
-						'msg' => 'User has been added successfully.',
+						'msg' => 'Genre has been added successfully.',
 					);
 
 	        	} else {
@@ -274,6 +259,7 @@ class Users extends Controller {
 						'msg' => 'Something went wrong.'
 					);
 	        	}
+
 	        }
 
 
@@ -296,11 +282,8 @@ class Users extends Controller {
 			$id = $request->post('id');
 
 	        $validator = Validator::make($request->post(), [
-				'firstName' => 'required',
-				'lastName' => 'required',
-	            'email' => 'required|email|unique:users,email,'.$id,
-	            'password' => 'sometimes|nullable',
-	            'userType' => 'required|in:artist,creator',
+				'genreName' => 'required',
+				'displayOrder' => 'required|numeric',
 	            'id' => 'required|numeric',
 	        ]);
 
@@ -317,27 +300,40 @@ class Users extends Controller {
 
 	        } else {
 
-	        	$obj = array(
-	        		'first_name' => $request->post('firstName'),
-	        		'last_name' => $request->post('lastName'),
-	        		'email' => $request->post('email'),
-	        		'user_type' => $request->post('userType')	        		
-	        	);
+	        	//check if id exist
+	        	$id = $request->post('id');
+	        	$getGenre = GenreModel::where('id', $id)->first();
 
-	        	if (!empty($request->post('password'))) {
-	        		$obj['password'] = Hash::make($request->post('password'));
-	        	}
+	        	if (!empty($getGenre)) {
 
-	        	//update data
-	        	$isUpdated = UserModel::where('id', $id)->update($obj);
+	        		$slug = Str::slug($request->post('genreName'));
+		        	$slug = validateSlug('genre', 'genre_slug', $slug, $id);
 
-	        	if ($isUpdated) {
+		        	$obj = [
+		        		'genre_name' => $request->post('genreName'),
+		        		'genre_slug' => $slug,
+		        		'display_order' => $request->post('displayOrder'),
+		        	];
 
-	        		$this->status = array(
-						'error' => false,
-						'msg' => 'User has been updated successfully.',
-					);
+		        	//update data
+		        	$isUpdated = GenreModel::where('id', $id)->update($obj);
 
+		        	if ($isUpdated) {
+
+		        		$this->status = array(
+							'error' => false,
+							'msg' => 'Genre has been updated successfully.',
+							'redirect' => url('admin')
+						);
+
+		        	} else {
+		        		$this->status = array(
+							'error' => true,
+							'eType' => 'final',
+							'msg' => 'Something went wrong.'
+						);
+		        	}
+	        		
 	        	} else {
 	        		$this->status = array(
 						'error' => true,
@@ -345,6 +341,7 @@ class Users extends Controller {
 						'msg' => 'Something went wrong.'
 					);
 	        	}
+	        	
 	        }
 
 
@@ -384,16 +381,16 @@ class Users extends Controller {
 
 	        	//check if data exist
 
-	        	$getData = UserModel::where('id', '=', $id)->first();
+	        	$getData = GenreModel::where('id', '=', $id)->first();
 	        	
 	        	if (!empty($getData)) {
 	        		
-	        		$isDeleted = UserModel::where('id', $id)->delete();
+	        		$isDeleted = GenreModel::where('id', $id)->delete();
 
         			if ($isDeleted) {
         				$this->status = array(
 							'error' => false,								
-							'msg' => 'User has been deleted successfully.'
+							'msg' => 'Genre has been deleted successfully.'
 						);
         			} else {
         				$this->status = array(
@@ -446,16 +443,16 @@ class Users extends Controller {
 	        	$ids = $request->post('ids');
 
 	        	//check if media data exist
-	        	$getData = UserModel::whereIn('id', $ids)->get();	        	
+	        	$getData = GenreModel::whereIn('id', $ids)->get();	        	
 	        	
 	        	if (!empty($getData)) {
 
-	        		$isDeleted = UserModel::whereIn('id', $ids)->delete();
+	        		$isDeleted = GenreModel::whereIn('id', $ids)->delete();
 	        		
 	        		if ($isDeleted) {
         				$this->status = array(
 							'error' => false,								
-							'msg' => 'Category has been deleted successfully.'
+							'msg' => 'Genre has been deleted successfully.'
 						);
         			} else {
         				$this->status = array(

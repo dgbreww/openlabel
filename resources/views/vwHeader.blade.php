@@ -32,6 +32,7 @@
 		<nav>
 			<ul class="sidebar">
 				<li><a href="{{ url('/') }}">Home</a></li>
+				<li><a href="{{ url('/about-us') }}">About Us</a></li>
 				
 				@if(!session()->has('userSess'))
 				<li><a href="{{ url('/sign-up') }}">Become a Creator</a></li>

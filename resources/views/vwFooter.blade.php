@@ -11,7 +11,7 @@
 				</div>
 				<div class="quick-sec">
 					<h2>Quick Links</h2>
-					<a href="#">about us</a>
+					<a href="{{ url('/about-us') }}">about us</a>
 					
 					@if(!session()->has('userSess'))
 					<a href="{{ url('/sign-up') }}">Become an artist</a>
@@ -34,8 +34,8 @@
 				</div>
 				<div class="support-sec">
 					<h2>Support</h2>
-					<a href="#">terms & condition</a>
-					<a href="#">privacy policy </a>
+					<a href="{{ url('terms-and-condition') }}">terms & condition</a>
+					<a href="{{ url('privacy-policy') }}">privacy policy </a>
 					<a href="#">help </a>
 					<a href="#">FAQ</a>
 					<a href="#">introductions</a>
