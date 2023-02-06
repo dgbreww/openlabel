@@ -5,8 +5,134 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdminModel;
 use App\Models\UserModel;
 use App\Models\SettingModel;
+use App\Models\PackageModel;
+use App\Models\JobsModel;
+use App\Models\SaveJobsModel;
+use App\Models\ApplyJobsModel;
+use App\Models\MediaModel;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\File;
+
+// Project Related Function Start
+
+function isJobSaved($jobId) {
+	$userData = userInfo();
+
+	if (!empty($userData)) {
+		
+		$isJobSaved = SaveJobsModel::where('user_id', $userData->id)->where('job_id', $jobId)->first();
+
+		if (!empty($isJobSaved)) {
+			return true;		
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+}
+
+function isJobApplied($jobId) {
+	$userData = userInfo();
+
+	if (!empty($userData)) {
+		
+		$isJobApplied = ApplyJobsModel::where('user_id', $userData->id)->where('job_id', $jobId)->first();
+
+		if (!empty($isJobApplied)) {
+			return true;		
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+
+}
+
+function jobStats($jobId) {
+	$getJobData = JobsModel::join('orders', 'jobs.order_id', '=', 'orders.id')
+	->where('jobs.id', $jobId)
+	->first();
+
+	$stats = array();
+
+	if (!empty($getJobData)) {
+
+		$totalApplied = ApplyJobsModel::where('job_id', $jobId)->count();
+		$totalApproved = ApplyJobsModel::where('job_id', $jobId)->where('job_status', 'approved')->count();
+
+		$stats = array(
+			'totalVideos' => $getJobData->no_of_videos,
+			'totalVideosReceived' => $getJobData->no_of_videos_received,
+			'totalApplied' => $totalApplied,
+			'totalApproved' => $totalApproved,
+		);		
+	}
+
+	return $stats;
+
+}
+
+function canJobApplied($jobId) {
+	
+	$getJobData = JobsModel::join('orders', 'jobs.order_id', '=', 'orders.id')
+	->where('jobs.id', $jobId)
+	->first();
+
+	if (!empty($getJobData)) {
+
+		$totalVideosReceived = $getJobData->no_of_videos_received;
+		$totalApplied = ApplyJobsModel::where('job_id', $jobId)->count();
+
+		if ($totalVideosReceived > $totalApplied) {
+			return true;
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+	
+}
+
+function canJobApproved($jobId) {
+	
+	$getJobData = JobsModel::join('orders', 'jobs.order_id', '=', 'orders.id')
+	->where('jobs.id', $jobId)
+	->first();
+
+	if (!empty($getJobData)) {
+
+		$totalVideos = $getJobData->no_of_videos;
+		$totalApproved = ApplyJobsModel::where('job_id', $jobId)->where('job_status', 'approved')->count();
+
+		if ($totalVideos > $totalApproved) {
+			return true;
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+	
+}
+
+function getImg($imageId) {
+	$mediaData = MediaModel::where('id', $imageId)->first();
+	if (!empty($mediaData)) {
+		return url('public/').'/'.$mediaData->path;
+	} else {
+		return '';
+	}
+}
+
+// Project Related Function End
 
 function adminInfo($col='') {
 	
@@ -39,8 +165,9 @@ function userInfo($col='') {
 
 	if (!empty($userSess)) {
 		
-		$getUserDetail = UserModel::select('users.*', 'media.path', 'media.alt')
+		$getUserDetail = UserModel::select('users.*', 'media.path', 'media.alt', 'badges.badge_img')
 		->leftJoin('media', 'users.profile_picture', '=', 'media.id')
+		->leftJoin('badges', 'users.badge_id', '=', 'badges.id')
 		->where('users.id', $userSess['userId'])
 		->first();
 
@@ -56,6 +183,14 @@ function userInfo($col='') {
 		return false;
 	}
 	
+}
+
+function userInfoById($id) {
+	
+	return UserModel::select('users.*', 'media.path', 'media.alt')
+	->leftJoin('media', 'users.profile_picture', '=', 'media.id')
+	->where('users.id', $id)
+	->first();
 }
 
 if (!function_exists('validateSlug')) {
@@ -175,4 +310,33 @@ function siteSettings() {
 		->leftJoin('media as c', 'settings.website_logo', 'c.id')
 		->leftJoin('media as d', 'settings.favicon', 'd.id')
 		->first();
+}
+
+function getPackageListByCategory($categoryId) {
+	return PackageModel::where('category_id', $categoryId)->where('user_id', null)->where('is_active', 'active')->get();
+}
+
+function getHoursDays($date) {
+	$currentDate = date('Y-m-d');
+	$jobDate = date('Y-m-d', strtotime($date));
+
+	$time1 = new DateTime(date('Y-m-d H:i:s'));
+    $time2 = new DateTime(date('Y-m-d H:i:s', strtotime($date)));
+    $time_diff = $time1->diff($time2);
+
+	if ($currentDate == $jobDate) {
+		if ($time_diff->h) {
+			return $time_diff->h . ' hours before';
+		} else {
+			return $time_diff->i . ' minutes before';
+		}
+	} else {
+		
+		if ($time_diff->d) {
+			return $time_diff->d . ' days before';
+		} else {
+			return $time_diff->h . ' hours before';
+		}
+
+	}
 }

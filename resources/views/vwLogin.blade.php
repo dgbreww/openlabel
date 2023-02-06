@@ -1,4 +1,10 @@
 @include('vwHeader')
+<style type="text/css">
+	.forgot-password {
+		padding-bottom: 4%;
+		padding-right: unset;
+	}
+</style>
 <!-- start login section -->
 <div class="login-page">
 	<div class="login-page-inner">
@@ -37,7 +43,11 @@
 							<span id="passwordErr" class="error removeErr"></span>
 
 							@csrf
-							<button id="loginFormBtn" type="submit">Log in</button>
+							<input type="hidden" name="redirect" value="{{ Request::get('redirect') }}">
+
+							<p class="sign-up-p forgot-password"><a href="{{ url('/forgot-password') }}">Forgot Password?</a></p>
+
+							<button id="loginFormBtn" type="submit">Login</button>
 						</form>
 						<p class="login-p">or <a href="#">Log in with </a></p>
 						<div class="login-social-icon">

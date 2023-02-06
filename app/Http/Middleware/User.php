@@ -21,7 +21,7 @@ class User {
     	if (!empty($userSess)) {
     		return $next($request);	
     	} else {
-    		return redirect('/');
+    		return redirect('/login');
     	}
     	
     }

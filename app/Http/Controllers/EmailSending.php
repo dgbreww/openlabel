@@ -15,6 +15,8 @@ class EmailSending extends Controller {
 
     public static function verifyUserEmail($data) {
 
+        $data['siteSettings'] = siteSettings();
+
         $template = view('templates.email.user.vwVerifyUserEmailTemp', $data)->render();
 
         $emailComposer = new EmailSending();
@@ -26,6 +28,8 @@ class EmailSending extends Controller {
     }
 
 	public static function adminTwoFactorAuth($data) {
+
+        $data['siteSettings'] = siteSettings();
 
 		$template = view('templates.email.admin.vwTwoStepEmailTemp', $data)->render();
 
@@ -39,6 +43,8 @@ class EmailSending extends Controller {
 
 	public static function adminResetPassword($data) {
 
+        $data['siteSettings'] = siteSettings();
+
 		$template = view('templates.email.admin.vwResetPassword', $data)->render();
 
 		$emailComposer = new EmailSending();
@@ -50,6 +56,8 @@ class EmailSending extends Controller {
 	}
 
 	public static function adminPassChangeNotify($data) {
+
+        $data['siteSettings'] = siteSettings();
 
 		$template = view('templates.email.admin.vwChangePassword', $data)->render();
 
@@ -63,6 +71,8 @@ class EmailSending extends Controller {
 
     public static function adminEmailChangeNotify($data) {
 
+        $data['siteSettings'] = siteSettings();
+
         $template = view('templates.email.admin.vwChangeEmail', $data)->render();
 
         $emailComposer = new EmailSending();
@@ -75,6 +85,8 @@ class EmailSending extends Controller {
 
     public static function userPassChangeNotify($data) {
 
+        $data['siteSettings'] = siteSettings();
+
         $template = view('templates.email.user.vwChangePassword', $data)->render();
 
         $emailComposer = new EmailSending();
@@ -82,6 +94,108 @@ class EmailSending extends Controller {
             'to' => $data['email'],
             'subject' => 'Security Alert - Password Changed',
             'body' => $template
+        ));
+    }
+
+    public static function userAccountStatusNotify($data) {
+
+        $data['siteSettings'] = siteSettings();
+
+        $template = view('templates.email.user.vwUserAccountStatusNotify', $data)->render();
+
+        $emailComposer = new EmailSending();
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+    }
+
+    public static function applyJobNotification($data) {
+
+        $data['siteSettings'] = siteSettings();
+        $template = view('templates.email.user.vwApplyJobNotification', $data)->render();
+
+        $emailComposer = new EmailSending();
+
+        $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+
+        //admin
+        
+        $siteSettings = siteSettings();
+        return $emailComposer->composeEmail(array(
+            'to' => $siteSettings->website_email,
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+
+    }
+
+    public static function userNotification($data) {
+
+        $data['siteSettings'] = siteSettings();
+        $template = view('templates.email.user.vwApplyJobNotification', $data)->render();
+
+        $emailComposer = new EmailSending();
+
+        $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+
+    }
+
+    public static function adminNotification($data) {
+
+        $data['siteSettings'] = siteSettings();
+        $template = view('templates.email.user.vwApplyJobNotification', $data)->render();
+
+        $emailComposer = new EmailSending();
+
+        //admin
+        
+        $siteSettings = siteSettings();
+        return $emailComposer->composeEmail(array(
+            'to' => $siteSettings->website_email,
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+
+    }
+
+    public static function customPackageApproved($data) {
+
+        $data['siteSettings'] = siteSettings();
+        $template = view('templates.email.user.vwApplyJobNotification', $data)->render();
+
+        $emailComposer = new EmailSending();
+
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => $data['subject'],
+            'body' => $template
+        ));
+
+    }
+
+    public static function test($data) {
+
+        $data['siteSettings'] = siteSettings();
+
+        $template = view('templates.email.admin.vwChangePassword', $data)->render();
+
+        $emailComposer = new EmailSending();
+        return $emailComposer->composeEmail(array(
+            'to' => $data['email'],
+            'subject' => 'Security Alert - Password Changed',
+            'body' => $template,
+            'debug' => $data['debug'],
+            'debugLevel' => $data['level'],
         ));
     }
 
@@ -95,7 +209,13 @@ class EmailSending extends Controller {
         try {
 
             // Email server settings
-            $mail->SMTPDebug = 0;
+            
+            if (isset($mailInfo['debugLevel'])) {
+                $mail->SMTPDebug = $mailInfo['debugLevel'];
+            } else {
+                $mail->SMTPDebug = 0;
+            }
+
             $mail->isSMTP();
             $mail->Host = $getMailSettings->mail_host;             //  smtp host
             $mail->SMTPAuth = true;
@@ -134,7 +254,13 @@ class EmailSending extends Controller {
 
             if( !$mail->send() ) {
                 //return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
-                return false;
+
+                if (isset($mailInfo['debug']) && $mailInfo['debug']) {
+                    return $mail->ErrorInfo;                    
+                } else {
+                    return false;
+                }
+                
             } else {
                 //return back()->with("success", "Email has been sent.");
                 return true;

@@ -43,7 +43,7 @@ var KTFileManagerList = function () {
             'order': [],
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 7, className: 'text-end' }, // Disable ordering on column 5 (actions)
+                { orderable: false, targets: 8, className: 'text-end' }, // Disable ordering on column 5 (actions)
             ],
             "paging": true,
             'ordering': false,
@@ -54,6 +54,7 @@ var KTFileManagerList = function () {
                 { data: 'userType' },
                 { data: 'provider' },
                 { data: 'isVerified' },
+                { data: 'accountStatus' },
                 { data: 'registeredAt' },
                 { data: 'action' },
             ],

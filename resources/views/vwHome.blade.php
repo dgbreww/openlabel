@@ -1,125 +1,134 @@
+<style type="text/css">
+	.homepage-category, .homepage-category:hover {
+		color: unset;
+	}
+
+	.trending-jobs-cards .slick-track{
+		margin-left: initial;
+		margin-right: initial;
+	}
+	.trending-jobs ._card .detail {
+		padding: 22px 20px;
+	}
+	.trending-jobs ._card .detail{
+		/*min-height: 278px;*/
+	}
+	.trending-jobs .slick-slide{
+		height: initial;
+	}
+	._card .detail p{
+		min-height: 134px;
+	}
+	._card .like{
+		border: 1px solid #000;
+	}
+
+	@media (max-width: 475px){
+		.trending-jobs-cards .slick-next{
+			right: -11%!important;
+		}
+		
+		._card{
+			border-radius: 15px!important;
+		}
+		.trending-jobs ._card .detail{
+			padding: 15px 12px;
+		}
+	}
+
+</style>
+
 @include('vwHeader')
+
+<link rel="stylesheet" type="text/css" href="{{ url('public/frontend') }}/css/profile-listing.css">
+
 <div class="banner">
 	<img src="{{ url('public/frontend') }}/img/home-banner.png" alt="" class="bg">
 	<div class="main">
 		<div class="content">
-			<h1>Find the Perfect <br> <span>CREATOR</span> for your business.</h1>
-			<div class="search">
+			<h1>How<br> <a href="{{ url('/about-us') }}"><span>TikTok</span></a> helped these artists promote their music and how you can too.</h1>
+			<!-- <div class="search">
 				<i class="fa-solid fa-magnifying-glass"></i>
 				<input type="text" placeholder="What are you looking for?">
 				<button>Search</button>
+			</div> -->
+			<div class="search new-search">
+				<a href="{{ url('/contact-us') }}"><button type="button">Explore More</button></a>
 			</div>
 		</div>
 	</div>
 </div>
+
+@if(!empty($categoryData))
 <div class="creators-category">
 	<div class="_container">
 		<div class="main">
 			<div class="head">
 				<h2>Browse Creators by Category</h2>
-				<a href="#">All categories <i class="fa-solid fa-arrow-right-long"></i></a>
+				<a href="#">All Categories <i class="fa-solid fa-arrow-right-long"></i></a>
 			</div>
 			<div class="_flex">
-				<div class="cols">
-					<img src="{{ url('public/frontend') }}/img/animation.png" alt="">
-					<h4>Animation</h4>
-					<p>26 Creators</p>
-				</div>
-				<div class="cols">
-					<img src="{{ url('public/frontend') }}/img/technology.png" alt="">
-					<h4>Technology</h4>
-					<p>86 Creators</p>
-				</div>
-				<div class="cols">
-					<img src="{{ url('public/frontend') }}/img/howto.png" alt="">
-					<h4>How to</h4>
-					<p>56 Creators</p>
-				</div>
-				<div class="cols">
-					<img src="{{ url('public/frontend') }}/img/music.png" alt="">
-					<h4>Music</h4>
-					<p>102 Creators</p>
-				</div>
+				@foreach($categoryData as $category)
+				<a class="homepage-category" href="{{ url('creations?category%5B%5D='.$category->category_slug) }}">
+					<div class="cols">
+						<img src="{{ url('public/'.$category->path) }}" alt="">
+						<h4>{{ $category->category_name }}</h4>
+						<!-- <p>26 Creators</p> -->
+					</div>
+				</a>
+				@endforeach
 			</div>
 		</div>
 	</div>
 </div>
+@endif
+
+@if(!empty($jobsData))
 <div class="trending-jobs">
 	<div class="_container">
 		<div class="main">
 			<div class="head">
-				<h2>Trending Jobs</h2>
-				<a href="#">All Categories <i class="fa-solid fa-arrow-right-long"></i></a>
+				<h2>Trending Creations</h2>
+				<a href="{{ url('/creations') }}">All Creations <i class="fa-solid fa-arrow-right-long"></i></a>
 			</div>
 			<div class="trending-jobs-cards">
+				@foreach($jobsData as $jobs)
 				<div class="_card">
-					<img src="{{ url('public/frontend') }}/img/elem-1.png" alt="">
-					<span class="like"><i class="fa-solid fa-heart"></i></span>
+					<!-- <img src="{{ url('public/frontend') }}/img/elem-1.png" alt=""> -->
+					<span class="like">
+						<i onclick="saveJob(this, {{ $jobs->id }})" data-token="{{ @csrf_token() }}" class="fa fa-heart likes-click {{ (isJobSaved($jobs->id))? 'like-bg':''; }}"></i>
+					</span>
 					<div class="detail">
-						<span class="date">21/12/2022</span>
-						<h4>Project 3D Introduction</h4>
-						<p>Lorem ipsum dolor sit amet consectetur. Erat aliquet sem ultrices pelientesque mattis.</p>
+						<div class="faizan">
+							<span class="date">Posted {{ getHoursDays($jobs->created_at); }}</span>
+							<h4>{{ $jobs->title }}</h4>
+							<p>{{ \Illuminate\Support\Str::limit($jobs->job_brief, 200, $end='...') }}</p>
+						</div>
 						<div class="_flex">
-							<span><img src="{{ url('public/frontend') }}/img/dollar.png" alt="">235</span>
-							<a href="#" class="butn">Apply Now</a>
+							<span><img src="{{ url('public/frontend') }}/img/category.png" alt="">{{ $jobs->category_name }}</span>
+							<a href="{{ url('creations/'.$jobs->slug) }}" class="butn">View Details</a>
 						</div>
 					</div>
 				</div>
-				<div class="_card">
-					<img src="{{ url('public/frontend') }}/img/elem-2.png" alt="">
-					<span class="like"><i class="fa-solid fa-heart"></i></span>
-					<div class="detail">
-						<span class="date">21/12/2022</span>
-						<h4>Project 3D Introduction</h4>
-						<p>Lorem ipsum dolor sit amet consectetur. Erat aliquet sem ultrices pelientesque mattis.</p>
-						<div class="_flex">
-							<span><img src="{{ url('public/frontend') }}/img/dollar.png" alt="">235</span>
-							<a href="#" class="butn">Apply Now</a>
-						</div>
-					</div>
-				</div>
-				<div class="_card">
-					<img src="{{ url('public/frontend') }}/img/elem-3.png" alt="">
-					<span class="like"><i class="fa-solid fa-heart"></i></span>
-					<div class="detail">
-						<span class="date">21/12/2022</span>
-						<h4>Project 3D Introduction</h4>
-						<p>Lorem ipsum dolor sit amet consectetur. Erat aliquet sem ultrices pelientesque mattis.</p>
-						<div class="_flex">
-							<span><img src="{{ url('public/frontend') }}/img/dollar.png" alt="">235</span>
-							<a href="#" class="butn">Apply Now</a>
-						</div>
-					</div>
-				</div>
-				<div class="_card">
-					<img src="{{ url('public/frontend') }}/img/elem-1.png" alt="">
-					<span class="like"><i class="fa-solid fa-heart"></i></span>
-					<div class="detail">
-						<span class="date">21/12/2022</span>
-						<h4>Project 3D Introduction</h4>
-						<p>Lorem ipsum dolor sit amet consectetur. Erat aliquet sem ultrices pelientesque mattis.</p>
-						<div class="_flex">
-							<span><img src="{{ url('public/frontend') }}/img/dollar.png" alt="">235</span>
-							<a href="#" class="butn">Apply Now</a>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
 </div>
+@endif
+
 <div class="someting-done">
 	<div class="_container">
 		<h2 class="head">Need something done?</h2>
 		<div class="_flex">
 			<div class="cols">
 				<span class="icon"><img src="{{ url('public/frontend') }}/img/icon-1.png" alt=""></span>
-				<h4>Post a job</h4>
+				<h4>Post a Creation</h4>
 				<p>Lorem Ipsum dolor sit amet consectetur eget sit quis eget at augue eu.</p>
 			</div>
 			<div class="cols">
 				<span class="icon"><img src="{{ url('public/frontend') }}/img/icon-2.png" alt=""></span>
-				<h4>Select Creator</h4>
+				<h4>Find Creator</h4>
 				<p>Lorem Ipsum dolor sit amet consectetur eget sit quis eget at augue eu.</p>
 			</div>
 			<div class="cols">
@@ -127,109 +136,97 @@
 				<h4>Pay Safely</h4>
 				<p>Lorem Ipsum dolor sit amet consectetur eget sit quis eget at augue eu.</p>
 			</div>
-			<div class="cols">
+			<!-- <div class="cols">
 				<span class="icon"><img src="{{ url('public/frontend') }}/img/icon-4.png" alt=""></span>
 				<h4>Award Project</h4>
 				<p>Lorem Ipsum dolor sit amet consectetur eget sit quis eget at augue eu.</p>
-			</div>
+			</div> -->
 			<div class="cols">
 				<span class="icon"><img src="{{ url('public/frontend') }}/img/icon-5.png" alt=""></span>
-				<h4>24x7 Help</h4>
+				<h4>Need Help</h4>
 				<p>Lorem Ipsum dolor sit amet consectetur eget sit quis eget at augue eu.</p>
 			</div>
 		</div>
 	</div>
 </div>
+
+@if(!empty($creatorsData))
 <div class="winning">
 	<div class="_container">
 		<div class="main">
 			<div class="head">
-				<h2>Award Winning Projects</h2>
-				<a href="#">Explore All <i class="fa-solid fa-arrow-right-long"></i></a>
+				<h2>Creator Profiles</h2>
+				<a href="{{ url('/creators') }}">Explore All <i class="fa-solid fa-arrow-right-long"></i></a>
 			</div>
-			<div class="_flex">
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-1.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
+			<div class="profile_listing_inner {{ (count($creatorsData) > 4)? 'trending-profiles':'' }}">
+					@foreach($creatorsData as $creator)
+					@php
+					$profileImg = url('public/frontend/img/profile-img.png');
+
+					if(!empty($creator->profile_picture)) {
+						$profileImg = url('public/').$creator->profile_picture;
+					}
+
+					$expertiseList = '';
+
+					if(!empty($creator->expertise)) {
+						$getExpertise = explode(',', $creator->expertise);
+						$expertiseList = App\Models\CategoryModel::select(DB::raw("GROUP_CONCAT(category_name SEPARATOR ', ') as expertiseList"))->whereIn('id', $getExpertise)->first();
+
+						$getExpertise = json_decode($expertiseList);
+						$expertiseList = (isset($getExpertise->expertiseList))? $getExpertise->expertiseList:'';
+					}
+
+				@endphp
+				<div class="profile_listing_card active">
+					<div class="profile_listing-card_inner">
+						<div class="profile_listing_card_img"><img src="{{ $profileImg }}"></div>
+						<div class="profile_listing-card_inner_content">
+							<h2>{{ $creator->first_name.' '.$creator->last_name }} 
+								
+								@if(!empty($creator->badge_id))
+								<span>
+									<img src="{{ getImg($creator->badge_img) }}">
+								</span>
+								@endif
+
+							</h2>
+							
+							@if(!empty($creator->tag_line))
+							<p class="ads-p">{{ $creator->tag_line }}</p>
+							@endif
+
+							<div class="profile_listing_location_sec">
+								
+								<div class="pl_content">
+									<p>Total Jobs</p>
+									<h3>125+</h3>
+								</div>
+								<div class="pl_content">
+									<p>Rating</p>
+									<h3>4.2</h3>
+								</div>
 							</div>
+							
+							<div class="profile_listing-expert">
+								<p>Expert in:</p>
+								<h2>{{ ($expertiseList)? $expertiseList:'-' }}</h2>
+							</div>
+
+							@if(!empty($creator->about))
+							<p class="profile-p">{{ $creator->about }}</p>
+							@endif
+							<a href="{{ url('/creators/'.$creator->id) }}" class="profile_listing_btn">View Profile</a>
 						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
 					</div>
 				</div>
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-2.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
-							</div>
-						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
-					</div>
-				</div>
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-3.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
-							</div>
-						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
-					</div>
-				</div>
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-4.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
-							</div>
-						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
-					</div>
-				</div>
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-5.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
-							</div>
-						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
-					</div>
-				</div>
-				<div class="cols hov_card">
-					<img src="{{ url('public/frontend') }}/img/project-6.png" alt="" class='img'>
-					<div class="_flex hov">
-						<div class="title">
-							<h4>Project Title</h4>
-							<div class="_flex user">
-								<img src="{{ url('public/frontend') }}/img/user-img.png" alt="">
-								<p>Alen John</p>
-							</div>
-						</div>
-						<img src="{{ url('public/frontend') }}/img/award-img.png" alt="" class="award-img">
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
 </div>
+@endif
+
 <div class="creators">
 	<div class="_container">
 		<div class="angle-main">
@@ -258,13 +255,13 @@
 								<p>check any pro's work samples, client reviews, and identity verification.</p>
 							</div>
 						</li>
-						<li>
+						<!-- <li>
 							<img src="{{ url('public/frontend') }}/img/creator-icon-4.png" alt="">
 							<div class="detail">
 								<h4>Pay after hiring</h4>
 								<p>check any pro's work samples, client reviews, and identity verification.</p>
 							</div>
-						</li>
+						</li> -->
 						<li>
 							<img src="{{ url('public/frontend') }}/img/creator-icon-5.png" alt="">
 							<div class="detail">
@@ -282,7 +279,7 @@
 							<li><img src="{{ url('public/frontend') }}/img/tick.png" alt="">Quality work done quickly</li>
 							<li><img src="{{ url('public/frontend') }}/img/tick.png" alt="">Verified creators across the world</li>
 							<li><img src="{{ url('public/frontend') }}/img/tick.png" alt="">Secure payments everytime</li>
-							<li><img src="{{ url('public/frontend') }}/img/tick.png" alt="">24x7 support</li>
+							<li><img src="{{ url('public/frontend') }}/img/tick.png" alt="">Need Support</li>
 						</ul>
 					</div>
 				</div>
@@ -295,9 +292,9 @@
 		<div class="_flex">
 			<div class="content">
 				<h2 class="head">What is Open Label</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in rephenderit in voluptate velit esse cillium dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in rephenderit in voluptate velit esse cillium dolore eu fugiat nulla pariatur.</p>
-				<a href="#" class="butn">Know More</a>
+				<p>Open Label is a new app on the market that is taking TikTok promotion to the next level. This app utilizes TikTok's in-app features to help artists get their music heard by thousands of people. By using it’s third-party services, the app helps artists get their songs to go viral on tiktok, resulting in a huge surge in streams for their music.</p>
+				<p>This is especially useful for up-and-coming artists who may not have the resources or reach of more established acts. With this app, even the most unknown artists can see their music reach new heights of popularity and get the recognition they deserve. It's truly a game-changer for anyone looking to make a splash in the music industry.</p>
+				<a href="{{ url('/about-us') }}" class="butn">Know More</a>
 			</div>
 			<div class="img">
 				<img src="{{ url('public/frontend') }}/img/open-label-img.png" alt="">
@@ -491,8 +488,8 @@
 			</div>
 			<div class="content">
 				<h2>Find Creators to grow <br> you business</h2>
-				<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. <br> Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-				<a href="creator-profile.html" class="butn">Find Creators</a>
+				<p>Create meaningful connections, unlock creativity, and grow creatively by collaborating with creators.</p>
+				<a href="{{ url('creators') }}" class="butn">Find Creators</a>
 			</div>
 		</div>
 	</div>

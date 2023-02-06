@@ -110,6 +110,40 @@
 											</div>
 										</div>
 									</div>
+
+									<div class="row mb-6">
+										<label class="col-lg-4 col-form-label fw-semibold fs-6">Badge</label>
+										<div class="col-lg-8">													
+											<div class="row">
+												<div class="col-lg-12 fv-row">
+													<select name="badge" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Badge" name="badge">
+														<option value="">Select Badge</option>
+														@if(!empty($badgeList))
+															@foreach($badgeList as $badge)
+																<option {{ ($userData->badge_id == $badge->id)? 'selected':''; }} value="{{ $badge->id }}">{{ $badge->badge_name }}</option>
+															@endforeach
+														@endif
+													</select>
+													<span id="badgeErr" class="error"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row mb-6">
+										<label class="col-lg-4 col-form-label required fw-semibold fs-6">Account Status</label>
+										<div class="col-lg-8">													
+											<div class="row">
+												<div class="col-lg-12 fv-row">
+													<select name="accountStatus" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+														<option {{ $userData->account_status == 'active'? 'selected':''; }} value="active">Active</option>
+														<option {{ $userData->account_status == 'inactive'? 'selected':''; }} value="inactive">Inactive</option>
+													</select>
+													<span id="accountStatusErr" class="error"></span>
+												</div>
+											</div>
+										</div>
+									</div>
 									
 								</div>
 								<!--end::Card body-->

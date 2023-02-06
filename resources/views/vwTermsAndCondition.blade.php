@@ -1,505 +1,316 @@
 @include('vwHeader')
+	
+	<style type="text/css">
+		p, h6 {
+			text-align: justify;
+		}
+
+		p {
+			margin-bottom: 1rem;
+		}
+
+		ul li {
+			font-size: 16px;
+		    line-height: 30px;
+		    font-weight: 500;
+		    color: #858181;
+		    text-align: justify;
+		    margin-left: 3rem;
+		}
+	</style>
 
 	<div class="_container">
 		<div class="about-tiktok-banner-inner">
 			<div class="tiktok-text-sec">
 				
 				<div class="how-it-works-text">
+					
+					<h6>User Agreement</h6>
 
-		            <h6 style="text-align: justify;">TERMS OF SERVICE</h6>
+					<p>This is important: This User Agreement (“Agreement”) contains important information about your legal rights, remedies, and obligations, and is a legally binding agreement between you (“you” or “User”) and Open-label. (“Open-label,” “we”, or “us”), Open-label Escrow Inc. (“Open-label Escrow”), and to the extent,, governing your use of Open-label’s Site and Site Services (collectively, “Services”).You understand that by using the Open-label Site or Site Services (which generally means using in any way our work marketplace Open-label.com or our applications), and by clicking accept when prompted on the Site, you agree to be bound by all agreements which constitute Open-label’s Terms of Service, and you agree that the “Terms of Service” means every agreement linked herein and includes the Fee and ACH Authorization Agreement, Privacy Policy, Terms of Use, applicable Escrow Instructions and this User Agreement, including Section 15 which contains an arbitration agreement and class action waiver that applies to claims brought against Open-label in the United States. You have an opportunity to opt out of arbitration as provided in Section 15. This Agreement also incorporates, for any User using the Open-label Direct Contract Service, Open-label Direct Contract Terms and Direct Contract Escrow Instructions, and for any User using the Any Hire Services, the Any Hire Terms and the Any Hire Escrow Instructions. You should read all of our terms carefully because you are promising not to break any agreements in the Terms of Service.</p>
 
-					<p style="text-align: justify;">These Terms of Service, alongside any guideline, policy, Frequently Asked Questions (FAQ) and any content displayed on www.OpenLabel.app (the "Website"), forms a legal contract between you ("You," "Your," "User," "Buyer," "Freelancer," "Agency" along with all grammatical variations, unless the context requires otherwise) and WorkBoxHub Portal, a company established under the laws of the United Arab Emirates and registered with the Economic Department of the Government of Dubai with License No 890886. ("OpenLabel", "We", "Us" along with all grammatical variations, unless the context requires otherwise). (hereinafter &nbsp;referred to as “Terms of Service”)</p>
+					<p>If you want to use our work marketplace or any of our services (which we refer to altogether as Services), whether just by looking around or by registering an account, you must first read and agree to this Agreement (including the dispute resolution and arbitration provisions in Section 15). If you don’t understand this Agreement or you don’t agree to all of its terms and conditions, you may not use our Services. If you do not understand or agree to this Agreement, do not click to accept this Agreement, “Sign Up”, “Create My Account”, or similar, and do not visit Open-label.com, use our mobile applications, or otherwise use our Services. If you are using our Services on behalf of a business or legal entity, you may only do so if you have authority to agree to the Terms of Service on behalf of that business or legal entity.</p>
 
-					<p style="text-align: justify;">By browsing or using the services provided on the Website you agree to be legally obligated by these Terms of Service. We maintain the right, at our sole discretion, to amend these Terms of Service and all related contents and statistics at any time by way of updating these Terms of Service or any information. The up-to-date Terms of Service will be effective as soon as they are posted ("Effective Date").</p>
+					<p>To make these terms a little easier to understand, we capitalize certain terms and capitalizing them means they have a special meaning. Section 16 provides the definitions of some capitalized terms and others are defined throughout the Terms of Service (look for quotation marks and bold font).</p>
 
-					<p style="text-align: justify;">BY BROWSING AND USING THE WEBSITE YOU HEREBY AGREE TO BE BOUND BY THE THESE TERMS OF SERVICE. YOU MUST NOT ACCESS OR USE THE WEBSITE IF YOU DO NOT AGREE WITH THESE TERMS OF SERVICE.</p>
+					<h6>1.1 REGISTRATION</h6>
 
-					<h6 style="text-align: justify;"><span style="font-size: 16px;">IMPORTANT DEFINITION</span></h6>
+					<p>You must register for an account to have full access to our Services, and your registration is subject to our approval.</p>	
 
-					<p style="text-align: justify;">A.&nbsp; &nbsp;“Agency” (along with other grammatical variations), means and includes a business entity holding a valid trade license issued by the Government of UAE, offering its services on Website by creating Picks, as per the terms of this Terms of Service.</p>
+					<p>You must register for an account with us (“<strong>Account</strong>”) to access and use certain portions of our Services. Registered users of our Services are “<strong>Users</strong>”, and unregistered users are “Site Visitors”.</p>
 
-					<p style="text-align: justify;">B.&nbsp; &nbsp;“Buyer” is the user who purchases the services of freelancers and/or Agency from the Website.</p>
+					<p>Your Account registration is subject to approval by Open-Label. We reserve the right to decline a registration either to join Open-Label or to add an Account of any type, for any lawful reason, including supply and demand, cost to maintain data, or other business considerations.</p>
 
-					<p style="text-align: justify;">C.&nbsp; &nbsp;“Deliverables” means the work submitted by any Agency/ Freelancer, as applicable to the Buyer with respect to any Orders.</p>
+					<h6>1.2 Eligibility</h6>
 
-					<p style="text-align: justify;">D.&nbsp; &nbsp;“Dispute” means issues pertaining to Orders with Freelancers.</p>
+					<p><strong>Open-label</strong> offers the Services for your business purposes only and not for personal or consumer use. By registering for an Account or by using our Services, you represent that you: (a) are doing business under your own name as a self-employed individual/sole proprietor or are an employee or agent of an independent business (such as a corporation, limited liability company, or other entity); (b) will use our Services for business purposes only; (c) will comply with any licensing, registration, or other requirements with respect to your business, or the business for which you are acting, and any offering or provision of Creator Services; and (d) are either a legal entity or an individual who is at least 18 years old (or the age of majority in your country if the age of majority is over 18), and that you can form legally binding contracts.</p>
 
-					<p style="text-align: justify;">E.&nbsp; &nbsp;“Freelancer” is an individual who offers services on the Website in an individual capacity by creating Picks as per the terms of this Terms of Service.</p>
+					<h6>1.3 ACCOUNT PROFILE</h6>
 
-					<p style="text-align: justify;">F.&nbsp; &nbsp;“Orders” are the formal agreements executed between Buyer and Freelancer &amp; Buyer and Agency after a Buyer purchases Freelancer or Agency’s Picks from the Website.&nbsp;</p>
+					<p>To register for an Account to use our Services, you must complete a User profile (“<strong>Profile</strong>”), which you consent to be shown to other Users and, unless you change your privacy settings, to be shown to the public. You agree to provide accurate and complete information on your Profile—and on all registration and other forms you access while using our Services or provide to us—and you agree to keep that information current. You agree not to provide any false or misleading information about your identity or location, your business, the beneficial owner(s) of your business, your skills, or the services your business provides, and you agree to correct any information that is or becomes false or misleading. We reserve the right to suspend or terminate the Account, or access to our Services, of anyone who provides false, inaccurate, or incomplete information in creating, marketing, or maintaining a Profile or an Account.</p>
 
-					<p style="text-align: justify;">G.&nbsp; “Picks” is a short profile that the Agency and the Freelancer create on the Website that outlines details that pertain to the services offered and sold by the Agency and Freelancer (as applicable) to the Buyer through www.OpenLabel.app .</p>
+					<h6>1.4 ACCOUNT TYPES</h6>
 
-					<p style="text-align: justify;">H.&nbsp; &nbsp;“Intellectual Property” shall mean and include without limitation, computer software, patents, trademarks, service marks, copyrights, creations, writings, lectures, illustrations, photographs, motion pictures, any inventions, discoveries, designs, formulas, know-how, processes, business methods, technological innovations, scientific and mathematical models, improvements to all such property, and all recorded material defining, describing, or illustrating all such property, whether in hard copy or electronic form.</p>
+					<p>We offer two types of accounts (“<strong>Account Types</strong>”): Artists, Creators, (Both can be individuals or company). Once you register for an Account, you can add Account Types without re-registering. You promise to register for only one Account that requires a unique log in. This Account will house all of your Account Types. Never share your Account password with anyone; you can give permissions to other Users to act under your Account Types as Team Members or Agency Members if needed. If you create an Account as an employee or agent on behalf of a company, you represent and warrant that you are authorized to enter into binding contracts, including the Terms of Service, on behalf of yourself and the company. More than one person can create an Account as an employee or agent on behalf of the same company.</p>
 
-					<p style="text-align: justify;">I.&nbsp; &nbsp;"You," "Your," and "User" means Buyer, Freelancer, Agency and any individual who visits and signs up on the Website.</p>
+					<h6>1.4.1 Artist ACCOUNT</h6>
 
-					<p style="text-align: justify;">J.&nbsp; &nbsp;“User Content” means any content, feedback, information, images, videos or other content or information that you post on any part of the Website or provide to OpenLabel, including such content or any information that is posted as a result of queries posted by Users and Website visitors.</p>
+					<p>You can register for an Account or add an Account Type to use the Services as a Artist (a “<strong>Artist Account</strong>”). Artist Account Types have a feature that allows the account owner to give permissions to other Users (“<strong>Team Members</strong>”) to act on behalf of the Artist Account. Each Team Member must have their own Account to be added as a Team Member on the Artist Account.</p>
 
-					<p style="text-align: justify;">K.&nbsp; &nbsp;“Service Provider” means Agency and Freelancer shall hereinafter be collectively referred to as Service Providers.</p>
+					<h6>1.5 IDENTITY AND LOCATION VERIFICATION</h6>
 
-					<p style="text-align: justify;">L.&nbsp; &nbsp;“Service Fees” means fees charged by OpenLabel, that include the following:</p>
+					<p>You will allow us to verify your identity, location, and business affiliations from time to time.</p>
 
-					<p style="text-align: justify;">a.&nbsp; &nbsp;Freelancer: Five (5) % percent of the gross income that is generated by the Freelancer on each Order of the Pick and;</p>
+					<p>When you register for an Account and periodically thereafter, your Account will be subject to verification, including but not limited to validation against third-party databases or the verification of one or more official government or legal documents that confirm your identity, your location, and your ability to act on behalf of your business on Open-Label. You authorize Open-Label, directly or through third parties, to make any inquiries necessary to validate your identity, your location, and confirm your ownership of your business, email address or financial accounts, subject to applicable law. When requested, you must timely provide us with complete information about yourself and your business, which includes providing official government or legal documents, and cooperating with other reasonable requests we make to verify your identity. During verification some Account features may be temporarily limited but will be restored if verification is successfully completed.</p>
 
-					<p style="text-align: justify;">b.&nbsp; &nbsp;Buyer: Three (4) % percent of the amount charged from the Buyer when he purchases Picks from Freelancer and Agency. This fee covers administration costs</p>
+					<h6>1.6 USERNAMES AND PASSWORDS</h6>
 
-					<h6 style="text-align: justify;">USER ACCOUNTS</h6>
+					<p>You will keep your username and password secret and will not share them, and you will not use anyone else’s username and password. Each person who uses our Services must register for their own Account with a username and password. You are responsible for safeguarding and maintaining the confidentiality of your username and password, and agree not to share your username or password with anyone. You are responsible for safeguarding your username and password and for any use of our Services with your username and password. You agree to notify us immediately if you suspect or become aware of any unauthorized use of your Account or any unauthorized access to your password. You further agree not to use the Account or log in with the username and password of another User.</p>
 
-					<p style="text-align: justify;">To use and have access to all of the Website's functionalities, you need to make a User Account in terms of this Terms of Service. You can register either as a Buyer or as a Freelancer or as an Agency under the user Account registration.</p>
+					<h6>2. PURPOSE OF OPEN-LABEL</h6>
 
-					<p style="text-align: justify;">You agree to provide accurate, correct, up to date and complete information on your profile and all registration and other forms that you access on the Website and update your information to maintain its accuracy, truthfulness, and completeness. The Users must refrain from creating an account for fraudulent or misleading purposes.&nbsp;</p>
+					<p>What we do and do not do when providing our Services and some of your responsibilities when using our Services.</p>
 
-					<p style="text-align: justify;">Every User shall at the time of registration as aforesaid choose a password for his/ its Account. The liability for safeguarding and maintaining the confidentiality of such a password shall be entirely on the said User.</p>
+					<p>The Open-Label Site is a work marketplace where Artists and Creators can identify each other and advertise, buy, and sell Video Services online. Subject to the Terms of Service,Open-Label provides the Services to Users, including hosting and maintaining the Open-Label Site, facilitating the formation of Service Contracts and Direct Contracts, and assisting Users in resolving disputes which may arise in connection with those contracts. When a User enters a Service Contract, the User agrees to use the Services exclusively to invoice, receive, and pay any amounts owed under the Service Contract.</p>
 
-					<p style="text-align: justify;">To the extent User provides its Confidential Information to the other party, the recipient will protect the confidentiality and secrecy of the discloser’s Confidential Information with the same degree of care as it uses for protecting its Confidential Information. On a User’s written request, the party who received Confidential Information shall promptly destroy or return the disclosing party’s Confidential Information and any copies thereof contained in or on its premises, systems.</p>
+					<h6>3. TAXES AND BENEFITS</h6>
 
-					<p style="text-align: justify;">The Buyer shall be fully liable for your acts and omissions, including obligations and liabilities relating to making payments for Orders. We are not liable for any acts or omissions by you in connection with the User’s account.</p>
+					<p>Creators are responsible for paying their own taxes, obtaining their own insurance, and ensuring they comply with applicable laws and regulations.</p>
 
-					<p style="text-align: justify;">You authorize OpenLabel, directly or through third parties, to make necessary inquiries to validate your identity and location and confirm your ownership of your email address or financial accounts, subject to applicable law.&nbsp;</p>
+					<p>Creators acknowledges and agrees that Creator is solely responsible for: (a) all tax liability associated with payments received from Creators’s Artists and through Open-Label, and that Open-Label will not withhold any taxes from payments to Creator unless required to under applicable law; (b) obtaining any liability, health, workers’ compensation, disability, unemployment, or other insurance needed or required by law, and that Creator  is not covered by or eligible for any insurance from Open-Label; (c) determining and fulfilling Creator’s obligations under applicable laws and regulations with respect to invoicing and reporting, collecting, or remitting any applicable taxes or charges; and (d) if outside of the United States, determining if Open-Label is required by applicable law to withhold any amount of the Creator Fees and notifying Open-Label of any such requirement and indemnifying Open-Label for any requirement to pay any withholding amount to the appropriate authorities (including penalties and interest). In the event of an audit of Open-Label, Creator agrees to promptly cooperate with Open-Label and provide copies of Creator’s tax returns and other documents as may be reasonably requested for purposes of such audit, including but not limited to records showing Creator is engaging in an independent business as represented to Open-Label.</p>
 
-					<p style="text-align: justify;">OpenLabel has no obligation to provide you with multiple Buyer, Freelancer and Agency Accounts.</p>
+					<h6>4 MARKETPLACE FEEDBACK AND USER CONTENT</h6>
 
-					<p style="text-align: justify;">Nothing in this Agreement is intended to or shall be construed to create a joint venture, partnership, franchisor/franchisee, or employer-employee relationship between OpenLabel and a User. The Buyer is solely responsible for and has complete discretion with regard to the selection of any Pick from a Freelancer or Agency.</p>
+					<p>Users publish and ask Open-Label to publish information and feedback on the Site. We are not responsible for that content, and your publication or use of it is at your own risk.</p>
 
-					<p style="text-align: justify;">OpenLabel does not, in any way, supervise, direct, control, or evaluate Service Providers, their work, identity, statements, qualifications, quality of service, and is not responsible for any Orders and Deliverables.</p>
+					<p>You acknowledge and agree that Users publish and request Open-Label to publish on their behalf information on the Site such as feedback, composite feedback, or geographical location. Such information is based on data that Creators or Artists voluntarily submit to Open-Label and does not constitute an introduction, endorsement, or recommendation by Open-Label. You agree that Open-Label is not responsible for verifying such information and provides it solely for the convenience of Users, but providing false or misleading information violates this Agreement and may result in revocation of your access to use the Site Services.</p>
 
-					<p style="text-align: justify;">OpenLabel may, after the creation of the account by the Buyer, Freelancer or the Agency, as the case may be, request them to provide documents, evidence and other information as may be required by relevant regulatory authorities under the applicable “know your customer” and anti-money laundering rules and regulations.&nbsp;</p>
+					<p>You acknowledge and agree that User feedback benefits the marketplace and its Users, and you specifically request and agree that Open-Label may make available to other Users individual and composite feedback about Users, including you. You acknowledge and agree that any feedback results for you, including your Job Success Score and other User Content highlighted by Open-Label on the Site or otherwise (“<strong>Composite Information</strong>”), may include User comments, User ratings, indicators of User satisfaction, and other feedback left by other Users. Open-Label is not responsible for monitoring, influencing, contributing to or censoring these opinions. You agree to notify Open-Label of any error or inaccurate statement in your feedback results, including the Composite Information, and you agree that Open-Label may rely on the accuracy of such information if you do not. Open-Label provides its feedback system as a means for Users to share their working experiences with and opinions of other Users publicly, and you acknowledge and agree that posted composite or compiled feedback and any other Composite Information relates only to the business advertised in the Profile and not to any individual person. You agree not to use the Composite Information to make any employment, credit, credit valuation, underwriting, or other similar decision about any other User.</p>
 
-					<p style="text-align: justify;">You (Buyer, Freelancer and the Agency) hereby authorizes OpenLabel to retain certain information about you and to obtain information about you from third party agencies such as consumer reporting agencies, consumer credit bureaus, to use in connection with the Website. You (Buyer, Freelancer and the Agency) hereby authorize OpenLabel to use and retain this information in accordance with our policies and regulations.&nbsp;</p>
+					<p>By using the Services, you may encounter content or information that might be inaccurate, incomplete, delayed, misleading, illegal, offensive or otherwise harmful. Open-Label generally does not review or monitor User Content. You agree that we are not responsible for User Content. We cannot always prevent the misuse of our Services, and you agree that we are not responsible for any such misuse. Open-Label reserves the right (but is under no obligation) to remove posted feedback or information that Open-Label determines violates the Terms of Service or negatively affects our marketplace, diminishes the integrity of the feedback system or otherwise is inconsistent with the business interests of Open-Label</p>
 
-					<p style="text-align: justify;">The Users (Buyer, Freelancer and the Agency) shall be solely responsible for assessing and verifying the identity and trustworthiness of the source and content of any third party communications. OpenLabel shall not be responsible for verifying and makes no representations or warranties regarding any third party communications on the Website and you (Buyer, Freelancer and the Agency) hereby release us from any liability for any third party communications which you may receive or any actions which you may take as a result of any third party communication you receive on the Website.</p>
+					<h6>5 .CONTRACTUAL RELATIONSHIP BETWEEN ARTIST AND CREATOR</h6>
 
-					<p style="text-align: justify;">Without limiting the foregoing, OpenLabel reserves the right to close, suspend or limit your access to your Account. without notice;&nbsp;</p>
+					<p>if a Artist and a Creator decide to enter into a Service Contract, the contract is a contractual relationship directly between the Artist and the Creator; Open-Label is not responsible for and is not a party to any Service Contract and under no circumstances will any such contract create an employment or any service relationship between Open-Label and any User.</p>
 
-					<p style="text-align: justify;">1.&nbsp; &nbsp;In the event you breach or are acting in breach of these Terms of Service;</p>
+					<p>With respect to any Service Contract, Artists and Creators may enter into any agreements that they deem appropriate (e.g., confidentiality agreements, invention assignment agreements, assignment of rights, etc.), provided that those agreements do not conflict with, narrow, or expand Open-Label’s rights and obligations under the Terms of Service, including this Agreement and the applicable Escrow Instructions.</p>
 
-					<p style="text-align: justify;">2.&nbsp; &nbsp;In the event you breach legal liabilities (actual or potential), including infringing someone else’s Intellectual property rights;</p>
+					<p>The parties to a Service Contract can, if the parties prefer, agree to the Optional Service Contract Terms in whole or in part, in addition to or instead of other such agreements. The parties to a Service Contract expressly agree that the Optional Service Contract Terms will and do apply to their contract to the extent that they have not agreed to other terms or agreements that conflict with the Optional Service Contract Terms. Users are solely responsible for deciding whether to use the Optional Service Contract Terms, and Open-Label does not assume any responsibility for any consequence of using the Optional Service Contract Terms, which are provided as a sample only and may not be appropriate for all jurisdictions or all contracts. The Optional Service Contract Terms are not intended to and do not (a) constitute legal advice, (b) create an attorney-Artist relationship, or (c) constitute advertising or a solicitation of any type. You should seek legal advice from a licensed attorney for your particular needs.</p>
 
-					<p style="text-align: justify;">3.&nbsp; &nbsp;In the event we have suspicion or reason to believe that you are engaged, in fraudulent, or illegal activities;</p>
+					<h6>6  DISPUTES AMONG USERS</h6>
 
-					<p style="text-align: justify;">4.&nbsp; &nbsp;In the event you fail to respond to our Account verification requests;</p>
+					<p>You agree to try to resolve your disputes with other Users by following the dispute resolution process in the Escrow Instructions that apply to your contract.</p>
 
-					<p style="text-align: justify;">5.&nbsp; &nbsp;In the event you do not complete Account verification when requested within one week of the date of request;</p>
+					<p>For disputes arising between Artists and Creators, you agree to abide by the dispute resolution process that is explained in the Escrow Instructions that apply to your particular Service Contract or Direct Contract. If that process does not resolve your dispute, you may pursue your dispute independently, but you acknowledge and agree that Open-Label will not and is not obligated to provide any further dispute resolution assistance.</p>
 
-					<p style="text-align: justify;">6.&nbsp; &nbsp;In the event you become the subject of a sanctions regime, or our banking and payment relationships otherwise preclude us from conducting business with you;</p>
+					<p>If Creator or Artist seeks an order from an arbitrator or court that might direct Open-Label, Open-Label Escrow, or our Affiliates to take or refrain from taking any action with respect to an Escrow Account, that party will (a) give us at least five (5) business days’ prior notice of the hearing on the order; (b) include in any such order a provision that, as a precondition to any obligation affecting Open-Label or Open-Label Escrow, we be paid in full for any amounts to which we would otherwise be entitled; and (c) include in any such order a provision that, as a precondition to any obligation affecting Open-Label or Open-Label Escrow, Open-Label be paid for the reasonable value of the services the order obligates us to undertake.</p>
 
-					<p style="text-align: justify;">7.&nbsp; &nbsp;In the event you create multiple User accounts and are impersonating your identity&nbsp;</p>
+					<h6>CONFIDENTIAL INFORMATION</h6>
 
-					<p style="text-align: justify;">8.&nbsp; &nbsp;For other similar reasons.</p>
+					<p>Users can agree to their own confidentiality terms. If they do not, these terms apply. Users agree to keep other Users’ confidential information a secret.</p>
 
-					<p style="text-align: justify;">In the event we close your account due to your breach of these Terms of Service, you can become liable for a certain percentage of fees accrued as described in these Terms of Service.</p>
+					<p>Users may agree to any terms they deem appropriate with respect to confidentiality, including those set forth in the Optional Service Contract Terms. If Users do not agree to their own confidentiality terms,(Confidential Information) applies.</p>
 
-					<p style="text-align: justify;">OpenLabel, in its sole discretion, has the right to suspend or terminate your Account and refuse any and all current or future use of the Website for any reason at any time. OpenLabel reserves the right to refuse use of Website to anyone for any reason at any time.</p>
+					<p>To the extent a User provides Confidential Information to another User, the recipient will take reasonable steps to keep that information confidential. On a User’s written request, the party that received Confidential Information will promptly destroy or return the disclosing party’s Confidential Information and any copies of it contained in or on its premises, systems, or any other equipment otherwise under its control. Users specifically agree that this Section applies to information exchanged for purposes relating to evaluating whether to enter into a Service Contract, even if such contract is never agreed to.</p>
 
-					<p style="text-align: justify;">Users expressly authorize OpenLabel to use their trademarks/copyrights/ designs /logos and other intellectual property owned and/or licensed by them for the purpose of reproduction on the Website, the Users’ Accounts and at such other places as OpenLabel may deem necessary.&nbsp;</p>
+					<h6>7. WORKER CLASSIFICATION</h6>
 
-					<h6 style="text-align: justify;">INTERMEDIARY</h6>
+					<p>Artists, not Open-Label, are responsible for deciding whether to engage Creators as employees or independent contractors.</p>
 
-					<p style="text-align: justify;">By purchasing a Freelancer and/or Agency Picks from our website www.OpenLabel.app you are entering into a direct (legally binding) contractual relationship with the Agency and the Freelancer.&nbsp;</p>
+					<p>Artist is solely responsible for and assumes all liability for determining whether Creators should be engaged as independent contractors or employees and engaging them accordingly. Artist warrants its decisions regarding classification are correct and its manner of engaging Creators complies with applicable laws, regulations, and rules. Open-Label is not responsible for worker classification as between Artist and Creator, and nothing in this Agreement is intended to or should be construed to create a partnership, joint venture, franchisor/franchisee or employer-employee relationship between Open-Label and a User.</p>
 
-					<p style="text-align: justify;">OpenLabel solely acts as an intermediary between the Freelancer/Agency and the Buyer and has no liability with respect to the services performed by them.</p>
+					<h6>8. ARTISTS FEES</h6>
 
-					<p style="text-align: justify;">OpenLabel merely acts as a platform where an Agency and Freelancer create their Picks and the Buyer interested to take their services places Orders through the Website.&nbsp;</p>
+					<p>Artists pay Open-Label a Marketplace Fee for accessing the Services, and for administration and facilitation of payments related to the Creator’s Fees they pay to Creators they engage through the Site, as described.</p>
 
-					<p style="text-align: justify;">We are not deemed as the agents or contractors of any Freelancer and Agency, nor do we endorse any Freelancer and Agency. Our liability is limited to acting as a marketplace.&nbsp;</p>
+					<p>Artists may also choose to pay for access to additional features and Services.</p>
 
-					<p style="text-align: justify;">We act as an independent contractor, and nothing in these terms will create any employment, partnership, joint venture, agency, franchise, or sales representative relationship between us. You do not have any authority to make or accept any offers or representations on our behalf. These Terms of Service will not create an exclusive relationship between you and us. Nothing expressed or mentioned in or implied from these terms is intended or will be construed to give to any person, any legal or equitable right, remedy, or claim. As between you and us, you will be solely responsible for all obligations associated with the use of any third-party service or including compliance with any applicable laws, regulations or terms of use. We are not involved in the relationship between Agency and the Buyer and hence we shall have no responsibility in resolving any disputes between Agency and Buyer related to or arising out of their use of the Website.</p>
+					<h6>9. VAT AND OTHER TAXES</h6>
 
-					<p style="text-align: justify;">We shall not permit the Freelancers and Buyers from OFAC and sanctioned countries to register on the Website and avail its benefits.</p>
+					<p>Open-Label Fees are exclusive of taxes. Open-Label does not collect taxes it is not required to collect, but Open-Label may be required by applicable law to collect certain taxes or levies, including income tax or VAT (which some jurisdictions refer to as GST or local sales taxes). These collection requirements and rates may change based on changes to the law in your area. Any amounts Open-Label is required to collect or withhold for the payment of any such taxes shall be collected in addition to the fees owed to Open-Label under the Terms of Service.</p>
 
-					<h6 style="text-align: justify;">OVERVIEW</h6>
+					<h6>10 PAYMENT TERMS AND ESCROW SERVICES</h6>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Buyers have to make advance payment for purchasing Service Provider’s Pick on OpenLabel</p>
+					<p>This section describes how Open-Label’s Escrow Services work and discusses your agreement to pay Creator Service Fees on Service Contracts and Direct Contracts, what happens if a Artist doesn’t pay, and related topics.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Buyer can purchase Service Provider’s Pick by selecting the order button found below the Pick. &nbsp;</p>
+					<h6>10.1 ESCROW SERVICES</h6>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Service Providers must fulfil their orders, and they shall not cancel any order without reasonable cause. Cancelling orders will affect the Service Provider’s reputation and status.</p>
+					<p>Open-Label Escrow provides escrow services to Users to deliver, hold, and receive payment for a Project, and to pay fees to Open-Label (“Escrow Services”). Open-Label Escrow is a Delaware corporation and a licensed Internet escrow agent that holds California Department of Financial Protection and Innovation License No. 963 5086. The Escrow Services are intended for business use, and you agree to use the Escrow Services only for business purposes and not for consumer, personal, family, or household purposes.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Buyers agree not to offer payments to the Freelancer using any method other than placing an order through www.OpenLabel.app</p>
+					<h6>10.1.1 ESCROW INSTRUCTIONS</h6>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Freelancers shall not accept payments from Buyers using any payment method other than receiving payments through orders placed on OpenLabel.</p>
+					<p>We follow what is in the applicable Escrow Instructions when we give the money held by us in escrow to the Creator or back to the Artist for a Service Contract.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp; OpenLabel retains the right to use all published Deliverables and Logo Designs for OpenLabel marketing and promotion purposes.</p>
+					<p>Open-Label Escrow will use and release funds deposited in an Escrow Account only in accordance with this Agreement and the applicable Escrow Instructions. You acknowledge and agree that Open-Label Escrow acts merely as an Internet escrow agent. Open-Label Escrow has fully delivered the Escrow Services to you if Open-Label Escrow provides the Escrow Services described in this Agreement and the applicable Escrow Instructions. Open-Label Escrow is only obligated to perform those duties expressly described in this Agreement and any applicable Escrow Instructions. Open-Label will release funds from any Escrow Account in reliance on your authorization, this Agreement, and the applicable Escrow Instructions or as required by applicable law.</p>
 
-					<h6 style="text-align: justify;">PICKS</h6>
+					<p><strong>Fixed-Price Projects.</strong> If Users choose fixed-price compensation, then the Users agree that they will be bound by, and Open-Label Escrow will follow, the Fixed-Price Escrow Instructions.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Service Providers have to create Picks on the Website to sell their services.</p>
+					<p><strong>Direct Contracts.</strong> If Users enter into a Direct Contract, then the Users agree that they will be bound by, and Open-Label Escrow will follow, the Direct Contract Escrow Instructions applicable to the contract (Fixed Price).</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;For more details on Picks, you can check Picks page&nbsp;</p>
+					<p>Any Hire Contracts. If Users enter into an Any Hire Contract, then the Users agree that they will be bound by, and Open-Label Escrow will follow, the Any Hire Escrow Instructions.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The content and images used in Picks should be owned by the concerned Service Provider as the case may be. The Service Provider is refrained and prohibited from using copyrighted images or using images downloaded from the internet.</p>
+					<p><strong>Open-Label Payroll Engagements.</strong> If Users use Open-Label Payroll  for a particular Project, then the Staffing Employee is paid directly by the Staffing Provider. A Artist will be invoiced through the Site by the Staffing Provider, and the applicable Escrow Instructions will apply. However, the Artist will not be able to dispute hours reported by the Staffing Employee and there is no dispute waiting period for the disbursement of funds to the Staffing Employee.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;In the event OpenLabel comes to know that the Service Provider uses any images or content in the Picks which results in intellectual property violation of any third party or violation under any other law for the time being in force then the Service Provider shall be personally liable and responsible for such violation.</p>
+					<h6>10.1.2 ESCROW ACCOUNTS</h6>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;The Service Provider’s Picks shall be removed from the Website if they violate the Terms of Services.</p>
+					<p>Open-Label Escrow will create and maintain an account to hold funds for you—called an Escrow Account—based on your needs. You authorize Open-Label Escrow to be your escrow agent, which means to hold your funds and to follow your instructions on the funds held in your Escrow Account.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;OpenLabel, reserves the right to remove the Picks from the Website that:</p>
+					<p>Open-Label Escrow will use and release funds deposited in an Escrow Account only in accordance with this Agreement, the applicable Escrow Instructions, and applicable law. Depending on your needs and the applicable Escrow Instructions, Open-Label Escrow will establish and maintain one of two different types of Escrow Accounts:</p>
 
-					<p style="text-align: justify;">1.&nbsp; &nbsp;Are illegal or Fraudulent services;</p>
+					<p><strong>(A) Artist Escrow Account</strong>. After entering into a Service Contract (hourly or fixed price) or Direct Contract, the first time a Artist makes a payment for a Project, Open-Label Escrow will establish and maintain a “Artist Escrow Account” to hold funds for the Artist to use to make payments for Projects, to receive refunds in connection with Projects, and to make payments to Open-Label.</p>
 
-					<p style="text-align: justify;">2.&nbsp; &nbsp;Infringe Copyright, Trademark, and third party's terms of service reported to OpenLabel.</p>
+					<p><strong>(B) Creator Escrow Account.</strong> After entering into a Service Contract (fixed price) or Direct Contract, the first time a Creator uses the Site to receive payment for a Project, Open-Label Escrow will establish and maintain a “Creator Escrow Account” for Creator to receive payments for Projects, withdraw payments, make payments to Open-Label and issue refunds to Artists.</p>
 
-					<p style="text-align: justify;">3.&nbsp; &nbsp;Offer Adult oriented services, Pornographic, Inappropriate/Obscene</p>
+					<p>You hereby authorize and instruct Open-Label Escrow to act as escrow agent in connection with the Escrow Accounts and the payment, holding, and receipt of funds for each Project and other specified purposes in accordance with the Terms of Service and the applicable Escrow Instructions. Artist and Creator may access current information regarding the status of an Escrow Account on the Site.</p>
 
-					<p style="text-align: justify;">4.&nbsp; &nbsp;Are deceptive, nonsense or spam by nature.</p>
+					<h6>10.1.3 Creator APPOINTMENT OF Open-Label ESCROW AND SUBSIDIARIES AS AGENT</h6>
 
-					<p style="text-align: justify;">5.&nbsp; &nbsp;Are misleading to Buyers.</p>
+					<p>Creators authorize Open-Label Escrow to act for them to collect and hold payments from Artists.</p>
 
-					<p style="text-align: justify;">6.&nbsp; &nbsp;Offer to prepare academic exams or assignments on behalf of Buyers.</p>
+					<p>If you are a Creator and you request payment related to an Hourly Contract or the release of funds from a Fixed-Price Escrow Account, you hereby appoint Open-Label Escrow as your agent to obtain funds on your behalf and credit them to your Creator Escrow Account as you agree in the applicable Escrow Instructions. Because Open-Label Escrow is Creator’s agent, Creator must, and hereby does, fully discharge and credit Creator’s Artist for all payments and releases of funds that Open-Label Escrow receives on Creator’s behalf from or on behalf of such Artist.</p>
 
-					<p style="text-align: justify;">7.&nbsp; &nbsp;Are of extremely low quality.</p>
+					<p>You agree that you will not receive interest or other earnings on the funds held in your Escrow Account. Open-Label, Open-Label Escrow, or our Affiliates may charge or deduct fees, may receive a reduction in fees or expenses charged.</p>
 
-					<p style="text-align: justify;">8.&nbsp; &nbsp;Offer services on the Website through activities that are prohibited by United Arab Emirates laws, regulations, and/or third parties' terms of service, as well as through any marketing activity that affects our relationships negatively with our users or partners.</p>
+					<p><strong>Fixed-Price Contracts.</strong> Artists becomes obligated to pay applicable amounts into the Escrow Account immediately upon sending a Fixed-Price Contract offer (for the full amount or for the first milestone, if milestones are used) or upon activating any additional milestone. When Artist authorizes the payment of the Creator’s Fees for a Fixed-Price Contract under the Fixed Price Service Contract Escrow Instructions or the Fixed Price Direct Contract Escrow Instructions, Artist automatically and irrevocably authorizes and instructs Open-Label or its affiliates Open-Label Escrow . to charge Artist’s Payment Method for the Creator’s Fees.</p>
 
-					<p style="text-align: justify;">9.&nbsp; &nbsp;Are removed for violations mentioned above, may result in the suspension of the Agency or Freelancer’s account from the Website, as the case may be.</p>
+					<p>Artists acknowledges and agrees that for  Fixed-Price Contracts, failure by Artists to decline or dispute an Invoice or request for payment is an authorization and instruction to release payment, as described more fully in the applicable Escrow Instructions.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp; Picks that have been removed for violations shall not be eligible to be restored or edited.</p>
+					<h6>11. NO RETURN OF FUNDS AND NO CHARGEBACKS</h6>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp; We reserve the right to remove any Picks from our search feature due to poor performance and/or user misconduct.</p>
+					<p>Artists agree that, once Open-Label charges their Payment Methods, the charge cannot be refunded except on a condition agreed in the Escrow Instructions. Artists agree not to initiate any chargebacks from their credit card companies, banks, or the like.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Any Pick containing personal details of the Freelancer will violate our Terms of Service and will be removed and will result in Termination of Freelancer’s Account.</p>
+					<p>Artist acknowledges and agrees that Open-Label. may charge or debit Artist’s designated Payment Method for the Creator Fees incurred as described in the applicable Escrow Instructions and the Fee and ACH Authorization Agreement. Once Open-Label or its affiliates Open-Label Escrow. charges or debits the Artist’s designated Payment Method for the Creator Fees, the charge or debit is non-refundable, except as provided in the applicable Escrow Instructions or as otherwise required by applicable law. Artist also acknowledges and agrees that the Terms of Service provide a dispute resolution process as a way for Artist to resolve disputes. To the extent permitted by applicable law, Artist therefore agrees not to ask its credit card company, bank, or other Payment Method provider to charge back any Creator Fees or other fees charged pursuant to the Terms of Service for any reason. A chargeback in breach of this obligation is a material breach of the Terms of Service. If Artist initiates a chargeback in violation of this Agreement, Artist agrees that Open-Label or its affiliates Open-Label Escrow. may dispute or appeal the chargeback, institute collection action against Artist, close Artist’s account, and take such other action it deems appropriate.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Any Pick containing URLs promoting Freelancer’s website content that violates our Terms of Service will be removed.</p>
+					<h6>12. RECORDS OF COMPLIANCE</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Picks must have an image that relates to the services offered. The Service Provider must deliver the same quality of service as shown on their Picks images, video and audio. Recurring deliveries that don’t match the quality shown on the Picks content may lead to the Service Provider’s account becoming permanently disabled.</p>
+					<p>You agree to make and keep all required records.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;All Picks created by the Service Providers shall be subject to our approval. We reserve the right to reject the Picks which violate third party rights and these Terms of Service.&nbsp;</p>
+					<p>You are solely responsible for creation, storage, and backup of your business records. You agree that Open-Label  has no obligation to store, maintain or provide you a copy of any content or information that you provide, except to the extent required by applicable law.</p>
 
-					<h6 style="text-align: justify;">AGENCY</h6>
+					<h6>13. WARRANTY DISCLAIMER</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In order to create an account as an Agency, click on Become an Agency&nbsp; on the home page and sign up.&nbsp;</p>
+					<p>We are not responsible for the quality, safety, or reliability of our Services.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Once the profile is verified, an Agency shall have to purchase a Subscription Plan&nbsp; for accessing the features of the Website www.OpenLabel,app.</p>
+					<p>Open-Label make no representation or warranty about the services, including that the services will be uninterrupted or error-free, and provide the Services (including content and information) on an “as is” and “as available” basis. To the maximum extent permitted by applicable law, Open-Label and its affiliates disclaim any implied or statutory warranty, including any implied warranty of title, accuracy of data, non-infringement, merchantability or fitness for a particular purpose.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;After purchasing Subscription you will be redirected to the My Profile page where you need to create your profile by adding the details as requested on the page.</p>
+					<h6>15. AGREEMENT TERM AND TERMINATION</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;All Agencies will have to upload a copy of their valid trade license or certificate of incorporation issued by the Government of UAE for profile verification. OpenLabel reserves the right to reject your profiles if your trade license is expired.</p>
+					<p>This section discusses when and how long this Agreement will last, when and how either you or Open-Label can end this Agreement, and what happens if either of us ends the Agreement.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Agencies shall also give their contact information such as mobile number, phone number, office address on the Picks and can also enter into separate independent agreements with Buyers to sell their services directly which they offer through the Picks on the Website to the Buyers.</p>
+					<h6>15.1 TERMINATION</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Agencies would be monitored on the basis of the reviews posted by the Buyers who hire their services. In case of exceedingly low ratings, recurring unsuccessful completion of orders or for any other such reason, OpenLabel reserves the right to unconditionally suspend the Agency’s account and no refunds shall be granted in such instances.</p>
+					<p>You and Open-Label both have the right to end this Agreement, but certain rights and obligations will survive after this Agreement ends.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In order to cooperate with law enforcement agencies and any other government requirements or security concerns, OpenLabel may temporarily disable the Agency’s ability to initiate a withdrawal of funds to prevent any fraudulent or illicit activity. This may come as a result of security issues, improper behaviour reported by other users, or associating multiple accounts on the Website to a single withdrawal provider.</p>
+					<p>Unless both you and Open-Label expressly agree otherwise in writing, either of us may terminate this Agreement in our sole discretion at any time, without explanation, upon written notice to the other, which will result in the termination of the other Terms of Service as well, except as otherwise provided in this Agreement. You may provide written notice to legalnotices@Open-Label.com. In the event you properly terminate this Agreement, your right to use the Services is automatically revoked, and your Account will be closed.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer and Agency agree that they would maintain the standards of decency while communicating on the Website. Further, the communications between the Buyers and Agency must not contain any obscene or offensive, defamatory, libellous, slanderous, and/or any form of inappropriate content/language/innuendos. We monitor and may read all correspondence posted to the Website and download or access, and test (if necessary), all the uploaded files, programs and websites related to your use of the Website for the purpose of investigating fraud, regulatory compliance, risk management and other related purposes as permitted by applicable law.</p>
+					<p>You agree that Open-Label is not a party to any Service Contract between Users. Consequently, you understand and acknowledge that termination of this Agreement (or attempt to terminate this Agreement) does not terminate or otherwise impact any Service Contract or Project entered into between Users. If you attempt to terminate this Agreement while having one or more open Projects, you agree (a) you hereby instruct Open-Label will close any open contracts; (b) you will continue to be bound by this Agreement and the other Terms of Service until all such Projects have closed on the Site and your access to the Site has been terminated; (c) Open-Label will continue to perform those Services necessary to complete any open transaction between you and another User; and (d) you will continue to be obligated to pay any amounts accrued but unpaid as of the date of termination or as of the closure of any open Service Contracts, whichever is later, to Open-Label for any Services or such other amounts owed under the Terms of Service and to any Creators for any Creator Services.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;If you are registered as an Agency on OpenLabel the number of Picks you can create will depend on the Subscription Plan taken by you. Click here to check our Subscription Plan page for details.</p>
+					<p>Without limiting Open-Label’s other rights or remedies, we may revoke or limit access to the Services, deny your registration, or revoke your access to the Site and refuse to provide any or all Services to you if: (i) you breach any terms and conditions of this Agreement or any portion of the Terms of Service; (ii) we have reasonable reason to believe that you have provided false or misleading information to us; (iii) we conclude that your actions may cause legal liability for you or others; may be contrary to the interests of the Site or the User community; or may involve illicit or illegal activity; or (iv) we are required to by law, legal process, or law enforcement. If your Account is temporarily or permanently closed, you may not use the Site under the same Account or a different Account or re-register for a new Account without Open-Label’s prior written consent. If you attempt to use the Site under a different Account, we reserve the right to reclaim available funds in that Account and/or use an available Payment Method to pay for any amounts owed by you to the extent permitted by applicable law.</p>
 
-					<h6 style="text-align: justify;">Independent Agreement of Agency with Buyer</h6>
+					<p>You acknowledge and agree that the value, reputation, and goodwill of the Site depend on transparency of Users’ Account status to all Users, including you and other Users who have entered into Service Contracts with you. <strong>You therefore agree that: if Open-Label decides to temporarily or permanently close your account, Open-Label has the right (but no obligation) where allowed by law to: (y) notify other users that have entered into Service Contracts with you of your closed account status, and (z) provide those users with a summary of the reasons for your account closure. You agree that Open-Label will have no liability arising from or relating to any notice that it may or may not provide to any user regarding closed account status or the reason(s) for the closure.</strong></p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Agency can enter into separate independent engagements with Buyers who approach them through OpenLabel to purchase their services.&nbsp;</p>
+					<h6>15.2 ACCOUNT DATA ON CLOSURE</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Agencies can be directly contacted by the Buyers on the contact information displayed on the Picks.</p>
+					<p>Except as otherwise required by law, if your Account is closed, you will no longer have access to information or material you kept on the Site and any content stored in your Account may be deleted, for which Open-Label expressly disclaims liability. Open-Label may retain some or all of your Account information as permitted or required by law and the Privacy Policy.</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp;Communication and deliberations regarding these independent engagements may either take place directly between the Buyer and the Agency or even through the message option on OpenLabel. In case of independent engagements, the terms of the agreement, price, quality of service shall be mutually decided by the Buyer with the Agency without any involvement or liability of OpenLabel whatsoever.&nbsp;</p>
+					<h6>Except as otherwise required by law, if your Account is closed, you will no longer have access to information or material you kept on the Site and any content stored in your Account may be deleted, for which Open-Label expressly disclaims liability. Open-Label may retain some or all of your Account information as permitted or required by law and the Privacy Policy.</h6>
 
-					<h6 style="text-align: justify;">Subscription And Payments</h6>
+					<p>Section 15 discusses your agreement with Open-Label and our agreement with you about how we will resolve any disputes between us, including that we will both first try to resolve any dispute informally and, if you are in the United States, that we both agree to use arbitration instead of going to court or using a jury if we can’t resolve the dispute informally.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In order to access all features of the Website and sell your services by creating Picks an Agency must purchase a Subscription Plan&nbsp;</p>
+					<p><strong>Please read the following paragraphs carefully because they require you and us to agree to resolve most all disputes between you and us through binding individual arbitration.</strong></p>
 
-					<p style="text-align: justify;">1.&nbsp; &nbsp; Non – Refundable: - The subscription fees paid by the Agency shall not be refunded under any circumstances;</p>
+					<h6>15.1 DISPUTE PROCESS, ARBITRATION, AND SCOPE</h6>
 
-					<p style="text-align: justify;">2.&nbsp; &nbsp; Renewable Annually: The subscription shall be renewed annually on payment of the subscription fees by the Agency.</p>
+					<p>If a dispute arises between you and Open-Label or our Affiliates, our goal is to resolve the dispute quickly and cost-effectively. Accordingly, unless you opt out as provided in Section 15.4.4 below, you, Open-Label, and our Affiliates agree to resolve any and all claims, disputes, or controversies that arise out of or relate to this Agreement, the other Terms of Service, your relationship with Open-Label (including without limitation any claimed employment with Open-Label or one of our Affiliates or successors), the termination of your relationship with Open-Label, or the Services (each a “<strong>Claim</strong>” and collectively, “<strong>Claims</strong>”) through binding arbitration on an individual basis in accordance with this Section 15 (sometimes referred to as the “<strong>Arbitration Provision</strong>”).</p>
 
-					<p style="text-align: justify;">3.&nbsp; &nbsp; Eligibility: An Agency must hold a valid trade license or certificate of incorporation in the United Arab Emirates to be eligible for purchasing a Subscription on OpenLabel.</p>
+					<p>Claims that may not be subject to predispute arbitration agreement as provided by the Dodd-Frank Wall Street Reform and Consumer Protection Act (Public Law 111-203), Ending Forced Arbitration of Sexual Assault and Sexual Harassment Act (Public Law 117-90), or by generally applicable law are excluded from the coverage of this Arbitration Provision.</p>
 
-					<p style="text-align: justify;">4.&nbsp; &nbsp; Approach and Result: Purchasing a subscription on OpenLabel to access all features of the Website does not guarantee that you will receive orders from the Buyer.</p>
+					<p><strong>By agreeing to arbitrate disputes under this Agreement, THE PARTIES ARE EXPRESSLY GIVING UP ANY AND ALL RIGHTS TO A JURY TRIAL OR COURT TRIAL BEFORE A JUDGE. The parties instead elect to have Claims resolved by arbitration. The arbitrator’s decision shall be final and binding on the parties, subject to review on the grounds set forth in the Federal Arbitration Act (“FAA”)).</strong></p>
 
-					<p style="text-align: justify;">5.&nbsp; &nbsp;Termination of Subscription: The subscription of an Agency shall be terminated in the event the Agency violates the terms of this Terms of Service and subscription fees shall not be refunded on termination.</p>
+					<h6>15.2 CHOICE OF LAW</h6>
 
-					<p style="text-align: justify;">6.&nbsp; &nbsp; No Commission or Service Fees: No commission or service fees of any sort would be charged by OpenLabel from the Agency with respect to revenue earned by them from Buyers.</p>
+					<p>This Agreement, the Site Terms of Use, the other Terms of Service, and any Claim will be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions; provided, however, that any Claims made by any Creator located within the United States will be governed by the law of the state in which such Creator resided at the time the dispute arose.</p>
 
-					<h6 style="text-align: justify;">FREELANCERS</h6>
+					<p>However, notwithstanding the foregoing sentence, this Arbitration Provision is governed by the Federal Arbitration Act (9 U.S.C. §§ 1 et seq.).</p>
 
-					<p style="text-align: justify;">●&nbsp; &nbsp; No of Picks: Freelancers can offer their services to the Buyers by creating and publishing three (3) Picks on the Website.</p>
+					<h6>15.3 INFORMAL DISPUTE RESOLUTION</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Permits and Licenses: The Freelancers registering as Service Provider on OpenLabel agree and acknowledge to have to permits and licenses as may be required in accordance with the laws in force in the United Arab Emirates and other jurisdictions, as applicable.</p>
+					<p>Before serving a demand for arbitration of a Claim, you and Open-Label agree to first notify each other of the Claim. You agree to notify Open-Label of the Claim by email to legalnotices@Open-Label.com, and Open-Label agrees to provide to you a notice at your email address on file (in each case, a “Notice”). You and Open-Label then will seek informal voluntary resolution of the Claim. Any Notice must include pertinent account information, a brief description of the Claim, and contact information, so that you or Open-Label, as applicable, may evaluate the Claim and attempt to informally resolve it. Both you and Open-Label will have 60 days from the date of the receipt of the Notice to informally resolve the other party’s Claim and avoid the need for further action.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Reviews: Freelancers would be rated by the Buyers who hire their services. In case of exceedingly low ratings, recurring unsuccessful completion of Orders or for any other such reason, OpenLabel reserves the right to unconditionally suspend the Freelancers account.&nbsp;</p>
+					<h6>15.4 BINDING ARBITRATION AND CLASS ACTION/JURY TRIAL WAIVER (DOES NOT APPLY TO USERS LOCATED OUTSIDE THE UNITED STATES AND ITS TERRITORIES)</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In order to cooperate with law enforcement and any other government requirements or security concerns, OpenLabel may temporarily disable the Freelancer’s ability to initiate a withdrawal of funds to prevent any fraudulent or illicit activity. This may come as a result of security issues, improper behaviour reported by other users, or associating multiple accounts on the Website to a single withdrawal provider.</p>
+					<p>This Arbitration Provision applies to all Users located in or who reside in the United States and its territories.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Once Freelancer submits an order, the Buyer can request revision for 5 times on the Deliverable and suggest changes. The Buyer will not have an option to request revision for the sixth time and the payments will be released to the freelancer automatically.</p>
+					<p>In the unlikely event the parties are unable to resolve a Claim within 60 days of the receipt of the applicable Notice, you, Open-Label, and our Affiliates agree to resolve the Claim by final and binding individual arbitration before an arbitrator from JAMS, instead of a court or jury. JAMS may be contacted at www.jamsadr.com.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;While it is always encouraged to settle disputes amicably, in case a Buyer raises a dispute for the services provided by the Freelancer within 7 days of receiving the Order, the payment to the freelancer would be withheld and the OpenLabel dispute resolution team would take up the issue.</p>
+					<h6>15.4.1 SCOPE OF ARBITRATION AGREEMENT AND CONDUCT OF ARBITRATION</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The dispute would be resolved as expeditiously as possible and the decision of the disputes team shall be final.&nbsp;</p>
+					<p>This Arbitration Provision applies to any Claim (defined above) the parties may have, whether based on past, prevent, or future events, and includes all claims and disputes that arose between the parties before the effective date of this Agreement, and survives after your relationship with Open-Label ends. For the avoidance of doubt, Claims covered by this Arbitration Provision include, but are not limited to, all claims, disputes or controversies arising out of or relating to this Agreement, the Terms of Service and the Open-Label Payroll Agreement. This Arbitration Provision is intended to apply to the resolution of disputes that otherwise would be resolved in a court of law or before a forum other than arbitration. If for any reason JAMS will not administer the arbitration, either party may apply to a court of competent jurisdiction with authority over the location where the arbitration will be conducted for appointment of a neutral arbitrator.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer or the Freelancer can approach the Courts for settlement of disputes which arise pertaining to the Orders placed by the Buyer on the Website.&nbsp;</p>
+					<p>Except as otherwise provided in this Agreement, arbitration will be conducted in Santa Clara County, California in accordance with the JAMS Comprehensive Arbitration Rules and Procedures’ Optional Expedited Arbitration Procedures then in effect. Arbitration of disputes brought by a User that allege a violation of a consumer protection statute also will be subject to the JAMS Consumer Arbitration Minimum Standards, and such arbitrations will be conducted in the same state and within 25 miles of where the User is located. Claims by Creators that allege employment or worker classification disputes will be conducted in the state and within 25 miles of where Creator is located in accordance with the JAMS Employment Arbitration Rules and Procedures then in effect. The applicable JAMS arbitration rules may be found at www.jamsadr.com or by searching online for “JAMS Comprehensive Arbitration Rules and Procedures,” “JAMS Employment Arbitration Rules,” or “JAMS Consumer Arbitration Minimum Standards.” Any dispute regarding the applicability of a particular set of JAMS rules shall be resolved exclusively by the arbitrator. Any party will have the right to appear at the arbitration by telephone and/or video rather than in person.</p>
 
-					<h6 style="text-align: justify;">PAYMENTS</h6>
+					<p>You and Open-Label will follow the applicable JAMS rules with respect to filing or initial appearance and arbitration fees. The arbitrator shall follow applicable law and may award only those remedies that would have applied had the matter been heard in court. Judgment may be entered on the arbitrator’s decision in any court having jurisdiction.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel, as such, shall not charge any fee from Freelancers for providing webspace/display on the Website for creating Picks; however, the Freelancer agrees to pay OpenLabel 5% percent of the gross income that is generated by the Freelancer on each Order of the Pick as service fees. This Service fee of 5 % excludes any deductions made by the bank while processing the withdrawal. It is expressly agreed by the Freelancer hereto that OpenLabel shall release payments to the Freelancers with respect to the Orders after debiting 5% as Service Fees.</p>
+					<p>This Arbitration Provision does not apply to litigation between Open-Label and you that is or was already pending in a state or federal court or arbitration before the expiration of the opt-out period set forth in Section 15.4.4 below. Notwithstanding any other provision of this Agreement, no amendment to this Arbitration Provision will apply to any matter pending in an arbitration proceeding brought under this Section 15 unless all parties to that arbitration consent in writing to that amendment.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer agrees that OpenLabel shall make payments to the Service Provider whose Picks are purchased by Buyer using the Website; the payments shall be released in the bank account of the Service Provider whose details are provided by the Service Provider to OpenLabel.&nbsp;</p>
+					<p>This Arbitration Provision also does not apply to claims for workers compensation, state disability insurance, or unemployment insurance benefits.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;By using the Website and receiving orders from Buyers on the Picks, the Freelancer agrees to use OpenLabel to receive all payments from the Buyer who approach the Freelancer on the Website.&nbsp;</p>
+					<p>Nothing in this Arbitration Provision prevents you from making a report to or filing a claim or charge with a government agency, including without limitation the Equal Employment Opportunity Commission, U.S. Department of Labor, U.S. Securities and Exchange Commission, National Labor Relations Board, or Office of Federal Contract Compliance Programs. Nothing in this Arbitration Provision prevents the investigation by a government agency of any report, claim or charge otherwise covered by this Arbitration Provision. This Arbitration Provision also does not prevent federal administrative agencies from adjudicating claims and awarding remedies based on those claims, even if the claims would otherwise be covered by this Arbitration Provision. Nothing in this Arbitration Provision prevents or excuses a party from satisfying any conditions precedent or exhausting administrative remedies under applicable law before bringing a claim in arbitration. Open-Label will not retaliate against you for filing a claim with an administrative agency or for exercising rights (individually or in concert with others) under Section 7 of the National Labor Relations Act.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users agree that their agreement to pay for any amounts that they authorize OpenLabel to charge against their account and, as appropriate, their credit card, bank account on the Website. Such payments, once authorized, are final.&nbsp;</p>
+					<h6>15.4.2 INTERPRETATION AND ENFORCEMENT OF THIS ARBITRATION PROVISION</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Buyers and Freelancers authorize OpenLabel to offset balances as deemed necessary, including, but not limited to deducting exchange fee variations, deducting costs related to Picks, refunds, unsettled balances, and adjustments resulting from dispute resolutions that have been accepted by the Buyers.</p>
+					<p>This Arbitration Provision is the full and complete agreement relating to the formal resolution of Claims. The arbitrator shall have exclusive jurisdiction to decide all disputes arising out of or relating to the arbitrability of a Claim or the interpretation, enforcement, or application of this Arbitration Provision, including the enforceability, revocability, scope, breach, or validity of the Arbitration Provision or any portion of the Arbitration Provision, except as expressly provided below. All such matters shall be decided by an arbitrator and not by a court. The parties expressly agree that, except as provided by the Class and Collective Waiver section below, the arbitrator and not a court will decide any question of whether the parties agreed to arbitrate, including but not limited to any claim that all or part of this Arbitration Provision, this Agreement, or any other part of the Terms of Service is void or voidable.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In the event OpenLabel receives a chargeback from any Buyer’s credit card company, bank, or Payment Provider(s) for any reason then OpenLabel reserves the right to seek reimbursement from the Service Provider, and the Service Provider agrees to reimburse OpenLabel.&nbsp;</p>
+					<p>In the event any portion of this Arbitration Provision is deemed unenforceable, the remainder of this Arbitration Provision will be enforceable, except as set forth in Section 15.4.3 below.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Service Providers agree that OpenLabel has the right to obtain such reimbursement by charging the User’s Account, deducting amounts from future payments or withdrawals, charging the User's credit card, or obtaining reimbursement from the User by any other lawful means.&nbsp;</p>
+					<h6>15.4.3 CLASS AND COLLECTIVE WAIVER</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Failure to pay for reimbursements of chargebacks is cause for termination of your Service Provider’s Account, which shall not prejudice our right to claim payment due in accordance with the procedure of law.&nbsp;</p>
+					<p>Private attorney general representative actions under the California Labor Code are not arbitrable, not within the scope of this Arbitration Provision and may be maintained in a court of law. However, this Arbitration Provision affects your ability to participate in class or collective actions. Both you and Open-Label agree to bring any dispute in arbitration on an individual basis only, and not on a class or collective basis on behalf of others. There will be no right or authority for any dispute to be brought, heard or arbitrated as a class or collective action, or as a member in any such class or collective proceeding (“<strong>Class Action Waiver</strong>”). Notwithstanding any other provision of this Agreement or the JAMS rules, disputes regarding the enforceability, revocability, scope, validity, or breach of the Class Action Waiver may be resolved only by a civil court of competent jurisdiction and not by an arbitrator. If there is a final judicial determination that all or part of the Class Action Waiver is unenforceable or that an arbitration can proceed on a class basis, then the arbitration provision herein shall be considered null and void in its entirety and the class or collective action to that extent must be litigated in a civil court of competent jurisdiction. No arbitration or proceeding will be combined with another without the prior written consent of all parties to all affected arbitrations or proceedings. You and Open-Label agree that you will not be retaliated against as a result of your filing or participating in a class or collective action in any forum. However, Open-Label may lawfully seek enforcement of this Arbitration Provision and the Class Action Waiver under the Federal Arbitration Act and seek dismissal of such class or collective actions or claims.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In the event of suspicious payment activity, illegal, or fraudulent actions, OpenLabel reserves the right to temporarily or permanently suspend payment via your credit card and/or contact you, your bank or any other relevant third party to report such unusual activity and/or obtain additional information, or hold/freeze any fund in case of suspicion arising of illegal source of money without any liability to you by OpenLabel.</p>
+					<h6>16. DEFINITIONS</h6>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The payment service operates in U.S. Dollars and therefore OpenLabel is not responsible for currency fluctuations that occur when billing or crediting a credit or debit card denominated in a currency other than U.S. Dollars, nor is OpenLabel responsible for currency fluctuations that occur when receiving or sending payment via wire transfer, check or automated clearinghouse to and from your Account. If for any reason, OpenLabel does not receive payment for any amounts that you have authorized to be paid for OpenLabel services, you agree to pay such amount immediately upon demand by OpenLabel.</p>
+					<p>Below we define capitalized terms that appear in this Agreement or other parts of the Terms of Service. Other capitalized terms are defined above, which you can tell because the term is put in quotation marks and bold font.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;You also agree to pay any interest charges, attorneys’ fees and other costs of collection incurred by OpenLabel in collecting from you the authorized and unpaid amount. In such case, OpenLabel may, at its option, stop processing any further payments made by you and apply any amounts then held by OpenLabel on your behalf toward any deficiencies, losses or costs that we have incurred as a result of your use of the provided payment service or other OpenLabel services. OpenLabel reserves the right to make appropriate reports concerning any investigation or prosecution to credit reporting agencies, financial institutions, tax agencies and law enforcement authorities, and cooperate with them.</p>
+					<p>Capitalized terms not defined below or above have the meanings described in the Site Terms of Use or elsewhere in the Terms of Service.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Agency shall have any payments due to them from the Buyers available for withdrawal following Fourteen (14) days approximately of the date of submitting the Deliverable to the Buyer. Following the withdrawal request and the delivery of the amounts into the Agency’s bank account (or the designated payment settlement method), OpenLabel shall have no further liability to the Agency with regard to those amounts.&nbsp;</p>
+					<p>“<strong>Artist</strong>” means any authorized User of the Site or Site Services, including Direct Contract Services, to seek or obtain Creator Services, including from another User.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The freelancer shall have any payments due to them from the Buyers available for withdrawal following Fourteen (14) days approximately from the date the payments are released by the Buyer and if no dispute is filed by the Buyer on such Order. Following the withdrawal request and the delivery of the amounts into the Freelancer’s bank account (or the designated payment settlement method), OpenLabel shall have no further liability to the Freelancer with regard to those amounts.&nbsp;</p>
+					<p>“<strong>Confidential Information</strong>” means any material or information provided to, or created by, a User to evaluate a Project or the suitability of another User for the Project, or provided in connection with a Project, regardless of whether the information is in tangible, electronic, verbal, graphic, visual, or other form. Confidential Information does not include material or information that: (a) is generally known by third parties as a result of no act or omission of Creator or Artist; (b) was lawfully received by User without restriction from a third party having the right to disseminate the information; (c) was already known by User prior to receiving it from the other party and was not received from a third party in breach of that third party’s obligations of confidentiality; or (d) was independently developed by User without use of another person’s Confidential Information.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The payments shall not be directly released in the bank accounts, credit cards, PayPal, or any other institution released to the Agency and Freelancer directly. The Freelancers and Agencies can withdraw the balance by clicking on the withdraw button on the Dashboard.</p>
+					<p>“<strong>Direct Contract</strong>” means a contract entered into on Open-Label between a Creator on Open-Label and a Artist of the Creator’s who does not and has never had an Open-Label Account (or an account with Open-Label predecessors, oDesk or Elance). Please see our Direct Contracts Terms for more details.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel reserves the right and is within its full discretion to determine the method by which a Buyer’s refund request is processed with respect to Freelancer. OpenLabel will credit refunds to bank accounts authorized by the Buyer.&nbsp;</p>
+					<p>“<strong>Escrow Account</strong>” means Artist Escrow Account, Creator Escrow Account, or Fixed-Price Escrow Account.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer agrees that no refunds will be granted with respect to payments done for purchasing an Agency’s Pick.</p>
+					<p>“<strong>Escrow Instructions</strong>” means the Escrow Instructions agreement that is relevant to the Service Contract or Direct Contract.</p>
 
-					<h6 style="text-align: justify;">PAYMENT GATEWAY</h6>
+					<p>“<strong>Fixed-Price Contract</strong>” means a Service Contract for which Artist is charged a fixed fee agreed between a Artist and a Creator, prior to the commencement of a Service Contract, for the completion of all Creator Services contracted by Artist for such Service Contract.</p>
 
-					<p style="text-align: justify;">The Website has employed a third-party payment gateway for receiving the payments and therefore, OpenLabel neither retains nor assumes any responsibility for the information uploaded for making the payments by the Users.</p>
+					<p>“<strong>Creator</strong>” means any authorized User of the Site or Site Services, including Direct Contract Services or Any Hire Services, that utilizes the Site to advertise, provide, or receive payment for the provision of Creator Services to Artists, including Agency Member Accounts and Creator Accounts that are part of Agency Accounts.</p>
 
-					<h6 style="text-align: justify;">CHARGEBACK</h6>
+					<p>“<strong>Creator Fees</strong>” means: (a) for an Hourly Contract, the amount reflected in the Hourly Invoice (the number of hours invoiced by Creator, multiplied by the hourly rate charged by Creator); (b) for a Fixed-Price Contract, the fixed fee agreed between a Artist and a Creator; and (c) any bonuses or other payments made by a Artist to a Creator.</p>
 
-					<p style="text-align: justify;">You hereby expressly agree that once you or any other person have agreed to the terms and conditions of the Website, by clicking and accepting them and have further submitted your credit card/ any other card details to the site/internet banking service provider for payment and your account gets debited no chargeback claim/dispute with regard to the quality of Deliverable which is not acceptable to you or the use/misuse of such credit card or any other card, filed by you/on your behalf with the Credit Card Provider/Internet banking service provider or any Bank/Financial Institution shall be binding on OpenLabel or OpenLabel’s Merchant Bank. You accept and take full responsibility for the ownership/possession and use of your credit card or any other card. You expressly waive and consciously give up any/all rights you may have in law or in any agreement between you and the credit card or any other card provider/internet service provider or under network rules and regulations to raise any dispute to claim any chargeback or any processing fee from any Bank/Financial Institution/ Internet banking service provider affecting OpenLabel in any manner pecuniary or otherwise on any grounds whatsoever including non-delivery of Deliverable or if the quality of Deliverable is not acceptable to you or fraudulent or improper transactions by the unauthorized/improper use of your credit/debit card or any other card. This understanding that you will have no right to claim any chargeback is a material condition of this Agreement and once you hereby expressly agree to it you shall be stopped from challenging/disputing it in any adjudication/proceeding before any Bank/Financial institution/ Internet banking service provider or Court or otherwise. Without prejudice to OpenLabel’s right to defend its interest(s), OpenLabel shall not be made a party to any chargeback proceedings before any Bank/Financial institution/ Internet banking service provider or court and in no case shall OpenLabel be required to prove that the transaction effected by the use of your credit/debit or any other card on OpenLabel was legitimate and genuine.</p>
+					<p>“<strong>Creator Services</strong>” means all services performed for or delivered to Artists by Creators.</p>
 
-					<h6 style="text-align: justify;">TAXES</h6>
+					<p>The term “<strong>including</strong>” as used herein means including without limitation.</p>
 
-					<p style="text-align: justify;">The Buyers and Service Providers shall be responsible for making payment of all and any taxes including VAT and other compliance-related liabilities, as may be applicable. The Service Providers will pay OpenLabel without any reduction for taxes or set-offs.</p>
+					<p>“<strong>Intellectual Property Rights</strong>” means all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights and other intellectual property rights as may now exist or hereafter come into existence, and all applications therefore and registrations, renewals and extensions thereof, in each case, under the laws of any state, country, territory or other jurisdiction.</p>
 
-					<h6 style="text-align: justify;">COMMUNICATION BETWEEN FREELANCER AND BUYER</h6>
+					<p>“<strong>Payment Method</strong>” means a valid credit card issued by a bank acceptable to Open-Label, a bank account linked to your Account, a PayPal account, a debit card, or such other method of payment as Open-Label may accept from time to time in our sole discretion.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Communication between Buyers and Freelancers on the Website must be conducted through message boards only as provided on the Website.&nbsp;</p>
+					<p>“<strong>Project</strong>” means an engagement for Creator Services that a Creator provides to a Artist under a Service Contract on the Site.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Freelancer must not post their email address, contact number or any other contact details (including but not limited to Skype ID, Zoom meeting ID or other identifying strings on other platforms) on the Website, except in the signup form, at OpenLabel’s request or as permitted by OpenLabel.</p>
+					<p>“<strong>Staffing Employee</strong>” means a Creator enrolled in Open-Label Payroll, accepted for employment by a Staffing Provider, and assigned by the Staffing Provider to provide Creator Services to one or more Artist(s).</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer and Freelancers agree that they would maintain the standards of decency while communicating on the Website. Further, the communications between the Buyers and Freelancers must not contain any obscene or offensive, defamatory, libellous, slanderous, and/or any form of inappropriate content/language/innuendos.</p>
+					<p>“<strong>Service Contract</strong>” means, as applicable, (a) the contractual provisions between a Artist and a Creator governing the Creator Services to be performed by a Creator for Artist for a Project; (b) a Direct Contract as defined in the Open-Label Direct Contract Terms; (c) an Any Hire Contract as defined in the Open-Label Any Hire Terms; or (d) if you use Open-Label Payroll, the contractual provisions between Creator and the Staffing Provider for the provision of services to Artist, if any.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyer must only communicate with the Freelancers via the Website. The Freelancer shall not attempt to communicate with Buyer through any other means of communication including but not limited to email, telephone, Skype, ICQ, AIM, MSN Messenger, WeChat, SnapChat, GTalk, GChat or Yahoo.</p>
+					<p>“<strong>Substantial Change</strong>” means a change to the terms of the Terms of Service that materially reduces your rights or increases your responsibilities.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel may use information such as your name, location, display or username, and or your image, in relation to the provision of messaging services on the Website.</p>
+					<p>“<strong>Open-Label App</strong>” means the online platform accessed using Open-Label’s downloaded application or other software that enables time tracking and invoicing, chat, and screenshot sharing with other Users.</p>
 
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;We monitor and may read all correspondence posted to the Website and download or access, and test (if necessary), all the uploaded files, programs and websites related to your use of the Website for the purpose of investigating fraud, regulatory compliance, risk management and other related purposes as permitted by applicable law.</p>
+					<p>“<strong>User Content</strong>” means any comments, remarks, data, feedback, content, text, photographs, images, video, music, or other content or information that you or any Site Visitor or User post to any part of the Site or provide to Open-Label, including such content or information that is posted as a result of questions.</p>
 
-					<h6 style="text-align: justify;">BUYERS</h6>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Buyers cannot purchase services offered by Service Providers without signing up on the Website.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Once the Buyer selects Pick for purchase, he shall be required to pay the amount mentioned on the Picks for the service + 4% as Service fee to OpenLabel. The Service Fees cover administrative fees.<br>
-					&nbsp;<br>
-					●&nbsp;&nbsp; &nbsp;After receiving the Deliverable from the Service Provider, the Buyer can request the Service Provider to do revision on the Deliverable submitted by coordinating with the Service Provider through the message option on the website. In case of Freelancer the maximum revisions allowed are 5 (five) by the Buyer. After fifth revision the payments will be automatically released to the Freelancer. In case of an Agency the Buyer has option to request unlimited revisions. The payments will be released to the Agency once the Buyer marks the Project as complete on his account.<br>
-					&nbsp;<br>
-					●&nbsp;&nbsp; &nbsp;Freelancer: In the event, the Buyer is not satisfied with the quality of the Deliverable submitted by the Freelancer then the Buyer must raise a dispute within seven (7) working days from the date of submission of the Deliverable by the Freelancer. In the event, the Buyer fails to raise a dispute in seven (7) working days from the date of submission of the Deliverable then it would be deemed that review has been done and Deliverable submitted by the Freelancer is acceptable to the Buyer and the amount would be released to the Freelancer&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Agency: With respect to an Agency, after receiving Deliverable from the Agency, the Buyer can request unlimited revisions on the Deliverable submitted by the Agency. OpenLabel will release the payment to the Agency after the Buyer markes the Order as complete on the account. There is no option of raising a dispute against the Agency. Further, the Buyer agrees to release OpenLabel from all liabilities with respect to Deliverables submitted by the Agency. The Buyers aggrieved with the Deliverable of the Agency must approach appropriate Courts having jurisdiction and raise disputes against them.</p>
-
-					<h6 style="text-align: justify;">DISCLAIMER FOR AGENCY</h6>
-
-					<p style="text-align: justify;">OpenLabel DOES NOT TAKE ANY LIABILITY WITH RESPECT TO THE OF THE DELIVERABLES OF THE AGENCY AND WILL NOT BE INVOLVED IN ANY DISPUTE THAT MAY ARISE BETWEEN THE AGENCY AND THE BUYER PERTAINING TO THE DELIVERABLE. THE BUYERS RELEASE OpenLabel FROM ALL LIABILITIES WHICH ARISE FROM THE DELIVERABLE OF THE AGENCY.</p>
-
-					<p style="text-align: justify;">OpenLabel SHALL NOT BE ENTITLED TO REFUND PAYMENTS DONE TO THE AGENCY HIRED BY THE BUYERS THROUGH THE WEBSITE. IN THE EVENT THE BUYER IS NOT SATISFIED WITH THE QUALITY OF THE DELIVERABLE SUBMITTED BY THE AGENCY OR IF THE AGENCY FAILS TO DELIVER THE DELIVERABLE ON THE TIMELINES MENTIONED IN THE PICKS, THEN THE BUYER NEEDS TO APPROACH THE AGENCY PERSONALLY OR RAISE A DISPUTE AGAINST THEM BEFORE THE APPROPRIATE COURTS.</p>
-
-					<h6 style="text-align: justify;">FEEDBACK AND REVIEWS</h6>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users may leave feedback, comment, review for other Users they have transacted with on the Website at such a place specifically provided on the Website.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users agree that the Feedback reviews of the Buyer with respect to the Orders completed by the Service Provider will be publicly displayed on the Picks page of the Service Provider on OpenLabel.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Service Providers shall not solicit with the Buyer for the removal of the reviews through mutual cancellations. The feedback reviews shall not be removed unless there is a clear violation of our Terms of Service.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Feedback and reviews must be from the Orders purchased through the Website. The purchases arranged, determined to artificially enhance Service Provider’s ratings, or to abuse OpenLabel’s account with purchases from additional accounts, will result in a permanent suspension of all related accounts.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users acknowledge and agree that they have transferred exclusive, royalty-free, fully paid up, perpetual, irrevocable, worldwide ownership rights on the Feedback and Reviews to OpenLabel.&nbsp;</p>
-
-					<h6 style="text-align: justify;">ORDERS</h6>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Once payment is confirmed for the purchase of Pick of any Service Provider, a unique Project ID would be assigned to you.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Service Providers must deliver completed files and/or proof of Deliverable under My Projects.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;In case the Service Provider submits an incomplete Deliverable; poor quality Deliverable or fails to deliver on the timelines agreed with the Buyer, its Pick could get a bad review from the Buyer and upon repeated instances of such behaviour, OpenLabel reserves the right to suspend the Service Provider’s account unconditionally.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;An Order shall be considered after it has been marked as “complete” by the Buyer only after it is submitted and no dispute has been raised by the Buyer within a seven (7) &nbsp;days window period.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The dispute option for Orders will only be available in case the Buyer hires the services of a Freelancer.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel takes no responsibility for any disputes which arise between the Buyer and the Agency. It is advisable that the Buyer and the Agency amicably settle their disputes either through the message option on the website or by directly getting in touch. This condition is applicable irrespective of whether the Agency’s services are hired through OpenLabel or independently.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;When a Buyer purchases a Pick, the Service Provider is notified by email.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users shall be responsible for scanning all transferred files for viruses and malware. OpenLabel shall not be held responsible under any circumstances for any damages which might occur due to website usage, use of content or files transferred.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;All payments made while purchasing Orders will, apart from any Service fee payable to the Website, be subject to the bank transaction charges.</p>
-
-					<h6 style="text-align: justify;">TERMINATION OF ACCOUNTS</h6>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel reserves the right to put any account on hold or permanently disable accounts due to breach of these Terms of Service or due to any illegal or inappropriate use of the Website or services.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Violation of OpenLabel's Terms of Service may get your account disabled permanently.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Users must verify their account ownership by providing materials that prove ownership of that account, as requested by the customer support team of OpenLabel.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Disputes with regard to Freelancers should be handled using OpenLabel's dispute resolution portal.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;OpenLabel may make changes to its Terms of Service from time to time. When these changes are made, OpenLabel will make a new copy of the Terms of Service available on this page. However, OpenLabel is not obliged to intimate you regarding any such changes and therefore, it is advisable that you read the Terms of Service every time you use the Website. Your continued use of the Website implies your acceptance to the updated Terms of Service.</p>
-
-					<h6 style="text-align: justify;">OWNERSHIP RIGHTS OVER THE DELIVERABLE</h6>
-
-					<p style="text-align: justify;">When purchasing a Pick on OpenLabel, unless clearly stated otherwise on the Service Providers Pick page/description, when the Deliverable is submitted, and subject to completion of the Order by the Buyer on the Website, the Buyer is granted all intellectual property rights, including but not limited to, copyright in the Deliverable from the Service Provider and the Service Provider waives any and all moral rights therein.&nbsp;</p>
-
-					<p style="text-align: justify;">Accordingly, the Service Provider expressly agrees and assigns to the Buyer the copyright in the Deliverable. All transfer and assignment of intellectual property to the Buyer shall be subject to full payment for the Pick, and the Deliverable shall not be used if payment is canceled for any reason. Furthermore, users (both Buyers and Service Providers) agree that unless they explicitly indicate otherwise, the content, users voluntarily create/upload to OpenLabel, including Pick texts, photos, videos, usernames, user photos, user videos and any other information, including the display of Deliverables, may be used by OpenLabel for no consideration for marketing and/or other purposes.</p>
-
-					<p style="text-align: justify;">Unless the Agency or the Freelancer expressly states otherwise, the Buyer is granted all ownership rights over the Deliverable, including but not limited to&nbsp;</p>
-
-					<p style="text-align: justify;">a.&nbsp;&nbsp; &nbsp;Intellectual property rights,&nbsp;</p>
-
-					<p style="text-align: justify;">b.&nbsp;&nbsp; &nbsp;Copyright in the Deliverable from the Agency and Freelancer, and&nbsp;</p>
-
-					<p style="text-align: justify;">c.&nbsp;&nbsp; &nbsp;Agency and Freelancer waive any and all moral rights in the Deliverable to the Buyer on OpenLabel, subject to completion of the Order by the Buyer on the Website.</p>
-
-					<h6 style="text-align: justify;">LIMITATION ON LIABILITY</h6>
-
-					<p style="text-align: justify;">OpenLabel is not liable, and you agree not to hold us liable, for any damages or losses which arise out of or are in connection with the Terms of Service, including but not limited to:</p>
-
-					<p style="text-align: justify;">a)&nbsp;&nbsp; &nbsp;your use of or your inability to use our Website or the Picks displayed on the Website;</p>
-
-					<p style="text-align: justify;">b)&nbsp;&nbsp; &nbsp;Any delays or disruption in our Website or Website Services;</p>
-
-					<p style="text-align: justify;">c)&nbsp;&nbsp; &nbsp;Any sort of virus or other malicious software obtained by you while accessing, or linking to, Website or Website services;</p>
-
-					<p style="text-align: justify;">d)&nbsp;&nbsp; &nbsp;Any type of glitches, bugs, errors, or inaccuracies in our Website or Website services;</p>
-
-					<p style="text-align: justify;">e)&nbsp;&nbsp; &nbsp;Any type of damage encountered by your hardware device from the use of the Website or Website services;</p>
-
-					<p style="text-align: justify;">f)&nbsp;&nbsp; &nbsp;The suspension or any other action is taken with respect to your User Account;</p>
-
-					<p style="text-align: justify;">g)&nbsp;&nbsp; &nbsp;The Buyer’s reliance on the quality, accuracy of Picks, ratings, recommendations, and feedback (including their content, order, and display), composite information, or statistics found or made available through the Website; and</p>
-
-					<p style="text-align: justify;">h)&nbsp;&nbsp; &nbsp;In the event the User loses or has inability to do business, as a result of changes to the Terms of Service.</p>
-
-					<p style="text-align: justify;">Additionally, in no event will OpenLabel, our employees, affiliates, or our third-party service providers, our licensors, be liable for any type of damages including but not limited to special, consequential, incidental, or indirect costs or damages, including, but not limited to, litigation costs, installation and removal costs, or loss of data, production, profit, or business opportunities. The liability of OpenLabel, our affiliates, our licensors, and our third-party service providers to any user for any claim arising out of or in connection with this Terms of Service will not exceed $100 under any circumstances whatsoever.</p>
-
-					<p style="text-align: justify;">These limitations apply to any liability, which arise from any cause of action in connection with this Terms of Service, whether in contract, tort (including negligence), strict liability, or otherwise.&nbsp;</p>
-
-					<h6 style="text-align: justify;">INDEMNITY&nbsp;</h6>
-
-					<p style="text-align: justify;">You further admit that you shall indemnify OpenLabel, its associates, affiliates and its subsidiaries, licensors against any loss, expense, cost or damage incurred by any or all of them as a result of your breach of these Terms of Service or your unauthorized use of the Website or the content posted on the Website.&nbsp;</p>
-
-					<p style="text-align: justify;">The Service Providers further agree that in the event they post any content on its Picks which violates third-party rights of any nature whatsoever, and action is brought against OpenLabel with respect to the violation, the Service Provider (Freelancer or Agency as the case may be) responsible for such action shall indemnify OpenLabel, its associates, affiliates and licensors with the entire costs incurred during the legal proceeding along with punitive damages of such quantum as the counsels for OpenLabel may deem fit.</p>
-
-					<h6 style="text-align: justify;">SEVERANCE &amp; WAIVER OF ANY TERMS</h6>
-
-					<p style="text-align: justify;">No action of OpenLabel, whether express or implied, other than an express written waiver or amendment, may be construed as a waiver or amendment of any of these Terms of Service. If any clause in these Terms of Service is found to be unenforceable for any reason whatsoever, it will not affect any other clause and each will remain in full force and effect.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Reporting Violations: In the event, you come across any content on the Websites that is in violation of our Terms of Service then you are encouraged to report it to us by writing us an email on <strong><a href="mailto:info@openlabel.com" style="text-decoration:none;"><span style="color:#c74f27;">info@openlabel.com</span></a></strong>&nbsp;To protect the privacy rights of the Users, the results of the investigation are not shared with anyone.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Violations: The Users can receive a warning to their account for any misconduct or violations of our Terms of Service on their registered email address. Repeated violations can lead to the User’s account getting permanently disabled.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Non-Permitted Usage: OpenLabel does not allow any exchange of materials of the Website which relates to pornographic materials and services.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Inappropriate Behavior &amp; Language - The communication between the Users must be friendly, constructive, and professional. OpenLabel condemns any communication which is in hate speech, leads to harassment and hatred towards others and breach of this clause can result in termination of the User account.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Phishing and Spam - Our User security is our top priority. We request the Buyers to respect the Freelancers and Agencies' privacy by not contacting them with queries, offers, suggestions or anything which does not relate or pertains to their Picks. Further, any attempts to send or publish malicious content with the intent to compromise another member’s account or computer environment is strictly prohibited.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Privacy &amp; Identity - The Users must not post other people's private and confidential information on such a place of the Website which is public. &nbsp;All personal information that is required for the completion of a service must be provided on the My Projects Page. The Service Providers hereby agree and acknowledge that whatever information they receive from the Buyer, which is not available in the public domain, shall not be used for any purpose whatsoever other than for the submission of the Deliverable to the Buyer.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Authentic Profile - The Users shall not create a false identity on OpenLabel, misrepresent their identity, create a profile for anyone other than yourself (a real person), or use or attempt to use another user’s account or information. The information depicted on your profile including your description, skills, location, etc., while may be kept anonymous, must be accurate and complete and should not be misleading, illegal, offensive or otherwise harmful. OpenLabel reserves the right to require users to go through a verification process in order to use the Website(whether by using ID, phone, camera, etc.).</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Intellectual Property Claims - OpenLabel will respond to clear and complete notices of alleged copyright or trademark infringement, and/or violation of third party’s terms of service.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Fraud / Unlawful Use - The Users agree and acknowledge not use OpenLabel for any unlawful purposes or to conduct illegal activities.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Multiple Accounts - &nbsp;In order to prevent fraud and abuse, the users are permitted to create one account on the Website as a Buyer if they want to purchase services of any Freelancer or Agency; and one account as a Service Provider, if they are a Service Provider, as applicable. Any additional account determined to be created to circumvent guidelines, promote competitive advantages. The creation of mass accounts may result in disabling all related accounts.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Targeted Abuse: OpenLabel shall not tolerate Users who engage in targeted abuse or harassment towards other Users on OpenLabel. Eg: creating new multiple accounts to harass Users through our message or ordering system.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;Selling Accounts - &nbsp;The Users and public at large are prohibited and restrained from buying and selling OpenLabel accounts</p>
-
-					<h6 style="text-align: justify;">DISPUTES</h6>
-
-					<p style="text-align: justify;"><strong>Disputes between Buyer and Agency</strong></p>
-
-					<p style="text-align: justify;">OpenLabel takes no responsibility for any disputes which arise between the Buyer and the Agency. It is advisable that the Buyer and the Agency amicably settle their disputes either through the message option on the website or by directly getting in touch. This condition is applicable irrespective of whether the Agency’s services are hired through the website or independently.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Agency or the Buyer whoever is aggrieved shall be free to approach the appropriate Courts having jurisdiction to deal with the matter.<br>
-					●&nbsp;&nbsp; &nbsp;OpenLabel shall not be responsible to make payment of refund, damages, compensation or whatsoever to the Buyer in case of disputes between the Buyer and the Agency.</p>
-
-					<p style="text-align: justify;"><strong>Disputes between Buyer and Freelancer</strong></p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;While it is always encouraged to settle disputes amicably, in the event the Buyer is not satisfied with the Deliverable of a Freelancer then the Buyer can raise a dispute on the Website within seven (7) days from the date of receiving the Deliverable. As soon as the Buyer submits a dispute the payment to the Freelancer would be withheld and the website’s dispute resolution team would take up the issue.</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The issue would be resolved as expeditiously as possible and the decision of the disputes team of OpenLabel shall be final and binding upon the Buyer and the Freelancer.&nbsp;</p>
-
-					<p style="text-align: justify;">●&nbsp;&nbsp; &nbsp;The Freelancer or Buyer not satisfied with the decision can take up the matter in the courts having jurisdiction.</p>
-
-					<p style="text-align: justify;">OpenLabel offers Dispute Resolution Services to Buyers and Freelancers with respect to the Freelancer’s Picks which have been purchased by Buyers from Freelancers.&nbsp;</p>
-
-					<p style="text-align: justify;">The Users you agree and acknowledge that: (i) OpenLabel is not providing legal services; (ii) OpenLabel will not advise you regarding any legal matters; and (iii) if you desire to have legal counsel, you will seek an independent legal counsel from those licensed to practice law in your jurisdiction. You will not rely on OpenLabel for any such counsel.</p>
-
-					<p style="text-align: justify;">In the event that a dispute arises between a Buyer and a Freelancer in relation to any services provided with respect to any Picks, you will first attempt to resolve any differences that you have in relation to such services.&nbsp;</p>
-
-					<p style="text-align: justify;">Upon receipt of a dispute, OpenLabel shall have the right to request the Service Provider and the Buyer to provide documentation in support of their claim or position in relation to the dispute. You agree that OpenLabel has absolute discretion to accept or reject any document provided.&nbsp;</p>
-
-					<p style="text-align: justify;">You also acknowledge that OpenLabel is not a judicial or alternative dispute resolution institution and that we will make the determinations only as an ordinary reasonable person. In addition, we do not give any warranty that the documents provided by the parties to the dispute shall be true, complete or correct and you agree to indemnify and (to the maximum extent permitted by law) hold OpenLabel and any of our affiliates harmless against any damages or liability you may suffer as a result of any documentation or material subsequently being found to be false or misleading.</p>
-
-					<p style="text-align: justify;">In relation to disputes with any other users of the Website, you hereby agree to indemnify OpenLabel from any and all claims, demands, and damages, actual and consequential, of every kind and nature, known and unknown, that is related to Picks.</p>
-
-					<p style="text-align: justify;">In the event you have a dispute with one or more Users, you will release OpenLabel and our officers, directors, agents, subsidiaries, joint ventures and employees from claims, demands and damages (actual and consequential) of every kind and nature, known and unknown, arising out of or in any way connected with such disputes.</p>
-
-					<p style="text-align: justify;">In the event of a dispute between a Buyer and a Freelancer regarding refund of payment done in purchasing Picks then either Buyer or Freelancer may elect to use the Dispute Resolution Services offered by OpenLabel on the Website.&nbsp;</p>
-
-					<p style="text-align: justify;">You agree to indemnify and (to the maximum extent permitted by law) hold OpenLabel and any of our affiliates harmless against any damages or liability you may suffer as a result of using the OpenLabel Dispute Resolution Services.</p>
-
-					<h6 style="text-align: justify;">DISCLAIMER OF WARRANTIES</h6>
-
-					<p style="text-align: justify;">YOUR USE OF OUR WEBSITE, ITS CONTENT AND ANY SERVICE OBTAINED THROUGH THE WEBSITE FROM THE SERVICE PROVIDER IS COMPLETELY AT YOUR OWN RISK. THE WEBSITE AND ITS CONTENT ARE PROVIDED “AS IS” AND OpenLabel, ITS EMPLOYEES, AGENCIES, OWNERS AND AFFILIATES DO NOT GIVE ANY WARRANTY EXPRESS OR IMPLIED WARRANTY OR REPRESENTATION OF MERCHANTABILITY, SATISFACTORY QUALITY, SECURITY AND AVAILABILITY OF THE WEBSITE.&nbsp;</p>
-
-					<p style="text-align: justify;">OpenLabel WILL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM THE USE OF YOUR WEBSITE (www.OpenLabel.app). FURTHER, THE FUNCTIONS EMBODIED ON OR IN THE WEBSITE ARE NOT WARRANTED TO BE UNINTERRUPTED OR WITHOUT ERROR.</p>
-
-					<p style="text-align: justify;">OpenLabel MAKES NO WARRANTY THAT THE WEBSITE AND ITS FEATURES IS FREE FROM INFECTION BY VIRUSES OR ANYTHING ELSE THAT HAS DESTRUCTIVE PROPERTIES.&nbsp;</p>
-
-					<p style="text-align: justify;">OpenLabel MAKES REASONABLE EFFORTS TO ENSURE THE ACCURACY, CORRECTNESS AND RELIABILITY OF THE CONTENT, BUT WE MAKE NO REPRESENTATION AND WARRANTY FOR THE SAME. IMAGES AND VIDEOS OF THE USERS DISPLAYED ON THE WEBSITE ARE TO BE USED WITH THE PERMISSION OF OpenLabel OR THIRD PARTIES.&nbsp;</p>
-
-					<p style="text-align: justify;">THE USE OF THE IMAGES AND VIDEOS OF THE USERS BY YOU OR ANYONE AUTHORIZED BY YOU IS PROHIBITED UNLESS SPECIFIC RIGHTS AND LICENSES ARE GIVEN TO YOU BY OpenLabel.</p>
-
-					<p style="text-align: justify;">ANY UNAUTHORIZED USE OF THESE IMAGES AND VIDEOS VIOLATES THE INTELLECTUAL PROPERTY RIGHTS, PRIVACY AND OTHER RIGHTS OF THE USER AND SHALL MAKE YOU LIABLE FOR COMPENSATION AND LEGAL EXPENSES ASSOCIATED WITH THE SAME. FURTHER, YOU AGREE TO INDEMNIFY AND HOLD OpenLabel HARMLESS AGAINST ANY LEGAL ACTION TAKEN BY A THIRD PARTY FOR UNAUTHORIZED USE OF THE IMAGES AND CONTENT POSTED BY YOU ON THE WEBSITE.</p>
-
-					<h6 style="text-align: justify;">GENERAL</h6>
-
-					<p style="text-align: justify;">This Terms of Service supersedes any and all prior or contemporaneous understandings and agreements, whether oral or written, with respect to the subject matter hereof between OpenLabel User or Service Provider as the case may be.</p>
-
-					<p style="text-align: justify;">The User will not assign any of its rights or obligations without OpenLabel’s prior written consent. However, OpenLabel is entitled to freely assign any of its obligations under this Terms of Service without the User’s consent.</p>
-
-					<p style="text-align: justify;">The Terms of Service are binding upon the successors, heirs, and permitted assigns of the parties.</p>
-
-					<p style="text-align: justify;">OpenLabel shall not be deemed to be in material breach of this Terms of Service, or otherwise be liable to the other, by reason of any delay in performance or non-performance of any of its obligations caused by a Force Majeure Event. “Force Majeure Event” shall mean an event or occurrence beyond OpenLabel’s control or remedy and includes, while not being limited to, acts of God; natural disasters; epidemic or pandemic; terrorist attack, civil war, wars, threat of or preparation for war, armed conflict; sanctions imposed, embargo, any legislative amendment; any action taken by a government or public authority; collapse of buildings, fire, explosion or accident; any labour or trade dispute, strike, industrial action or lockout, software issue and internet issue.</p>
-
-					<p style="text-align: justify;">OpenLabel makes no representations that the Website is appropriate or available for use in all the jurisdictions/ States of the World. Any use of the Website from other jurisdictions shall be at the sole risk of the User, including any compliance with any local laws and regulations.</p>
-
-					<p style="text-align: justify;">The meanings set forth for defined terms in this Terms of Service shall be equally applicable to both the singular and plural, masculine, feminine or neuter forms as the context may require.</p>
-
-					<p style="text-align: justify;">Headings/ Captions used in this Terms of Service are for reference only and shall not be used or relied upon in the interpretation of this Terms of Service.</p>
-
-					<h6 style="text-align: justify;">GOVERNING LAW AND JURISDICTION</h6>
-
-					<p style="text-align: justify;">Any dispute which arises out of the performance, formation, interpretation, termination of these Terms of Service or arising therefrom or related thereto in any manner whatsoever, shall be settled by arbitration in accordance with the terms and provisions as set forth under the Dubai International Arbitration Center Arbitration (DIAC) Rules (“the Rules”), by three arbitrators who are appointed in compliance with the Rules.</p>
-
-					<p style="text-align: justify;">The arbitration shall be held in Dubai, in the English language, and shall be governed by the Dubai International Arbitration Center Arbitration Rules. An award rendered by the Arbitration Board shall be final and binding on the Parties.</p>
-
-					<p style="text-align: justify;">All claims you bring against OpenLabel must be resolved in accordance with the terms of this Agreement. All claims which are filed or brought contrary to this Terms of Service shall be considered improperly filed and a breach of this Terms of Service. Should you file a claim contrary to the terms of this Terms of Service, OpenLabel may recover its legal fees and costs (which includes in-house lawyers and paralegals). If any proceeding by or against you is commenced under any provision of any bankruptcy or insolvency law, OpenLabel will be entitled to recover all reasonable costs or expenses which shall include reasonable legal fees and expenses incurred in connection with the enforcement of this Agreement.</p>
-
-					<h6 style="text-align: justify;">CONTACT US</h6>
-
-					<p style="text-align: justify;">If you have any queries concerning this Terms of Service you can contact us at <strong><a href="mailto:info@openlabel.com" style="text-decoration:none;"><span style="color:#c74f27;">info@openlabel.com</span></a></strong></p>
-
-		        </div>
+					<p>“<strong>Work Product</strong>” means any tangible or intangible results or deliverables that Creator agrees to create for, or actually delivers to, Artist as a result of performing the Creator Services, including, but not limited to, configurations, computer programs, or other information, or customized hardware, and any intellectual property developed in connection therewith.</p>
+				</div>
 
 			</div>
 		</div>

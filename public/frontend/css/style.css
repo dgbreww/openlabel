@@ -287,6 +287,12 @@ header ul li a.butn svg {
 	justify-content: space-between;
 	align-items: center;
 }
+
+.new-search {
+	border: unset;
+	background: unset;
+}
+
 .search input {
 	font-family: var(--roboto-regular);
 	font-size: var(--micro-1-16);
@@ -395,7 +401,7 @@ header ul li a.butn svg {
 	-webkit-text-stroke: 1px var(--pure-black);
 }
 ._card .like.active i {
-	color: var(--pure-black);
+	/*color: var(--pure-black);*/
 }
 ._card .detail {
 	padding: 0px 14px 10px 14px;
@@ -439,6 +445,7 @@ header ul li a.butn svg {
 	padding: 8px 20px;
 	border: none;
 	transition: all .5s linear;
+	max-width: fit-content;
 }
 ._card .detail ._flex a.butn:hover {
 	background: linear-gradient(0deg, #0083b6 20%, #004071 80%);
@@ -474,6 +481,39 @@ header ul li a.butn svg {
 .trending-jobs-cards .slick-next {
 	right: -6.5%;
 }
+
+/*New*/
+
+.trending-profiles .slick-slide {
+	margin: 0 12px;
+}
+.trending-profiles .slick-arrow {
+	border: none;
+	background: unset;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: var(--sub-heading-3-28);
+	border: 1px solid var(--pure-black);
+	border-radius: 100%;
+	padding: 3px 14px;
+	transition: all .5s linear;
+}
+.trending-profiles .slick-arrow:hover {
+	background: var(--pure-black);
+}
+.trending-profiles .slick-arrow:hover i {
+	color: var(--white);
+}
+.trending-profiles .slick-prev {
+	left: -3%;
+}
+.trending-profiles .slick-next {
+	right: -6.5%;
+}
+
+/*New End*/
+
 .someting-done {
 	width: 100%;
 	padding: 8% 0;
@@ -2080,7 +2120,7 @@ button{
 }
 .project-details .head{
 	margin-bottom: 2%;
-	padding-left:3%;
+	/*padding-left:3%;*/
 }
 .tiktok-video-sec{
 	padding:4%;
@@ -2265,6 +2305,7 @@ button{
  	display: flex;
  	align-items: baseline;
  	margin: 4% 0 6% 0;
+ 	justify-content: flex-end;
  }
 .about-client-rating p{
 	font-family: var(--roboto-regular);
@@ -2303,7 +2344,7 @@ button{
 	align-items: center;
 	margin-top: 5%;
 }
-.copy-link-sec button{
+.copy-link-sec input{
 	font-family: var(--roboto-regular);
 	font-size: 16px;
 	background:#cce8f2;
@@ -2311,11 +2352,15 @@ button{
 	border-radius:8px;
 	color: var(--light-grey);
 	margin-right:4%;
+	border: none;
 	transition: all .5s ease-in-out;
 }
-.copy-link-sec button:hover {
+.copy-link-sec input:hover {
 	color: #fff;
 	background: #007fb1 ;
+}
+.copy-link-sec button{
+	background: transparent;
 }
 .copy-link-sec p {
 	color: #000;
@@ -2847,7 +2892,7 @@ button{
 	.apply-btn{
 /*		width: 77%;*/
 	}
-	.copy-link-sec button {
+	.copy-link-sec input {
 		font-size: 15px;
 		padding: 3.5% 5%;
 	}
@@ -2959,7 +3004,7 @@ button{
 	.state-sec p {
 		font-size: 14px;
 	}
-	.copy-link-sec button{
+	.copy-link-sec input{
 		font-size: 12px;
 		padding: 2% 2%;
 		margin-right: 3%;
@@ -3217,7 +3262,7 @@ button{
 	.flag-p {
 		font-size: 14px;
 	}
-	.copy-link-sec button {
+	.copy-link-sec input {
 		font-size: 12px;
 	}
 	.tiktok-video-content {
@@ -3518,7 +3563,7 @@ button{
 	.job-link-sec-inner h2{
 		font-size: 15px;
 	}
-	.copy-link-sec button {
+	.copy-link-sec input {
 		font-size: 10px;
 		border-radius: 4px;
 	}
@@ -3839,7 +3884,7 @@ button{
 .copy-link-sec {
 	margin-top: 3%;
 }
-.copy-link-sec button{
+.copy-link-sec input{
 	font-size: 12px;
 	margin-right: 2%;
 }

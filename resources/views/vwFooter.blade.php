@@ -18,36 +18,37 @@
 					<a href="{{ url('/sign-up?account=artist') }}">become a creator </a>
 					@endif
 
-					<a href="job-listing.html">find jobs </a>
-					<a href="#">pricing </a>
-					<a href="#">terms & conditions</a>
-					<a href="#">privacy policy</a>
+					<a href="{{ url('/creations'); }}">Find Creations</a>
+					
+					@if(Request::session()->has('userSess') && userInfo()->user_type == 'artist')
+					<a href="{{ url('packages') }}">Plans & Packages</a>
+					@endif
+
+					<a href="{{ url('/terms-of-services') }}">Terms of Services</a>
+					<a href="{{ url('/privacy-policy') }}">privacy policy</a>
 				</div>
 				<div class="category-sec">
 					<h2>Categories</h2>
-					<a href="#">animation</a>
-					<a href="#">news</a>
-					<a href="#">information </a>
-					<a href="#">awareness</a>
-					<a href="#">introductions</a>
-					<a href="#">open link</a>
+					<a href="#">Dance</a>
+					<a href="#">Lip Sync</a>
+					<a href="#">How To</a>
+					<a href="#">Music</a>
 				</div>
 				<div class="support-sec">
 					<h2>Support</h2>
-					<a href="{{ url('terms-and-condition') }}">terms & condition</a>
-					<a href="{{ url('privacy-policy') }}">privacy policy </a>
-					<a href="#">help </a>
-					<a href="#">FAQ</a>
-					<a href="#">introductions</a>
-					<a href="#">open link</a>
+					<a href="{{ url('/help') }}">Help</a>
+					<a href="{{ url('/faq') }}">FAQ</a>
+					<a href="{{ url('/disputes') }}">Disputes</a>
 				</div>
 				<div class="subscribe-sec">
 					<h2>Subscribe</h2>
 					<div class="subscribe-input">
-						<form>
-							<input type="text" name="Your email address" placeholder="Your email address">
-							<button type="submit">Send</button>
+						<form id="subscribeNowForm" method="post" action="{{ url('/ajax/doSubscribe') }}">
+							<input type="text" name="email" name="Your email address" placeholder="Your email address">
+							@csrf
+							<button id="subscribeNowFormBtn" type="submit">Send</button>
 						</form>
+						<span id="subscribeNowFormEmail" class="error removeErr"></span>
 					</div>
 				</div>
 			</div>
@@ -98,6 +99,7 @@
 		<link rel="stylesheet" href="{{ asset('public/frontend/') }}/css/toastr.min.css">
 		<script src="{{ asset('public/frontend/') }}/js/toastr.min.js"></script>
 		<script type="text/javascript" src="{{ asset('public/frontend/js/user.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('public/frontend/js/master.js') }}"></script>
 
 		@if(Session::get('verifyStatus'))
 		<script type="text/javascript">

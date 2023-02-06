@@ -31,7 +31,7 @@ class Auth extends Controller {
 			return view('admin/vwAdminLogin', $data);
 
 		} else {
-			return redirect('admin/dashboard');
+			return redirect('admin/category');
 		}
 	}
 
@@ -120,7 +120,7 @@ class Auth extends Controller {
 
 			        		$this->status = array(
 								'error' => false,
-								'redirect' => url('admin/dashboard')
+								'redirect' => url('admin/category')
 							);
 
 	        			}
@@ -254,7 +254,7 @@ class Auth extends Controller {
 
 			        		$this->status = array(
 								'error' => false,
-								'redirect' => url('admin/dashboard')
+								'redirect' => url('admin/category')
 							);
 
 							//drop current session
@@ -415,7 +415,7 @@ class Auth extends Controller {
 			return view('admin/vwResetPassword', $data);
 
 		} else {
-			return redirect('admin/dashboard');
+			return redirect('admin/category');
 		}
 	}
 

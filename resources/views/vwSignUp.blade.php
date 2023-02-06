@@ -42,7 +42,7 @@
 
 							<div class="privacy-policy-p">
 								<input name="agreeTermsCondition" value="yes" type="checkbox" class="checkbox">
-								<span class="policy-text"> I agree to the <a href="#">Open Label Terms Conditions</a>&nbsp; and &nbsp;<a href="#">Privacy Policy</a></span>
+								<span class="policy-text"> I agree to the <a target="_blank" href="{{ url('terms-and-conditions') }}">Open Label Terms Conditions</a>&nbsp; and &nbsp;<a target="_blank" href="{{ url('privacy-policy') }}">Privacy Policy</a></span>
 
 								<span id="agreeTermsConditionErr" class="error removeErr"></span>
 

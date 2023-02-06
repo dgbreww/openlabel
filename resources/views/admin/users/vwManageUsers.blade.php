@@ -83,6 +83,7 @@
 										<th class="min-w-125px">User Type</th>
 										<th class="min-w-125px">Provider</th>
 										<th class="min-w-125px">Is Verified</th>
+										<th class="min-w-125px">Account Status</th>
 										<th class="min-w-125px">Registered At</th>
 										<th class="w-125px">Action</th>
 									</tr>

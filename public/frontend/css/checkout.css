@@ -1,0 +1,114 @@
+.card-detail{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.card-detail .credit-card-detail{
+	width: 35%;
+	border-radius: 12px;
+	padding: 16px;
+}
+.card-detail .credit-card-detail .detail{
+	width: 100%;
+	display: block;
+}
+.card-detail .credit-card-detail .profile .detail h3{
+	margin-top: 4px;
+}
+.w-100{
+	width: 100%!important;
+}
+.card-detail .order-summary{
+	width: 60%;
+	border-radius: 12px;
+	padding: 16px 32px;
+}
+.card-detail .order-summary .profile .detail{
+	width: 100%;
+}
+.card-detail .order-summary .profile .detail h3{
+	margin-top: 4px;
+}
+.card-detail .order-summary .order-list{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.separator{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.card-detail .order-summary .order-list .left .img{
+	display: flex;
+	align-items: center;
+}
+.card-detail .order-summary .order-list .left .img .user-img{
+	width: 48px;
+	height: 48px;
+}
+.card-detail .order-summary .order-list .left .img p{
+	font-family: var(--roboto-medium);
+	font-size: var(--body-2-20);
+	margin-bottom: 16px;
+}
+.card-detail .order-summary .order-list .left .order-detail{
+	font-size: var(--micro-1-16);
+	color: var(--light-grey);
+	margin: 16px 0;
+}
+.card-detail .order-summary .order-list .left .order-price p{
+	font-size: var(--micro-3-18);
+	color: var(--light-grey);
+}
+.card-detail .order-summary .order-list .left .order-price p span{
+	color: #77bfdb;
+	margin-left: 4px;
+}
+.card-detail .order-summary .order-list .right span{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #77bfdb;
+	color: #77bfdb;
+	border-radius: 100%;
+	cursor: pointer;
+	font-size: var(--micro-1-16);
+	width: 28px;
+	height: 28px;
+	transition: all .5s linear;
+}
+.card-detail .order-summary .order-list .right span:hover{
+	background: #77bfdb;
+	color: #fff;
+}
+.card-detail .order-summary .order-list .grand-total{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.card-detail .order-summary .order-list .grand-total p{
+	font-family: var(--roboto-medium);
+	font-size: var(--body-1-24);
+	text-transform: capitalize;
+}
+.card-detail .order-summary .order-list .grand-total span{
+	font-family: var(--roboto-medium);
+	font-size: var(--body-1-24);
+	color: #77bfdb;
+}
+
+@media(max-width: 600px){
+	.card-detail .credit-card-detail{
+		width: 100%;
+	}
+	.card-detail .order-summary{
+		width: 100%;
+	}
+	.card-detail{
+		flex-wrap: wrap;
+		row-gap: 24px;
+	}
+}
