@@ -2,12 +2,10 @@
 <div class="profile-page reverse">
 	<div class="_container box-shadow">
 		<div class="cover-bg">
-			<img src="{{ url('public/frontend') }}/img/cover-bg.png" alt="" id="cover">
-			<a href="#" class="butn left">
-				<img src="{{ url('public/frontend') }}/img/camera.png" alt="">
-			Edit Cover
-			<input type="file" id="mypic2">
-		</a>
+			<img src="{{ $coverImg }}" alt="" id="cover">
+			<!-- <a href="#" class="butn left">
+				<img src="{{ url('public/frontend') }}/img/camera.png" alt="">Edit Cover<input type="file" id="mypic2">
+			</a> -->
 		</div>
 		<div class="profile-main">
 			<div class="profile-container artitst-width">
@@ -15,15 +13,21 @@
 					<div class="_flex">
 						<div class="detail">
 							<div class="user-img">
-								<img id="profile" src="{{ url('public/frontend') }}/img/profile-img.png" alt="" >
-								<a class="artist-profile-btn">
+								<img id="profile" src="{{ $profileImg }}" alt="" >
+								<!-- <a class="artist-profile-btn">
 									<img src="{{ url('public/frontend') }}/img/camera.png" alt="">
 									<input id="mypic" type="file" name="">
-								</a>
+								</a> -->
 							</div>
 							<h3>{{ $name }} <img src="{{ url('public/frontend') }}/img/verified.png" alt=""></h3>
-							<span class="user-designation">Ads Manager</span>
-							<span class="user-location"><i class="fa-solid fa-location-dot"></i> Arizona</span>
+							@if(!empty($userInfo->tag_line))
+							<span class="user-designation">{{ $userInfo->tag_line }}</span>
+							@endif
+							
+							@if(!empty($userInfo->address))
+							<span class="user-location"><i class="fa-solid fa-location-dot"></i>{{ $userInfo->address }}</span>
+							@endif
+
 							<span class="user-rating">
 								4.2
 								<div class="star-rating">
@@ -52,7 +56,7 @@
 							<span class="user-period">Member since {{ date('M, d Y', strtotime($userInfo->created_at)) }}</span>
 						</div>
 						<div class="settings">
-							<a href="#" class="butn">Profile Settings</a>
+							<a href="{{ url('user/my-profile') }}" class="butn">Profile Settings</a>
 							<div class="_flex">
 								<div class="total-spent">
 									$35k+
@@ -66,10 +70,12 @@
 						</div>
 					</div>
 				</div>
+				@if($userInfo->about)
 				<div class="profile-about border-bottom">
 					<h4>About</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras arcu nunc, retrum ut imperdiet non, tempor eu metus. Aliquam venenatis egastas urna sit amet iaculis. Duis blandit, metus rhoncus sagittis dapibus, est libero lobortis ipsum, nec graida quam libero et lectus.</p>
+					<p>{{ $userInfo->about }}</p>
 				</div>
+				@endif
 				<div class="profile-testimonial">
 					<h4>Testimonials</h4>
 					<div class="data">

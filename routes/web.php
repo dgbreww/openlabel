@@ -7,16 +7,23 @@ use App\Http\Controllers\admin\Auth;
 use App\Http\Controllers\admin\Media;
 use App\Http\Controllers\admin\Settings;
 use App\Http\Controllers\admin\Category;
+use App\Http\Controllers\admin\Badge;
 use App\Http\Controllers\admin\Platform;
 use App\Http\Controllers\admin\Videosize;
 use App\Http\Controllers\admin\Genre;
 use App\Http\Controllers\admin\Users;
+use App\Http\Controllers\admin\Newsletter;
+use App\Http\Controllers\admin\Packages;
+use App\Http\Controllers\admin\PackageEnquiry;
+use App\Http\Controllers\admin\WithdrawalRequest;
 
 // Frontend
 
 use App\Http\Middleware\User as UserMiddleware;
 
 use App\Http\Controllers\Home;
+use App\Http\Controllers\Creations;
+use App\Http\Controllers\Creators;
 use App\Http\Controllers\User;
 
 
@@ -36,8 +43,19 @@ Route::get('/about-us', [Home::class,'aboutUs']);
 Route::get('/login', [Home::class,'login']);
 Route::get('/sign-up', [Home::class,'signUp']);
 Route::get('/forgot-password', [Home::class,'forgotPassword']);
-Route::get('/terms-and-condition', [Home::class,'termsCondition']);
+Route::get('/terms-of-services', [Home::class,'termsCondition']);
 Route::get('/privacy-policy', [Home::class,'privacyPolicy']);
+Route::get('/faq', [Home::class,'faq']);
+Route::get('/mail/{debug?}/{level?}', [Home::class,'mail']);
+
+//creations
+Route::get('/creations', [Creations::class,'index']);
+Route::get('/creations/{slug}', [Creations::class,'detail']);
+
+//creators
+Route::get('/creators', [Creators::class,'index']);
+Route::get('/creators/{slug}', [Creators::class,'detail']);
+
 
 Route::get('/user/logout', [User::class,'logout']);
 Route::get('/verify/{token}', [User::class,'doVerify']);
@@ -47,11 +65,41 @@ Route::post('ajax/doSignUp', [User::class,'doSignUp']);
 Route::post('ajax/doLogin', [User::class,'doLogin']);
 Route::post('ajax/doForgotPassword', [User::class,'doForgotPassword']);
 Route::post('ajax/doUpdateNewPassword', [User::class,'doUpdateNewPassword']);
+Route::post('ajax/doSubscribe', [User::class,'doSubscribe']);
+Route::post('ajax/doCustomPackageMsg', [User::class,'doCustomPackageMsg']);
+
+//Save Job By Creator
+Route::post('/user/doSaveJob', [User::class, 'doSaveJob']);
+
+//Apply Job By Creator
+Route::post('/user/doApplyJob', [User::class, 'doApplyJob']);
 
 Route::middleware(UserMiddleware::class)->group(function(){
 
+    //packages
+    Route::get('/packages', [Home::class,'packages']);
+    Route::post('/validatePackage', [Home::class,'validatePackage']);
+    Route::get('/checkout', [Home::class,'checkout']);
+    Route::post('/user/doCheckout', [Home::class,'doCheckout']);
+
+    //artist job
+    Route::get('/user/post-job/{id}', [User::class,'postJob']);
+    Route::post('/user/doPostJob', [User::class,'doPostJob']);
+    Route::get('/user/edit-job/{id}', [User::class,'editJob']);
+    Route::post('/user/doUpdateJob', [User::class,'doUpdateJob']);
+
     //user dashboard
     Route::get('/user/dashboard', [User::class,'dashboard']);
+    Route::get('/user/my-profile', [User::class,'myProfile']);
+    Route::post('/user/doUpdateProfile', [User::class,'doUpdateProfile']);
+    Route::post('/user/doChangePassword', [User::class, 'doChangePassword']);
+    Route::post('/user/doUpdatePaymentMethod', [User::class, 'doUpdatePaymentMethod']);
+    Route::post('/user/doSendVideo', [User::class, 'doSendVideo']);
+    Route::post('/user/doChangeCreationStatus', [User::class, 'doChangeCreationStatus']);
+    Route::post('/user/doPaymentRequest', [User::class, 'doPaymentRequest']);
+
+    //Thank you
+    Route::get('/thank-you', [Home::class,'thankyou']);
     
 });
 
@@ -113,6 +161,16 @@ Route::middleware(Admin::class)->group(function(){
     Route::post('/admin/category/delete', [Category::class,'delete']);
     Route::post('/admin/category/bulkDelete', [Category::class,'bulkDelete']);
 
+    //badge
+    Route::get('/admin/badge', [Badge::class,'index']);
+    Route::get('/admin/badge/edit/{id}', [Badge::class,'edit']);
+    Route::get('/admin/badge/add', [Badge::class,'add']);
+    Route::post('/admin/badge/doAdd', [Badge::class,'doAdd']);
+    Route::post('/admin/badge/doUpdate', [Badge::class,'doUpdate']);
+    Route::get('/admin/badge/getbadge', [Badge::class,'getbadge']);
+    Route::post('/admin/badge/delete', [Badge::class,'delete']);
+    Route::post('/admin/badge/bulkDelete', [Badge::class,'bulkDelete']);
+
     //platform
     Route::get('/admin/platform', [Platform::class,'index']);
     Route::get('/admin/platform/add', [Platform::class,'add']);
@@ -153,6 +211,39 @@ Route::middleware(Admin::class)->group(function(){
     Route::get('/admin/genre/get', [Genre::class,'get']);
     Route::post('/admin/genre/delete', [Genre::class,'delete']);
     Route::post('/admin/genre/bulkDelete', [Genre::class,'bulkDelete']);
+
+    //packages
+    Route::get('/admin/packages', [Packages::class,'index']);
+    Route::get('/admin/packages/get', [Packages::class,'get']);
+    Route::get('/admin/packages/login/{id}', [Packages::class,'login']);
+    Route::get('/admin/packages/add', [Packages::class,'add']);
+    Route::post('/admin/packages/doAdd', [Packages::class,'doAdd']);
+    Route::get('/admin/packages/edit/{id}', [Packages::class,'edit']);
+    Route::post('/admin/packages/doUpdate', [Packages::class,'doUpdate']);
+    Route::post('/admin/packages/delete', [Packages::class,'delete']);
+    Route::post('/admin/packages/bulkDelete', [Packages::class,'bulkDelete']);
+
+    //newsletter
+    Route::get('/admin/newsletter', [Newsletter::class,'index']);
+    Route::get('/admin/newsletter/get', [Newsletter::class,'get']);
+    Route::post('/admin/newsletter/delete', [Newsletter::class,'delete']);
+    Route::post('/admin/newsletter/bulkDelete', [Newsletter::class,'bulkDelete']);
+
+    //custom package
+    Route::get('/admin/package-enquiry', [PackageEnquiry::class,'index']);
+    Route::get('/admin/package-enquiry/get', [PackageEnquiry::class,'get']);
+    Route::get('/admin/package-enquiry/edit/{id}', [PackageEnquiry::class,'edit']);
+    Route::post('/admin/package-enquiry/doUpdate', [PackageEnquiry::class,'doUpdate']);
+    Route::post('/admin/package-enquiry/delete', [PackageEnquiry::class,'delete']);
+    Route::post('/admin/package-enquiry/bulkDelete', [PackageEnquiry::class,'bulkDelete']);
+
+    //Withdrawal Request
+    Route::get('/admin/withdrawal-request', [WithdrawalRequest::class,'index']);
+    Route::get('/admin/withdrawal-request/get', [WithdrawalRequest::class,'get']);
+    Route::get('/admin/withdrawal-request/edit/{id}', [WithdrawalRequest::class,'edit']);
+    Route::post('/admin/withdrawal-request/doUpdate', [WithdrawalRequest::class,'doUpdate']);
+    Route::post('/admin/withdrawal-request/delete', [WithdrawalRequest::class,'delete']);
+    Route::post('/admin/withdrawal-request/bulkDelete', [WithdrawalRequest::class,'bulkDelete']);
     
 });
 

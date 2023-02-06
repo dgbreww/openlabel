@@ -34,9 +34,9 @@
 									<div style="text-align:center; margin:0 15px 34px 15px">
 										<!--begin:Logo-->
 										<div style="margin-bottom: 10px">
-											<a href="https://keenthemes.com" rel="noopener" target="_blank">
-												<img alt="Logo" src="{{ asset('public/admin/') }}/media/email/logo-1.svg" style="height: 35px" />
-											</a>
+											<a href="https://openlabelsuccess.com/" rel="noopener" target="_blank">
+                                                <img alt="{{ $siteSettings->websiteLogoAlt }}" src="{{ asset('public/'.$siteSettings->websiteLogoUrl) }}" style="height: 35px" />
+                                            </a>
 										</div>
 										<!--end:Logo-->
 										<!--begin:Media-->
@@ -60,9 +60,13 @@
 							<tr>
                                 <td align="center" valign="center" style="font-size: 13px; text-align:center; padding: 0 10px 10px 10px; font-weight: 500; color: #A1A5B7; font-family:Arial,Helvetica,sans-serif">
                                     <p style="color:#181C32; font-size: 16px; font-weight: 600; margin-bottom:9px">It’s all about customers!</p>
-                                    <p style="margin-bottom:2px">Call our customer care number: +6395028377</p>
+                                    
+                                    @if(!empty($siteSettings->website_phone))
+                                    <p style="margin-bottom:2px">Call our customer care number: {{ $siteSettings->website_phone }}</p>
+                                    @endif
+
                                     <p style="margin-bottom:4px">You may reach us at 
-                                    <a href="#" rel="noopener" target="_blank" style="font-weight: 600">info@codzio.com</a>.</p>
+                                    <a href="#" rel="noopener" target="_blank" style="font-weight: 600">{{ $siteSettings->website_email }}</a>.</p>
                                 </td>
                             </tr>
 							<tr>
@@ -80,7 +84,7 @@
 							</tr>
 							<tr>
 								<td align="center" valign="center" style="font-size: 13px; padding:0 15px; text-align:center; font-weight: 500; color: #A1A5B7;font-family:Arial,Helvetica,sans-serif">
-									<p>&copy; Copyright Codzio. 
+									<p>&copy; {{ $siteSettings->copyright }}. 
 								</td>
 							</tr>
 						</tbody>

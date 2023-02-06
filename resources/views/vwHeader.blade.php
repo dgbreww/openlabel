@@ -9,23 +9,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{{ url('public/frontend') }}/css/style.css">
+<link rel="stylesheet" href="{{ url('public/frontend') }}/css/profile.css">
 <link rel="stylesheet" href="{{ url('public/frontend') }}/css/master.css">
 <script src="{{ url('public/frontend') }}/js/jquery.min.js"></script>
 <script src="{{ url('public/frontend') }}/js/bootstrap.min.js"></script>
 <script src="{{ url('public/frontend') }}/js/slick.js"></script>
 <script src="{{ url('public/frontend') }}/js/script.js"></script>
+<script type="text/javascript">
+	baseUrl = "{{ url('/') }}";
+</script>
 </head>
 <body>
-<div class="search-main">
-	<div class="_container _flex">
-		<div class="search">
-			<i class="fa-solid fa-magnifying-glass"></i>
-			<input type="text" placeholder="What are you looking for?">
-			<button>Search</button>
+<form method="get" action="{{ url('/creations') }}">
+	<div class="search-main">
+		<div class="_container _flex">
+			<div class="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input type="text" name="search" placeholder="What are you looking for?">
+				<button>Search</button>
+			</div>
+			<i class="fa-solid fa-xmark close"></i>
 		</div>
-		<i class="fa-solid fa-xmark close"></i>
 	</div>
-</div>
+</form>
 <div class="stickey">
 	<header>
 		<a href="{{ url('/') }}" class="brand"><img src="{{ asset('public/'.$siteSettings->websiteLogoUrl) }}" alt="{{ $siteSettings->websiteLogoAlt }}"></a>
@@ -39,22 +45,28 @@
 				<li><a href="{{ url('/sign-up?account=artist') }}">Become an Artist</a></li>
 				@endif
 
-				<li><a href="job-listing.html">Browse Jobs</a></li>
-				<li><a href="#">Pages</a></li>
+				<li><a href="{{ url('/creations') }}">Browse Creations</a></li>
 				<li class="mb-hide"><a href="#"><i class="fa-solid fa-magnifying-glass searching"></i></a></li>
 
 				@if(session()->has('userSess'))
+					@php
+						$userInfo = userInfo();
+						$profileImg = url('public/frontend/img/profile-img.png');
+
+						if (!empty($userInfo->profile_picture)) {
+							$profileImg = url('public/'.$userInfo->profile_picture);
+						}
+					@endphp
 				<li>
 					<div class="dashboard-user _flex">
 						<div class="user-img _flex header-drop">
 							<div class="user_img header-drop-img">
-								<img src="{{ url('public/frontend') }}/img/profile-img.png" alt="" class="header-drop-img">
+								<img src="{{ $profileImg }}" alt="" class="header-drop-img">
 							</div>
 							<i class="fa-solid fa-caret-down"></i>
 							<div class="profile-dropdown header-drop-dropdown">
 								<ul>
 									<li><a href="{{ url('/user/dashboard') }}">Dashboard</a></li>
-									<li><a href="{{ url('/user/change-password') }}">Change Password</a></li>
 									<li><a href="{{ url('/user/logout') }}">Logout</a></li>
 								</ul>
 							</div>

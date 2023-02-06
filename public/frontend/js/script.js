@@ -27,8 +27,31 @@ $(function(){
 		event.preventDefault();
 		$(this).toggleClass('active');
 	});
-    $('.trending-jobs-cards').slick({
-		slidesToShow: 3,
+  $('.trending-jobs-cards').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			infinite: false,
+			 prevArrow:"<button type='button' class='slick-prev'><i class='fa-solid fa-chevron-left'></i></button>",
+			 nextArrow:"<button type='button' class='slick-next'><i class='fa-solid fa-chevron-right'></i></button>",
+			 responsive: [
+			 	{
+			 		breakpoint: 1200,
+			 		settings: {
+			 			slidesToShow: 2,
+			 			slidesToScroll: 1
+			 		}
+			 	},
+			 	{
+			 		breakpoint: 768,
+			 		settings: {
+			 			slidesToShow: 1,
+			 			slidesToScroll: 1
+			 		}
+			 	}
+			 ]
+	});
+	$('.trending-profiles').slick({
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		infinite: false,
 		 prevArrow:"<button type='button' class='slick-prev'><i class='fa-solid fa-chevron-left'></i></button>",
@@ -37,7 +60,7 @@ $(function(){
 		 	{
 		 		breakpoint: 1200,
 		 		settings: {
-		 			slidesToShow: 2,
+		 			slidesToShow: 3,
 		 			slidesToScroll: 1
 		 		}
 		 	},
@@ -66,6 +89,12 @@ $(function(){
 	    dots: false,
 	    focusOnSelect: true,
 	    verticalSwiping:true
+	});
+
+	$('.profiles').slick({
+	    slidesToShow: 4,
+	    slidesToScroll: 1,
+	    dots: false,
 	});
 
 	 $('.switch input').click(function(){
@@ -100,10 +129,10 @@ $(function(){
 	      }
 
 	    });
-	    $(".likes-click").click(function() {
-	 	var i = $(this).parent('span').children('i');
-		 $(i).toggleClass('like-bg');
-	 });
+	 //    $(".likes-click").click(function() {
+	 // 	var i = $(this).parent('span').children('i');
+		//  $(i).toggleClass('like-bg');
+	 // });
 
 
 	  $("._flex .header-drop").click(function() {

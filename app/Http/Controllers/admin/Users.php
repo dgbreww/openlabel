@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\File;
 
 use App\Models\UserModel;
+use App\Models\BadgeModel;
 
 class Users extends Controller {
 
@@ -34,11 +35,14 @@ class Users extends Controller {
 
 	public function add() {
 
+		$badgeList = BadgeModel::where('is_active', 1)->get();
+
 		$data = array(
 			'title' => 'User',
 			'pageTitle' => 'User',
 			'adminData' => adminInfo(),			
 			'siteSettings' => siteSettings(),
+			'badgeList' => $badgeList
 		);
 
 		return view('admin/users/vwAddUser', $data);
@@ -109,6 +113,20 @@ class Users extends Controller {
 			        $userType = $record->user_type;
 			        $provider = $record->provider_type;
 			        $isVerified = $record->verified;
+			        $accountStatus = $record->account_status;
+
+			        if ($userType == 'artist') {
+			        	$userTypeDiv = '<div class="badge badge-light-primary">'.ucwords($userType).'</div>';
+			        } else {
+			        	$userTypeDiv = '<div class="badge badge-light-warning">'.ucwords($userType).'</div>';
+			        }
+
+			        if ($accountStatus == 'active') {
+			        	$accountStatusDiv = '<div class="badge badge-light-success">'.ucwords($accountStatus).'</div>';
+			        } else {
+			        	$accountStatusDiv = '<div class="badge badge-light-danger">'.ucwords($accountStatus).'</div>';
+			        }
+
 			        $registeredAt = $record->created_at;
 			       
 			        $data_arr[] = array(
@@ -121,9 +139,10 @@ class Users extends Controller {
 	                        </div>
 	                    </div>',
 	                    "email" => $email,
-	                    "userType" => ucwords($userType),
+	                    "userType" => $userTypeDiv,
 	                    "provider" => ucwords($provider),
 	                    "isVerified" => ucwords($isVerified),
+	                    "accountStatus" => $accountStatusDiv,
 			          	"registeredAt" => date('d-m-Y', strtotime($registeredAt)),
 			          	"action" => '<td class="text-end" data-kt-filemanager-table="action_dropdown">
 						<div class="d-flex justify-content-end">							
@@ -206,6 +225,7 @@ class Users extends Controller {
 
 		//check if id exist
 		$getUser = UserModel::where('id', $id)->first();
+		$badgeList = BadgeModel::where('is_active', 1)->get();
 
 		if (empty($getUser)) {
 			return redirect('/admin/users');
@@ -216,6 +236,7 @@ class Users extends Controller {
 			'pageTitle' => 'Users',
 			'adminData' => adminInfo(),			
 			'siteSettings' => siteSettings(),
+			'badgeList' => $badgeList,
 			'userData' => $getUser
 		);
 
@@ -232,6 +253,8 @@ class Users extends Controller {
 	            'email' => 'required|email|unique:users,email',
 	            'password' => 'required',
 	            'userType' => 'required|in:artist,creator',
+	            'badge' => 'sometimes|nullable|numeric',
+	            'accountStatus' => 'required|in:active,inactive',
 	        ]);
 
 	        if ($validator->fails()) {
@@ -254,8 +277,13 @@ class Users extends Controller {
 	        		'password' => Hash::make($request->post('password')),
 	        		'user_type' => $request->post('userType'),
 	        		'provider_type' => 'website',
-	        		'verified' => 'yes'	        		
+	        		'verified' => 'yes',
+	        		'account_status' => $request->post('accountStatus'),
 	        	);
+
+	        	if (!empty($request->post('badge'))) {
+	        		$obj['badge_id'] = $request->post('badge');
+	        	}
 
 	        	//insert data
 	        	$isCreated = UserModel::create($obj);
@@ -301,6 +329,8 @@ class Users extends Controller {
 	            'email' => 'required|email|unique:users,email,'.$id,
 	            'password' => 'sometimes|nullable',
 	            'userType' => 'required|in:artist,creator',
+	            'accountStatus' => 'required|in:active,inactive',
+	            'badge' => 'sometimes|nullable|numeric',
 	            'id' => 'required|numeric',
 	        ]);
 
@@ -317,21 +347,54 @@ class Users extends Controller {
 
 	        } else {
 
+	        	$getUser = UserModel::where('id', $id)->first();
+
 	        	$obj = array(
 	        		'first_name' => $request->post('firstName'),
 	        		'last_name' => $request->post('lastName'),
 	        		'email' => $request->post('email'),
-	        		'user_type' => $request->post('userType')	        		
+	        		'user_type' => $request->post('userType'),
+	        		'account_status' => $request->post('accountStatus'),       		
 	        	);
 
 	        	if (!empty($request->post('password'))) {
 	        		$obj['password'] = Hash::make($request->post('password'));
 	        	}
 
+	        	if (!empty($request->post('badge'))) {
+	        		$obj['badge_id'] = $request->post('badge');
+	        	}
+
 	        	//update data
 	        	$isUpdated = UserModel::where('id', $id)->update($obj);
 
 	        	if ($isUpdated) {
+
+	        		//send email
+		        	if ($getUser->account_status != $request->post('accountStatus')) {
+		        		
+		        		if ($request->post('accountStatus') == 'active') {
+		        			
+		        			//send active email
+		        			$msg = "Congratulations! Your account has been activated.";
+
+		        		} else {
+
+		        			//send inactive email
+		        			$msg = "Your account has been deactivated by Admin. Please contact your Administrator";
+
+		        		}
+
+		        		$emailData = array(
+		        			'name' => $getUser->first_name,
+	        				'email' => $getUser->email,
+	        				'subject' => 'Account Status Change',
+	        				'msg' => $msg
+	        			);
+
+		        		EmailSending::userAccountStatusNotify($emailData);
+
+		        	}
 
 	        		$this->status = array(
 						'error' => false,

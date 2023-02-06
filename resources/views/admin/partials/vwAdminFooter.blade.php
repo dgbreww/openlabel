@@ -2200,6 +2200,12 @@
 <script src="{{ asset('public/admin/') }}/js/category.js"></script>
 @endif
 
+@if($uri2 == 'badge' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/badge-list.js"></script>
+@elseif($uri2 == 'badge' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/badge.js"></script>
+@endif
+
 @if($uri2 == 'platform' && empty($uri3))
 <script src="{{ asset('public/admin/') }}/js/platform-list.js"></script>
 @elseif($uri2 == 'platform' && !empty($uri3))
@@ -2222,6 +2228,28 @@
 <script src="{{ asset('public/admin/') }}/js/genre-list.js"></script>
 @elseif($uri2 == 'genre' && !empty($uri3))
 <script src="{{ asset('public/admin/') }}/js/genre.js"></script>
+@endif
+
+@if($uri2 == 'packages' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/packages-list.js"></script>
+@elseif($uri2 == 'packages' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/packages.js"></script>
+@endif
+
+@if($uri2 == 'newsletter' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/newsletter-list.js"></script>
+@endif
+
+@if($uri2 == 'package-enquiry' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/package-enquiry-list.js"></script>
+@elseif($uri2 == 'package-enquiry' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/package-enquiry.js"></script>
+@endif
+
+@if($uri2 == 'withdrawal-request' && empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/withdrawal-request-list.js"></script>
+@elseif($uri2 == 'withdrawal-request' && !empty($uri3))
+<script src="{{ asset('public/admin/') }}/js/withdrawal-request.js"></script>
 @endif
 
 <!--end::Custom Javascript-->
